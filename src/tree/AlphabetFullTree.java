@@ -1,6 +1,6 @@
 package tree;
 
-//Chapter 8, Exercise 3
+
 
 /* Again, start with the tree.java program and make a tree from characters typed
 by the user. This time, make a complete tree—one that is completely full
@@ -146,7 +146,7 @@ class AlphabetFullTree
 		} //end while isRowEmpty is false
 		System.out.println(
 		".......................................................");
-	} //end displayTree()
+	} 
 
 	public static void main(String[] args) throws IOException
 	{
@@ -171,9 +171,9 @@ class AlphabetFullTree
 				break;
 			default:
 				System.out.print("Invalid entry!\n");
-			} // end switch
-		} // end while
-	} // end main()
+			}
+		} 
+	} 	
 	
 	public static String getString() throws IOException
 	{
