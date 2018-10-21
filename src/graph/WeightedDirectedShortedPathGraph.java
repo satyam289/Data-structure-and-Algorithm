@@ -2,28 +2,25 @@ package graph;
 
 public class WeightedDirectedShortedPathGraph {
 	  private final int infinity=100000;
-      private vertex [] vertexArray;
-      private int [][] adjmax;
-      public static int nver;
-	  private dis[] spath;
+      private final vertex [] vertexArray;
+      private final int [][] adjacencyMaxtrix;
+      private static int noVertex;
+	  private final distance[] spath;
 	  private int currentvertex;
-	  private int startingvertex;
-	  private int start2current;
+      private int start2current;
 
-
-      WeightedDirectedShortedPathGraph(int max){
+      private WeightedDirectedShortedPathGraph(int max){
     	  vertexArray=new vertex[max];
-    	  adjmax=new int[max][max];
-    	  nver=0;
-    	  spath=new dis[max];
+    	  adjacencyMaxtrix =new int[max][max];
+    	  noVertex =0;
+    	  spath=new distance[max];
     	  for(int i=0;i<max;i++){
     		  for(int j=0;j<max;j++){
-    			  adjmax[i][j]=infinity;
+    			  adjacencyMaxtrix[i][j]=infinity;
     		  }
     	  }
 
       }
-
 
       public static void main(String[] args) {
   		WeightedDirectedShortedPathGraph w =new WeightedDirectedShortedPathGraph(10);
@@ -43,50 +40,34 @@ public class WeightedDirectedShortedPathGraph {
   		System.out.println("shortest paths from B ");     //zero index vertex
   		w.path(2);
   		System.out.println();
-
-
-
   	}
 
-
-
-
-      public void addVertex(char ch){
-    	  vertexArray[nver]=new vertex(ch);
-    	  nver++;
-      }
-      public void addEdge(int start,int end,int weight){
-    	  adjmax[start][end]=weight;
-      }
-
-
-      public void path(int passvertex){
+      private void path(int passvertex){
     	     int ntree=1;
-    	     startingvertex=passvertex;                                                                    //choose ,at what vertex to look
-          	 currentvertex=startingvertex;
-          	 for(int i=0;i<nver;i++){
-          		 spath[i]=new dis(adjmax[currentvertex][i],currentvertex);                        //filling the default value(direct path) to that selected vertex
+          int startingvertex = passvertex;
+          	 currentvertex= startingvertex;
+          	 for(int i = 0; i< noVertex; i++){
+          		 spath[i]=new distance(adjacencyMaxtrix[currentvertex][i],currentvertex);     //filling the default value(direct path) to that selected vertex
           	 }
           	 vertexArray[currentvertex].wasvisited=true;
 
-          	 while(ntree<nver){                                                                //till every vertex
+          	 while(ntree< noVertex){                                          //till every vertex
           		 int minIndex =  getMin();
           		//System.out.println("**********"+minIndex);
           		 int distance=spath[minIndex].distannce;
-
-          		 if(distance==infinity){                                        //there are some unreachable vertex  when all minimum node is visited, only infinity left in spath
+          		 if(distance==infinity){                              //there are some unreachable vertex  when all minimum node is visited, only infinity left in spath
           			 System.out.println("there are unreachable vertex");
           			 break;
           		 }
           		 else{
           		 vertexArray[minIndex].wasvisited=true;
           		 start2current=spath[minIndex].distannce;
-          		 currentvertex=minIndex;                                    //next vertex for lookup which is minimum at spath
-          		 adust_path() ;                                            //adjust according to currentvertex.
+          		 currentvertex=minIndex;                            //next vertex for lookup which is minimum at spath
+          		 adust_path() ;                                     //adjust according to currentvertex.
           		 ntree++;
           		 }
           	 }
-          	 for(int i=0;i<nver;i++){
+          	 for(int i = 0; i< noVertex; i++){
           		 vertexArray[i].wasvisited=false;
           	 }
           	 display();
@@ -94,17 +75,16 @@ public class WeightedDirectedShortedPathGraph {
       }
 
 
-      public void adust_path(){                                //adjusting the spath according to the currentvertex(min_vertex), establish the link and replacing with lower value if exist!
+      private void adust_path(){                   //adjusting the spath according to the currentvertex(min_vertex), establish the link and replacing with lower value if exist!
     	      int col=0;
-    	      while(col<nver){                                 //for that current vertex to all other vertex
-    	    	  if(vertexArray[col].wasvisited){             //skip,if that node already visited
+    	      while(col< noVertex){                         //for that current vertex to all other vertex
+    	    	  if(vertexArray[col].wasvisited){         //skip,if that node already visited
     	    		  col++;
     	    		  continue;
     	    	  }
-    	    	  int current2fringe=adjmax[currentvertex][col];         //lookup for unvisited node(column wise)
-    	    	  int start2fringe= start2current+current2fringe;         //adding old value (if infinity, then addition is always greater , so cant be replaced
-    	    	  //System.out.println("total dis  "+start2fringe+ "  spath  "+spath[col].distannce);
-
+    	    	  int current2fringe= adjacencyMaxtrix[currentvertex][col];      //lookup for unvisited node(column wise)
+    	    	  int start2fringe= start2current+current2fringe;          //adding old value (if infinity, then addition is always greater , so cant be replaced
+    	    	  //System.out.println("total distance  "+start2fringe+ "  spath  "+spath[col].distannce);
     	    	  if(start2fringe<spath[col].distannce){                    //if older is greater, replace with new lesser value or new entry
     	    		  spath[col].distannce=start2fringe;
     	    		  spath[col].parentvertex=currentvertex;
@@ -114,11 +94,11 @@ public class WeightedDirectedShortedPathGraph {
     	      }
       }
 
-      public int getMin(){
+      private int getMin(){
     	  int min=infinity;
     	  int index=0;
-    	  for(int i=0;i<nver;i++){
-    		  dis d=spath[i];
+    	  for(int i = 0; i< noVertex; i++){
+    		  distance d=spath[i];
     		  if((!vertexArray[i].wasvisited) && d.distannce < min){     //minimum of unvisited vertex
     			  min=d.distannce;
     			  index=i;
@@ -126,12 +106,11 @@ public class WeightedDirectedShortedPathGraph {
 
     	  }
     	  return index;
-
       }
 
 
-      public void display(){
-    	for(int i=0;i<nver;i++){
+      private void display(){
+    	for(int i = 0; i< noVertex; i++){
     		if(spath[i].distannce==infinity)
     			System.out.print("inf"+"    ");
     		else{
@@ -141,25 +120,29 @@ public class WeightedDirectedShortedPathGraph {
     	}
       }
 
+    private void addVertex(char ch){
+        vertexArray[noVertex]=new vertex(ch);
+        noVertex++;
+    }
 
+    private void addEdge(int start, int end, int weight){
+        adjacencyMaxtrix[start][end]=weight;
+    }
 
-
-
-
-	class dis{
+	class distance {
 		int distannce;
 		int parentvertex;
-		dis(int distance, int parentvertex){
+		distance(int distance, int parentvertex){
 			this.distannce=distance;
 			this.parentvertex=parentvertex;
 		}
 	}
 
 	class vertex{
-		char ch;
+		final char ch;
 		boolean wasvisited;
 		vertex(char ch){
-			this.ch=ch;
+		    this.ch=ch;
 		}
 	}
 
