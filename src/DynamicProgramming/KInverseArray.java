@@ -2,12 +2,14 @@ package DynamicProgramming;
 
 import java.util.Arrays;
 
+//https://leetcode.com/articles/k-inverse-pairs-array/
+
 public class KInverseArray {
 
 	public static void main(String[] args) {
 		
 		//kInverseArray(3,1);
-		dynammmicApporach(4,2);
+		dynammmicApporach(3,1);
 	}
 	
 	public static void kInverseArray(int n, int k) {
@@ -17,16 +19,18 @@ public class KInverseArray {
 		}
 		KInverseArray(input,0,k);
 	}
-	
-	public static void  KInverseArray(int [] arr, int start, int k) {
-		if(start == arr.length) {
-			System.out.print(Arrays.toString(getCountAnagram(arr, k)));
+
+	public static void KInverseArray(int[] arr, int start, int k) {
+		if (start == arr.length) {
+			int[] result = getCountAnagram(arr, k);
+			if (result.length > 0)
+				System.out.print(Arrays.toString(result));
 			return;
 		}
-		for(int i=start; i<arr.length; i++) {
-		   swap(arr, start, i);
-		   KInverseArray(arr,start+1,k);
-		   swap(arr, i, start);
+		for (int i = start; i < arr.length; i++) {
+			swap(arr, start, i);
+			KInverseArray(arr, start + 1, k);
+			swap(arr, i, start);
 		}
 	}
 
@@ -51,21 +55,20 @@ public class KInverseArray {
 	}
 	
 	private static void dynammmicApporach(int n, int k) {
-		int [][] table=new int[n+1][k+1];
-		for (int i = 1; i <= k; i++) {
-			table[0][i - 1] = i;
-		}
-		for(int i=1; i<n; i++) {
-			for(int j=0; i<k; j++) {
-				int sum=0;
-				for(int p=0; p<k && j>=p; p++) {
-					sum += table[i-1][j-p];
+
+
+		int[][] dp = new int[n + 1][k + 1];
+		for (int i = 1; i <= n; i++) {
+			for (int j = 0; j <= k; j++) {
+				if (j == 0)
+					dp[i][j] = 1;
+				else {
+					for (int p = 0; p <= Math.min(j, i - 1); p++)
+						dp[i][j] = (dp[i][j] + dp[i - 1][j - p]) % 1000000007;
 				}
-				System.out.println(sum+" ");
-				table[i][j]=sum;
 			}
-			System.out.println(" ");
+			System.out.println(Arrays.toString(dp[i]));
 		}
-		
+		System.out.println(dp[n][k]);
 	}
 }
