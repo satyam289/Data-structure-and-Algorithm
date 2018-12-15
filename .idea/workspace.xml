@@ -24,24 +24,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dbc51053-f125-43d1-9f02-a568a1372a53" name="Default Changelist" comment="-- Airthemetic Expression">
-      <change afterPath="$PROJECT_DIR$/src/Linked/LinkedList.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/Miscellaneous/Java8.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StackQueue/ArithemeticExpression.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StackQueue/Stack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/graph/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/graph/Graph.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/graph/GraphImpLinkedAdjList$Link.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/graph/GraphImpLinkedAdjList$LinkedList.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/graph/GraphImpLinkedAdjList$Stack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/graph/GraphImpLinkedAdjList$vertex.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/graph/GraphImpLinkedAdjList.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/graph/GraphImpLinkedAdjList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinkedList/CircularLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Linked/CircularLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinkedList/DoublyEndedLinkedList_bothendOpen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Linked/DoublyEndedLinkedList_bothendOpen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinkedList/JosephusApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Linked/JosephusApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinkedList/Matrix_LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Linked/Matrix_LinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LinkedList/MergeSortLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Linked/MergeSortLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph/Graph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graph/GraphImpLinkedAdjList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph/GraphImpLinkedAdjList.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -84,14 +70,14 @@
           <entry key="gitignore" value="92" />
           <entry key="iml" value="4" />
           <entry key="java" value="2358" />
-          <entry key="txt" value="703" />
+          <entry key="txt" value="763" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="IDEA_MODULE" value="4" />
           <entry key="JAVA" value="2358" />
-          <entry key="PLAIN_TEXT" value="795" />
+          <entry key="PLAIN_TEXT" value="855" />
         </counts>
       </usages-collector>
     </session>
@@ -280,11 +266,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="403" />
-    <option name="y" value="317" />
-    <option name="width" value="659" />
-    <option name="height" value="684" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="41" />
+    <option name="y" value="37" />
+    <option name="width" value="1111" />
+    <option name="height" value="918" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -362,7 +348,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544890226427" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544890419059" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -649,7 +635,28 @@
       <option name="project" value="LOCAL" />
       <updated>1544559665941</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="--removed classes">
+      <created>1544890214718</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1544890214718</updated>
+    </task>
+    <task id="LOCAL-00025" summary="--refactor classes">
+      <created>1544890310112</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1544890310112</updated>
+    </task>
+    <task id="LOCAL-00026" summary="--added new classes">
+      <created>1544890375667</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1544890375667</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -719,8 +726,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="--boolean Parenthesis refactor" />
-    <MESSAGE value="--boolean Parenthesis" />
     <MESSAGE value="--Doubly Ended LinkedList" />
     <MESSAGE value="--Linked List Merge Sort" />
     <MESSAGE value="--circular Linked List" />
@@ -743,7 +748,10 @@
     <MESSAGE value="--package redorder" />
     <MESSAGE value="--Topology Sorting" />
     <MESSAGE value="--NumberEvenOddSubArray(hackerearth)" />
-    <option name="LAST_COMMIT_MESSAGE" value="--NumberEvenOddSubArray(hackerearth)" />
+    <MESSAGE value="--removed classes" />
+    <MESSAGE value="--refactor classes" />
+    <MESSAGE value="--added new classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="--added new classes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Linked/JosephusApp.java">
