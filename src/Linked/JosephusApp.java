@@ -1,4 +1,4 @@
-package LinkedList;
+package Linked;
 
 public class JosephusApp {
 	CircularLinkedList cs;

@@ -23,10 +23,25 @@
     <option name="FILTER_BY_CURRENT_PROJECT" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbc51053-f125-43d1-9f02-a568a1372a53" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Miscellaneous/CircularQ.java" afterDir="false" />
+    <list default="true" id="dbc51053-f125-43d1-9f02-a568a1372a53" name="Default Changelist" comment="-- Airthemetic Expression">
+      <change afterPath="$PROJECT_DIR$/src/Linked/LinkedList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Miscellaneous/Java8.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StackQueue/ArithemeticExpression.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StackQueue/Stack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Miscellaneous/ArithemeticExpression.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Miscellaneous/ArithemeticExpression.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/graph/Graph.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/graph/Graph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/graph/GraphImpLinkedAdjList$Link.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/graph/GraphImpLinkedAdjList$LinkedList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/graph/GraphImpLinkedAdjList$Stack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/graph/GraphImpLinkedAdjList$vertex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/graph/GraphImpLinkedAdjList.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/graph/GraphImpLinkedAdjList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinkedList/CircularLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Linked/CircularLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinkedList/DoublyEndedLinkedList_bothendOpen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Linked/DoublyEndedLinkedList_bothendOpen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinkedList/JosephusApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Linked/JosephusApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinkedList/Matrix_LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Linked/Matrix_LinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LinkedList/MergeSortLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Linked/MergeSortLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graph/GraphImpLinkedAdjList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph/GraphImpLinkedAdjList.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,26 +54,28 @@
     <session id="-727854567">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.0" value="5" />
-          <entry key="project.open.time.1" value="5" />
-          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.1" value="7" />
+          <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.open.time.7" value="4" />
+          <entry key="project.opened" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="3" />
           <entry key="iml" value="2" />
-          <entry key="java" value="12" />
+          <entry key="java" value="34" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="12" />
+          <entry key="JAVA" value="34" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
@@ -66,15 +83,15 @@
         <counts>
           <entry key="gitignore" value="92" />
           <entry key="iml" value="4" />
-          <entry key="java" value="194" />
-          <entry key="txt" value="383" />
+          <entry key="java" value="2358" />
+          <entry key="txt" value="703" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="IDEA_MODULE" value="4" />
-          <entry key="JAVA" value="194" />
-          <entry key="PLAIN_TEXT" value="475" />
+          <entry key="JAVA" value="2358" />
+          <entry key="PLAIN_TEXT" value="795" />
         </counts>
       </usages-collector>
     </session>
@@ -82,90 +99,119 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LinkedList/MergeSortLinkedList.java">
+        <entry file="file://$PROJECT_DIR$/src/graph/Graph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="347">
+              <caret line="109" column="18" lean-forward="true" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/LinkedList/CircularLinkedList.java">
+        <entry file="file://$PROJECT_DIR$/src/graph/Vertex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="82" selection-end-column="9" />
+            <state relative-caret-position="34">
+              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/StackQueue/ArithemeticExpression.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="30" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/StackQueue/Stack.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+              <folding>
+                <element signature="e#219#220#0" expanded="true" />
+                <element signature="e#251#252#0" expanded="true" />
+                <element signature="e#633#634#0" expanded="true" />
+                <element signature="e#664#665#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Miscellaneous/CircularQ.java">
+        <entry file="file://$PROJECT_DIR$/src/graph/GraphImpLinkedAdjList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1104" />
+            <state relative-caret-position="-58">
+              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/graph/Heap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Linked/CircularLinkedList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="100" column="5" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Linked/Link.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="1" selection-end-line="10" selection-end-column="1" />
+            </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/graph/WeightedDirectedShortedPathGraph.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2176">
+            <state relative-caret-position="620">
               <caret line="130" selection-start-line="130" selection-end-line="130" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DynamicProgramming/KInverseArray.java">
+        <entry file="file://$PROJECT_DIR$/src/Linked/LinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="73" column="1" lean-forward="true" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/graph/MinimunSpanningWeightedGraph.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="27" column="2" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Array/ConvertZigZag.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Miscellaneous/ArithemeticExpression.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+            <state relative-caret-position="68">
+              <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+              <folding>
+                <element signature="e#77#78#0" expanded="true" />
+                <element signature="e#104#105#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -194,6 +240,30 @@
         <option value="$PROJECT_DIR$/src/Array/ConvertZigZag.java" />
         <option value="$PROJECT_DIR$/src/DynamicProgramming/KInverseArray.java" />
         <option value="$PROJECT_DIR$/src/Miscellaneous/CircularQ.java" />
+        <option value="$PROJECT_DIR$/src/Array/EnglishNumberToWords.java" />
+        <option value="$PROJECT_DIR$/src/DynamicProgramming/UglyNumber.java" />
+        <option value="$PROJECT_DIR$/src/Miscellaneous/Java8.java" />
+        <option value="$PROJECT_DIR$/src/graph/Graph2.java" />
+        <option value="$PROJECT_DIR$/src/graph/TopologySort.java" />
+        <option value="$PROJECT_DIR$/src/Array/EvenOddSubArrayNumber.java" />
+        <option value="$PROJECT_DIR$/src/Array/StackQueue/ArithemeticExpression.java" />
+        <option value="$PROJECT_DIR$/src/Array/StackQueue/A.java" />
+        <option value="$PROJECT_DIR$/src/Array/StackQueue/Stack.java" />
+        <option value="$PROJECT_DIR$/src/Array/StackQueue/Queue.java" />
+        <option value="$PROJECT_DIR$/src/StackQueueP/Queue.java" />
+        <option value="$PROJECT_DIR$/src/LinkedList/A.java" />
+        <option value="$PROJECT_DIR$/src/LinkedList/LinkedList.java" />
+        <option value="$PROJECT_DIR$/src/LinkedList/Link.java" />
+        <option value="$PROJECT_DIR$/src/graph/Graph.java" />
+        <option value="$PROJECT_DIR$/src/StackQueue/Stack2.java" />
+        <option value="$PROJECT_DIR$/src/StackQueue/Queue.java" />
+        <option value="$PROJECT_DIR$/src/StackQueue/Stack.java" />
+        <option value="$PROJECT_DIR$/src/Linked/CircularLinkedList.java" />
+        <option value="$PROJECT_DIR$/src/Linked/Link.java" />
+        <option value="$PROJECT_DIR$/src/graph/Vertex.java" />
+        <option value="$PROJECT_DIR$/src/graph/Heap.java" />
+        <option value="$PROJECT_DIR$/src/Linked/LinkedList.java" />
+        <option value="$PROJECT_DIR$/src/graph/GraphImpLinkedAdjList.java" />
       </list>
     </option>
   </component>
@@ -204,11 +274,17 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="449" />
-    <option name="y" value="62" />
-    <option name="width" value="1214" />
-    <option name="height" value="724" />
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="x" value="403" />
+    <option name="y" value="317" />
+    <option name="width" value="659" />
+    <option name="height" value="684" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -246,8 +322,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -264,37 +340,19 @@
               <item name="DatastructureProblem" type="b2602c69:ProjectViewProjectNode" />
               <item name="Data-structure-and-Algorithm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Array" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DatastructureProblem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Data-structure-and-Algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Backtracking" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DatastructureProblem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Data-structure-and-Algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="DynamicProgramming" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DatastructureProblem" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Data-structure-and-Algorithm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="graph" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DatastructureProblem" type="b2602c69:ProjectViewProjectNode" />
               <item name="Data-structure-and-Algorithm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="LinkedList" type="462c0819:PsiDirectoryNode" />
+              <item name="Linked" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DatastructureProblem" type="b2602c69:ProjectViewProjectNode" />
               <item name="Data-structure-and-Algorithm" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Miscellaneous" type="462c0819:PsiDirectoryNode" />
+              <item name="StackQueue" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -304,7 +362,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542306017308" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544890141683" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -314,11 +372,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/graph" />
-      <recent name="$PROJECT_DIR$/src/Array" />
+      <recent name="$PROJECT_DIR$/src/Array/StackQueue" />
       <recent name="$PROJECT_DIR$/src/DynamicProgramming" />
+      <recent name="$PROJECT_DIR$/src/Array" />
       <recent name="$PROJECT_DIR$/src/Miscellaneous" />
-      <recent name="$PROJECT_DIR$/src/LinkedList" />
+      <recent name="$PROJECT_DIR$/src/graph" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Miscellaneous" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -333,13 +394,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CircularQ">
+  <component name="RunManager" selected="Application.GraphImpLinkedAdjList">
+    <configuration name="ArithemeticExpression (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StackQueue.ArithemeticExpression" />
+      <module name="DatastructureProblem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="StackQueue.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ArithemeticExpression" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Miscellaneous.ArithemeticExpression" />
+      <option name="MAIN_CLASS_NAME" value="Array.StackQueue.ArithemeticExpression" />
       <module name="DatastructureProblem" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Miscellaneous.*" />
+          <option name="PATTERN" value="Array.StackQueue.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -347,47 +421,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CircularQ" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Miscellaneous.CircularQ" />
-      <module name="DatastructureProblem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Miscellaneous.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JobSeduling" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DynamicProgramming.JobSeduling" />
-      <module name="DatastructureProblem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DynamicProgramming.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="KInverseArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DynamicProgramming.KInverseArray" />
-      <module name="DatastructureProblem" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DynamicProgramming.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WeightedDirectedShortedPathGraph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="graph.WeightedDirectedShortedPathGraph" />
+    <configuration name="Graph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="graph.Graph" />
       <module name="DatastructureProblem" />
       <extension name="coverage">
         <pattern>
@@ -399,20 +434,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GraphImpLinkedAdjList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="graph.GraphImpLinkedAdjList" />
+      <module name="DatastructureProblem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="graph.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Java8" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Miscellaneous.Java8" />
+      <module name="DatastructureProblem" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Miscellaneous.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.WeightedDirectedShortedPathGraph" />
+      <item itemvalue="Application.Java8" />
       <item itemvalue="Application.ArithemeticExpression" />
-      <item itemvalue="Application.KInverseArray" />
-      <item itemvalue="Application.JobSeduling" />
-      <item itemvalue="Application.CircularQ" />
+      <item itemvalue="Application.ArithemeticExpression (1)" />
+      <item itemvalue="Application.Graph" />
+      <item itemvalue="Application.GraphImpLinkedAdjList" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CircularQ" />
-        <item itemvalue="Application.KInverseArray" />
-        <item itemvalue="Application.JobSeduling" />
+        <item itemvalue="Application.GraphImpLinkedAdjList" />
+        <item itemvalue="Application.Graph" />
+        <item itemvalue="Application.ArithemeticExpression (1)" />
         <item itemvalue="Application.ArithemeticExpression" />
-        <item itemvalue="Application.WeightedDirectedShortedPathGraph" />
+        <item itemvalue="Application.Java8" />
       </list>
     </recent_temporary>
   </component>
@@ -525,14 +586,76 @@
       <option name="project" value="LOCAL" />
       <updated>1541735528241</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="-- circular queue Implementation">
+      <created>1542305988993</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1542305988993</updated>
+    </task>
+    <task id="LOCAL-00016" summary="-- Airthemetic Expression">
+      <created>1542306090762</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1542306090762</updated>
+    </task>
+    <task id="LOCAL-00017" summary="-- wordConverter app">
+      <created>1542964998133</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1542964998133</updated>
+    </task>
+    <task id="LOCAL-00018" summary="-- Number To English">
+      <created>1542965193813</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1542965193813</updated>
+    </task>
+    <task id="LOCAL-00019" summary="-- print ugly Number">
+      <created>1543178062677</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1543178062677</updated>
+    </task>
+    <task id="LOCAL-00020" summary="-- get UglyNumber by dynammic approach">
+      <created>1543178233723</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1543178233723</updated>
+    </task>
+    <task id="LOCAL-00021" summary="--package redorder">
+      <created>1544366261329</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1544366261329</updated>
+    </task>
+    <task id="LOCAL-00022" summary="--Topology Sorting">
+      <created>1544371864020</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1544371864020</updated>
+    </task>
+    <task id="LOCAL-00023" summary="--NumberEvenOddSubArray(hackerearth)">
+      <created>1544559665941</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1544559665941</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="449" y="62" width="1214" height="724" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22013652" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17826618" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -541,8 +664,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32885087" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32840723" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32810867" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32810867" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997555" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -551,19 +674,19 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32840723" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="SonarLint" order="10" weight="0.32885087" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.43678162" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.253125" />
       <window_info anchor="bottom" id="TeamCity" order="12" />
       <window_info anchor="bottom" id="Veracode Greenlight" order="13" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.32885087" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.27586207" />
       <window_info anchor="bottom" id="Inspection Results" order="15" weight="0.32885087" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" weight="0.32945737" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -611,10 +734,19 @@
     <MESSAGE value="-- zigzag conversion" />
     <MESSAGE value="-- minimum spanning tree (weighted)" />
     <MESSAGE value="-- refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="-- refactor" />
+    <MESSAGE value="-- circular queue Implementation" />
+    <MESSAGE value="-- Airthemetic Expression" />
+    <MESSAGE value="-- wordConverter app" />
+    <MESSAGE value="-- Number To English" />
+    <MESSAGE value="-- print ugly Number" />
+    <MESSAGE value="-- get UglyNumber by dynammic approach" />
+    <MESSAGE value="--package redorder" />
+    <MESSAGE value="--Topology Sorting" />
+    <MESSAGE value="--NumberEvenOddSubArray(hackerearth)" />
+    <option name="LAST_COMMIT_MESSAGE" value="--NumberEvenOddSubArray(hackerearth)" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/LinkedList/JosephusApp.java">
+    <entry file="file://$PROJECT_DIR$/src/Linked/JosephusApp.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -642,31 +774,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LinkedList/DoublyEndedLinkedList_bothendOpen.java">
+    <entry file="file://$PROJECT_DIR$/src/Linked/DoublyEndedLinkedList_bothendOpen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LinkedList/MergeSortLinkedList.java">
+    <entry file="file://$PROJECT_DIR$/src/Linked/MergeSortLinkedList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/WeightedDirectedShortedPathGraph.java">
+    <entry file="file://$PROJECT_DIR$/src/Miscellaneous/CircularQ.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2176">
-          <caret line="130" selection-start-line="130" selection-end-line="130" />
+        <state relative-caret-position="1241">
+          <caret line="73" column="41" selection-start-line="73" selection-start-column="41" selection-end-line="73" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/graph/MinimunSpanningWeightedGraph.java">
+    <entry file="file://$PROJECT_DIR$/src/Array/EnglishNumberToWords.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="27" column="2" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
+        <state relative-caret-position="357">
+          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DynamicProgramming/UglyNumber.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="76" selection-start-line="76" selection-end-line="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DynamicProgramming/KInverseArray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1241">
+          <caret line="73" column="1" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -677,6 +823,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/MinimunSpanningWeightedGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1286">
+          <caret line="27" column="2" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/Graph2.java" />
+    <entry file="file://$PROJECT_DIR$/src/Miscellaneous/Java8.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2448">
+          <caret line="160" column="25" selection-start-line="160" selection-start-column="25" selection-end-line="160" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DynamicProgramming/PerfectFactorSum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -694,23 +865,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/DynamicProgramming/KInverseArray.java">
+    <entry file="file://$PROJECT_DIR$/src/Array/EvenOddSubArrayNumber.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="73" column="1" lean-forward="true" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
+        <state relative-caret-position="284">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LinkedList/CircularLinkedList.java">
+    <entry file="file://$PROJECT_DIR$/src/graph/TopologySort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="82" selection-end-column="9" />
+        <state relative-caret-position="203">
+          <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Miscellaneous/CircularQ.java">
+    <entry file="file://$PROJECT_DIR$/src/StackQueue/Queue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1104" />
+        <state relative-caret-position="170">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StackQueue/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="11" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
+          <folding>
+            <element signature="e#219#220#0" expanded="true" />
+            <element signature="e#251#252#0" expanded="true" />
+            <element signature="e#633#634#0" expanded="true" />
+            <element signature="e#664#665#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Linked/CircularLinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="100" column="5" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/WeightedDirectedShortedPathGraph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="130" selection-start-line="130" selection-end-line="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StackQueue/ArithemeticExpression.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Linked/Link.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="1" selection-end-line="10" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="109" column="18" lean-forward="true" selection-start-line="109" selection-start-column="18" selection-end-line="109" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/Vertex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Linked/LinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <folding>
+            <element signature="e#77#78#0" expanded="true" />
+            <element signature="e#104#105#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/Heap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/graph/GraphImpLinkedAdjList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-58">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

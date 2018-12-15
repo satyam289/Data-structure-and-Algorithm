@@ -1,4 +1,4 @@
-package LinkedList;
+package Linked;
 
 
 class CircularLinkedList {            //last node always connected to first node
@@ -49,7 +49,7 @@ class CircularLinkedList {            //last node always connected to first node
 
     }
 
-    public int delete() {                  //assume non empty LinkedList,it will delete next element of current
+    public int delete() {                  //assume non empty Linked,it will delete next element of current
         int data = current.next.data;
         if (current.next == current) {          //only one element
             current = null;
@@ -74,7 +74,7 @@ class CircularLinkedList {            //last node always connected to first node
         return data;
     }
 
-    public void step_for_display() {                   //infinte Loop as there is no size concept in LinkedList, so step by step
+    public void step_for_display() {                   //infinte Loop as there is no size concept in Linked, so step by step
         if (current == null) {
             System.out.println("no element in Linked List");
         } else {
@@ -99,18 +99,5 @@ class CircularLinkedList {            //last node always connected to first node
             System.out.println("cant found after 20 search");
 
     }
-
-    public class Link {
-        int data;
-        Link next;
-
-        Link(int data) {
-            this.data = data;
-            next = null;
-        }
-
-    }
-
-
 }
 
