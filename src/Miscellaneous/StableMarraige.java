@@ -1,4 +1,4 @@
-/*package Array;
+package Array;
 // https://www.geeksforgeeks.org/stable-marriage-problem/
 // Gale Shapley Algorithm
 
@@ -83,19 +83,19 @@ public class StableMarraige {
 
 	public static void main(String[] args) {
 		
-        *//** list of men **//*
+        //** list of men **//*
         String[] m = {"M1", "M2", "M3", "M4", "M5"};
-        *//** list of women **//*
+        //** list of women **//*
         String[] w = {"W1", "W2", "W3", "W4", "W5"};
  
-        *//** men preference list**//*
+        //** men preference list**//*
         String[][] mp = {{"W5", "W2", "W3", "W4", "W1"}, 
                          {"W2", "W5", "W1", "W3", "W4"}, 
                          {"W4", "W3", "W2", "W1", "W5"}, 
                          {"W1", "W2", "W3", "W4", "W5"},
                          {"W5", "W2", "W3", "W4", "W1"}};
         
-        *//** women preference list **//*                      
+        //** women preference list **//*
         String[][] wp = {{"M5", "M3", "M4", "M1", "M2"}, 
                          {"M1", "M2", "M3", "M5", "M4"}, 
                          {"M4", "M5", "M3", "M2", "M1"},
@@ -107,4 +107,3 @@ public class StableMarraige {
 	}
 
 }
-*/
