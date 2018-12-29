@@ -1,6 +1,8 @@
 package DynamicProgramming;
 
-/* Number of ways coin can be changed */
+/*
+https://www.hackerrank.com/challenges/coin-change/problem
+*/
 
 public class CountCoin {
 
