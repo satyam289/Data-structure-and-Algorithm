@@ -13,7 +13,7 @@ public class FindCommonThreeSortedArray {
 
     // Approach 2: Having each pointer all the array , compare with all, keep the common , increase pointer lesser value
     //0(N1 + N2 + N3)
-    static void findCommon(int ar1[], int ar2[], int ar3[]) {
+    public static void findCommon(int ar1[], int ar2[], int ar3[]) {
         int i = 0, j = 0, k = 0;
         while (i < ar1.length && j < ar2.length && k < ar3.length) {
 
