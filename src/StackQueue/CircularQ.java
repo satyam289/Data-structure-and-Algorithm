@@ -1,4 +1,4 @@
-package Miscellaneous;
+package StackQueue;
 
 public class CircularQ {
     private static final int defaultsize = 10;
