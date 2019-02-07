@@ -128,4 +128,8 @@ public class BinaryMinHeap<T> {
         }
     }
 
+    public boolean isEmpty(){
+        return allNode.size() == 0;
+    }
+
 }
