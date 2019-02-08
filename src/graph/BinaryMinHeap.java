@@ -132,4 +132,13 @@ public class BinaryMinHeap<T> {
         return allNode.size() == 0;
     }
 
+    public Integer getWeight(T key) {
+        Integer position = nodePosition.get(key);
+        if( position == null ) {
+            return null;
+        } else {
+            return allNode.get(position).weight;
+        }
+    }
+
 }

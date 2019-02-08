@@ -9,7 +9,7 @@ public class WeightedDirectedShortedPathGraph {
 	  private int currentvertex;
       private int start2current;
 
-      private WeightedDirectedShortedPathGraph(int max){
+      public WeightedDirectedShortedPathGraph(int max){
     	  vertexArray=new vertex[max];
     	  adjacencyMaxtrix =new int[max][max];
     	  noVertex =0;
@@ -42,7 +42,7 @@ public class WeightedDirectedShortedPathGraph {
   		System.out.println();
   	}
 
-      private void path(int passvertex){
+      public void path(int passvertex){
     	     int ntree=1;
           int startingvertex = passvertex;
           	 currentvertex= startingvertex;
@@ -120,12 +120,12 @@ public class WeightedDirectedShortedPathGraph {
     	}
       }
 
-    private void addVertex(char ch){
+    public void addVertex(char ch){
         vertexArray[noVertex]=new vertex(ch);
         noVertex++;
     }
 
-    private void addEdge(int start, int end, int weight){
+    public void addEdge(int start, int end, int weight){
         adjacencyMaxtrix[start][end]=weight;
     }
 
@@ -144,6 +144,10 @@ public class WeightedDirectedShortedPathGraph {
 		vertex(char ch){
 		    this.ch=ch;
 		}
+	}
+
+	public static int getNoVertex() {
+		return noVertex;
 	}
 
 }
