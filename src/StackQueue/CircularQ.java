@@ -57,9 +57,7 @@ public class CircularQ {
     }
 
     public boolean isEmpty() {
-        if (count == 0) {
-            return true;
-        } else return false;
+        return count == 0;
     }
 
     public void display() {
@@ -88,5 +86,4 @@ public class CircularQ {
         //cq.display();
         System.out.println(cq);
     }
-
 }

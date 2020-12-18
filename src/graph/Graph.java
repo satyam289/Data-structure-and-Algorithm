@@ -4,6 +4,18 @@ import StackQueue.Queue;
 import StackQueue.Stack;
 
 public class Graph {
+
+    class Vertex {
+
+        char ch;
+        boolean wasvisited;
+
+        Vertex(char ch) {
+            this.ch = ch;
+            wasvisited = false;
+        }
+    }
+
     private Vertex[] vertexarr;
     private int[][] adjmax;
     private Stack thestack;
@@ -36,7 +48,6 @@ public class Graph {
         vertexarr[0].wasvisited = true;
         System.out.print(vertexarr[0].ch + "  ");
         thestack.push(0);
-
         while (!thestack.isEmpty()) {
 
             int vertex = thestack.peek();
@@ -50,7 +61,6 @@ public class Graph {
                 thestack.push(nextvertex);
             }
         }
-
         for (int i = 0; i < nver; i++) {
             vertexarr[i].wasvisited = false;
         }
@@ -62,8 +72,7 @@ public class Graph {
         System.out.print(vertexarr[0].ch + "  ");
         q.add(0);
         while (!q.isEmpty()) {
-            int data = (int) q.remove();
-
+            int data = q.remove();
             int i;
             while ((i = getadjUnvistedVertex(data)) != -1) {
 
@@ -74,12 +83,9 @@ public class Graph {
             }
             // System.out.println("queuue array is " +q);
         }
-
         for (int i = 0; i < nver; i++) {
             vertexarr[i].wasvisited = false;
         }
-
-
     }
 
 
@@ -97,14 +103,12 @@ public class Graph {
                 System.out.print(vertexarr[nextvertex].ch + "      ");
                 thestack.push(nextvertex);
             }
-
         }
-
     }
 
     public int getadjUnvistedVertex(int vertex) {
         for (int i = 0; i < nver; i++) {
-            if (vertexarr[i].wasvisited == false && adjmax[vertex][i] == 1)
+            if (!vertexarr[i].wasvisited && adjmax[vertex][i] == 1)
                 return i;
         }
         return -1;
@@ -128,7 +132,6 @@ public class Graph {
         System.out.println(" ");
         g.mst();
     }
-
 }
 
 

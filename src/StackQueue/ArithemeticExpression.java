@@ -11,7 +11,6 @@ public class ArithemeticExpression {                      //changing to post-fix
         finalstack = new Stack(i);
     }
 
-
     public static void main(String[] args) {
 
         ArithemeticExpression a = new ArithemeticExpression(10);
@@ -26,9 +25,7 @@ public class ArithemeticExpression {                      //changing to post-fix
 
 
         char[] ch = st.toCharArray();
-        for (int i = 0; i < ch.length; i++) {
-
-            char ch1 = ch[i];
+        for (char ch1 : ch) {
 
             switch (ch1) {
                 case '+':
@@ -82,17 +79,14 @@ public class ArithemeticExpression {                      //changing to post-fix
                 else if (ch3 == '*' || ch3 == '%')
                     priorityLocal = 2;
                 if (priorityCurrent > priorityLocal) {
-
                     s.push(ch1);
                 } else {
-
                     output.append(ch3);                       // if priorityLocal > priorityCurrent , pop the old value and append to result and push the new value in stack
                     s.pop();
                     s.push(ch1);
                 }
             }
         }
-
     }
 
     public void getOperation2() {
@@ -102,26 +96,21 @@ public class ArithemeticExpression {                      //changing to post-fix
             output.append(ch);
             ch = (char) s.pop();
         }
-
     }
 
 
     public Object getResult(String post) {  //doing the calculation
 
-
         for (int i = 0; i < post.length(); i++) {
             char ch = post.charAt(i);
             if (ch > '0' && ch < '9') {
-                finalstack.push((int) (ch - '0'));  //difference of two character then converting int
-
+                finalstack.push(ch - '0');  //difference of two character then converting int
             } else {
-                int result = 0;
-
+                int result;
                 // char cl=(char) finalstack.pop();
                 // System.out.println("checking "+((int)cl-48));
-
-                int num1 = ((int) finalstack.pop());    //pop the last two value from stack
-                int num2 = ((int) finalstack.pop());
+                int num1 = finalstack.pop();    //pop the last two value from stack
+                int num2 = finalstack.pop();
                 System.out.println("num1: " + num1 + " num2: " + num2);
                 switch (ch) {
                     case '+':
@@ -147,16 +136,11 @@ public class ArithemeticExpression {                      //changing to post-fix
                     default:
                         finalstack.push(0);
                         break;
-
                 }
-
             }
-
         }
         return finalstack.pop();              //display the last display value in the stack
-
     }
-
 }
  
  

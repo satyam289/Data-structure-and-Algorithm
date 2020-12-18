@@ -11,8 +11,7 @@ https://www.hackerearth.com/practice/algorithms/dynamic-programming/introduction
 
 public class EvenOddSubArrayNumber {
 
-    public static void main(String args[]) throws Exception {
-
+    public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
         int[] arr = new int[n];
@@ -41,6 +40,7 @@ public class EvenOddSubArrayNumber {
                 m.put(diff, BigInteger.ONE);
             }
         }
+        s.close();
         System.out.println("" + count);
     }
 }

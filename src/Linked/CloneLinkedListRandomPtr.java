@@ -2,7 +2,7 @@ package Linked;
 
 public class CloneLinkedListRandomPtr {
 
-    private static class Node{
+    private static class Node {
         int data;
         Node next;
         Node random;
@@ -13,11 +13,11 @@ public class CloneLinkedListRandomPtr {
     }
 
     // 0(1) space In-place
-    private static Node cloneLinkedList(Node head){
+    private static Node cloneLinkedList(Node head) {
 
-        Node curr = head, temp = null;
+        Node curr = head, temp;
         // insert addition Node after every node
-        while(curr != null){
+        while (curr != null) {
             temp = curr.next;
             curr.next = new Node(curr.data);
             curr.next.next = temp;
@@ -46,12 +46,10 @@ public class CloneLinkedListRandomPtr {
         return result;
     }
 
-    static void print(Node start)
-    {
+    static void print(Node start) {
         Node ptr = start;
-        while (ptr != null)
-        {
-            System.out.println("Data = " + ptr.data + ", Random = "+ptr.random.data);
+        while (ptr != null) {
+            System.out.println("Data = " + ptr.data + ", Random = " + ptr.random.data);
             ptr = ptr.next;
         }
     }

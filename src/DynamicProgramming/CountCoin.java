@@ -7,11 +7,10 @@ https://www.hackerrank.com/challenges/coin-change/problem
 public class CountCoin {
 
     public static void main(String[] args) {
-         int [] arr = { 1, 2, 3};
-         System.out.println(coinChangeDP(arr, 4));
-         System.out.println(coinChangeRecursive(arr , 4));
+        int[] arr = {1, 2, 3};
+        System.out.println(coinChangeDP(arr, 4));
+        System.out.println(coinChangeRecursive(arr, 4));
     }
-
 
     public static int coinChangeDP(int[] arr, int targetSum) {
         int index = arr.length;
@@ -30,22 +29,22 @@ public class CountCoin {
     }
 
 
-    public static int coinChangeRecursive(int [] arr, int target) {
+    public static int coinChangeRecursive(int[] arr, int target) {
         int[][] temp = new int[target + 1][arr.length];
         for (int i = 0; i < arr.length; i++)
             temp[0][i] = 1;
-        return coinChangeRecursive(temp, arr , 4, 0);
+        return coinChangeRecursive(temp, arr, 4, 0);
     }
 
-    public static int coinChangeRecursive(int[][] temp, int [] arr, int targetSum, int index) {
+    public static int coinChangeRecursive(int[][] temp, int[] arr, int targetSum, int index) {
         if (targetSum == 0)
             return 1;
         if (targetSum < 0 || index >= arr.length)
             return 0;
         if (temp[targetSum][index] != 0)
-           return temp[targetSum][index];
-        temp[targetSum][index]= coinChangeRecursive(temp, arr, targetSum - arr[index], index) +
-                                 coinChangeRecursive(temp, arr, targetSum, index + 1);
-       return temp[targetSum][index];
+            return temp[targetSum][index];
+        temp[targetSum][index] = coinChangeRecursive(temp, arr, targetSum - arr[index], index) +
+                coinChangeRecursive(temp, arr, targetSum, index + 1);
+        return temp[targetSum][index];
     }
 }

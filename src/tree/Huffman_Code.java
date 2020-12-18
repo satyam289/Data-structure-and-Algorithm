@@ -1,6 +1,7 @@
 package tree;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Stack;
 
@@ -37,7 +38,7 @@ public class Huffman_Code {
 
 	public void encoding() {
 		char[] ch = s.toCharArray();
-		ArrayList al = new ArrayList();
+		List<Character> al = new ArrayList<>();
 		for (int i = 0; i < ch.length; i++) {
 			if (!al.contains(ch[i]))
 				al.add(ch[i]);
@@ -48,7 +49,7 @@ public class Huffman_Code {
 		}
 
 		for (int i = 0; i < al.size(); i++) {
-			char ch1 = (char) al.get(i);
+			char ch1 = al.get(i);
 			for (int j = 0; j < ch.length; j++) {
 				if (ch1 == ch[j])
 					frequencyArray[i]++;
@@ -80,23 +81,23 @@ public class Huffman_Code {
 
 		NodeH[] nodeArray = new NodeH[frequencyArray.length];
 		for (int i = 0; i < nodeArray.length; i++) {
-			nodeArray[i] = new NodeH((char) al.get(i), frequencyArray[i]);
+			nodeArray[i] = new NodeH(al.get(i), frequencyArray[i]);
 		}
 
-		PriorityQueue q = new PriorityQueue();
+		PriorityQueue<NodeH> q = new PriorityQueue<>();
 		for (int i = 0; i < nodeArray.length; i++) {
 			q.add(nodeArray[i]);
 		}
 		// System.out.println(q.size());
 		while (!(q.size() == 1)) {
-			NodeH h1 = (NodeH) q.poll();
-			NodeH h2 = (NodeH) q.poll();
+			NodeH h1 = q.poll();
+			NodeH h2 = q.poll();
 			NodeH newNode = new NodeH((h1.number + h2.number));
 			newNode.left = h1;
 			newNode.right = h2;
 			q.offer(newNode);
 		}
-		root = (NodeH) q.poll();
+		root = q.poll();
 		// System.out.println(root.number);
 		NodeH current = root;
 		NodeH parent = root;
@@ -106,6 +107,7 @@ public class Huffman_Code {
 			parent = current;
 			current = current.left;
 		}
+		System.out.println(grandparent.number); //debug purpose, can be removed
 		String output = "";
 		generatecodeTable(root, output);
 
@@ -149,22 +151,21 @@ public class Huffman_Code {
 		System.out.println(decoded);
 	}
 
-	@SuppressWarnings("unchecked")
 	public void display() {
-		Stack<NodeH> globalStack = new Stack<NodeH>();
+		Stack<NodeH> globalStack = new Stack<>();
 		boolean isRow = false;
 		int pitem = 32;
 		globalStack.push(root);
 		System.out.println("----------------------------------------------------");
 		while (!isRow) {
 			isRow = true;
-			Stack<NodeH> localStack = new Stack<NodeH>();
+			Stack<NodeH> localStack = new Stack<>();
 			for (int i = 0; i < pitem; i++)
 				System.out.print(" ");
 
-			while (globalStack.isEmpty() == false) {
+			while (!globalStack.isEmpty()) {
 
-				NodeH current = (NodeH) globalStack.pop();
+				NodeH current = globalStack.pop();
 				if (current == null) {
 					System.out.print("--");
 					localStack.push(null);
@@ -184,7 +185,7 @@ public class Huffman_Code {
 				for (int i = 0; i < (pitem * 2 - 2); i++)
 					System.out.print(" ");
 			}
-			while (localStack.isEmpty() == false) {
+			while (!localStack.isEmpty()) {
 				globalStack.push(localStack.pop());
 			}
 			System.out.println("");

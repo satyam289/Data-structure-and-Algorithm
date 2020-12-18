@@ -4,6 +4,16 @@ package Linked;
 //In queue using LinkedList implement always thinks insertLast() , deleteFirst() , better choice DoubleEndedLinkedList 
 class PrirorityQ_DoubleEnded_linkedlist {
 
+    private static class Link {
+        public int data;
+        public Link next;
+
+        public Link(int data) {
+            this.data = data;
+            next = null;
+        }
+    }
+
     Link first;
     Link last;
 
@@ -62,7 +72,6 @@ class PrirorityQ_DoubleEnded_linkedlist {
         }
     }
 
-
     public int dequeDeleteFirst() {
         if (first == null) throw new RuntimeException("Empty queue");
         int data = first.data;
@@ -80,5 +89,4 @@ class PrirorityQ_DoubleEnded_linkedlist {
         output += "]";
         return output;
     }
-
 }

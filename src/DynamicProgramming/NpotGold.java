@@ -4,6 +4,21 @@ import java.util.Arrays;
 
 public class NpotGold {
 
+	private static class Pot {
+		int first;
+		int second;
+		int pick;
+
+		Pot(int first, int second, int pick) {
+			this.first = first;
+			this.second = second;
+			this.pick=pick;
+		}
+		public String toString() {
+			return "("+first+","+second+","+pick+")";
+		}
+	}
+
 	public static void main(String[] args) {
 		int [] goldvaluepot= {3,9,1,2};
 		npot(goldvaluepot);
@@ -32,7 +47,7 @@ public class NpotGold {
 		printSequence(potvalue, table);
 	}
 	
-	public static void printSequence(int pots[], Pot moves[][]){
+	public static void printSequence(int[] pots, Pot[][] moves){
         int i = 0;
         int j = pots.length - 1;
         int step;
@@ -51,19 +66,4 @@ public class NpotGold {
             playerno=!playerno;
         }
     }
-}
-
-class Pot {
-	int first;
-	int second;
-	int pick;
-
-	Pot(int first, int second, int pick) {
-		this.first = first;
-		this.second = second;
-		this.pick=pick;
-	}
-	public String toString() {
-		return "("+first+","+second+","+pick+")";
-	}
 }

@@ -12,8 +12,8 @@ import java.util.Arrays;
 public class booleanParenthesis {
 
     public static void main(String[] args) {
-        char input[] = {'T', 'T', 'F', 'T'};
-        char operator[] = {'|', '&', '^'};
+        char[] input = {'T', 'T', 'F', 'T'};
+        char[] operator = {'|', '&', '^'};
         System.out.println(noofways(input, operator, input.length));
     }
 
@@ -58,5 +58,4 @@ public class booleanParenthesis {
         System.out.println();
         return T[0][n - 1];
     }
-
 }

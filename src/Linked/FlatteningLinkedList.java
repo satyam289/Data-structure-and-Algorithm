@@ -11,7 +11,7 @@ package Linked;
  * |                |
  * V                V
  * 30               45
- *
+ * <p>
  * 5->7->8->10->19->20->22->28->30->35->40->45->50
  */
 public class FlatteningLinkedList {
@@ -34,7 +34,6 @@ public class FlatteningLinkedList {
         head = mergeSorted(head, rightNode);
         return head;
     }
-
 
     private static Node mergeSorted(Node node1, Node node2) {
         if (node1 == null)

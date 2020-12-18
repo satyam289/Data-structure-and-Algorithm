@@ -4,8 +4,7 @@ public class IsomorphismTree {
 
     Node root1, root2;
 
-
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         IsomorphismTree tree = new IsomorphismTree();
 
         // Let us create trees shown in above diagram
@@ -33,7 +32,7 @@ public class IsomorphismTree {
             System.out.println("No");
     }
 
-   private static boolean isIsomorphic(Node n1, Node n2) {
+    private boolean isIsomorphic(Node n1, Node n2) {
         // Both roots are NULL, trees isomorphic by definition
         if (n1 == null && n2 == null)
             return true;
@@ -58,5 +57,4 @@ public class IsomorphismTree {
             left = right;
         }
     }
-
 }

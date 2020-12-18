@@ -1,6 +1,6 @@
 package Linked;
 
-public class DoublyLinkedListToBST {
+public class DoublyLinkedListBST {
 
     private static LinkedListNode head;
     private static TreeNode root;
@@ -27,8 +27,7 @@ public class DoublyLinkedListToBST {
         /* Change head pointer of Linked List for parent recursive calls */
         head = head.next;
         /* Recursively construct the right subtree and link it with root. */
-        LinkedListNode right = convertDLLToBST(n - n / 2 - 1);
-        root.next = right;
+        root.next = convertDLLToBST(n - n / 2 - 1);
         return root;
     }
 
@@ -94,7 +93,7 @@ public class DoublyLinkedListToBST {
 
 
     public static void main(String[] args) {
-        DoublyLinkedListToBST dllbst = new DoublyLinkedListToBST();
+        DoublyLinkedListBST dllbst = new DoublyLinkedListBST();
 
         // LinkedList Construction
         head = new LinkedListNode(1);

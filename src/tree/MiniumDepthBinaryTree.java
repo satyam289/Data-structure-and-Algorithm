@@ -40,5 +40,4 @@ public class MiniumDepthBinaryTree {
             return level;
         return Math.min(minimumdepthOptimized(root.left, level + 1), minimumdepthOptimized(root.right, level + 1));
     }
-
 }

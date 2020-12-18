@@ -3,16 +3,16 @@ package Miscellaneous;
 import java.util.Arrays;
 
 public class GenerateBalanceParenthesis {
-    static int count =0;
+    static int count = 0;
 
     public static void main(String[] args) {
-        System.out.println("Generated Balanced {} parenthesis combination : " );
+        System.out.println("Generated Balanced {} parenthesis combination : ");
         printParenthesis(3);
         System.out.println("Total Count is : " + count);
     }
 
     public static void printParenthesis(char[] str, int pos, int n, int openCount, int closeCount) {
-        if (pos == 2*n) {
+        if (pos == 2 * n) {
             count++;
             System.out.println(Arrays.toString(str));
         }

@@ -1,12 +1,8 @@
 package DynamicProgramming;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class CountStep {
 
     public static void main(String[] args) {
-
         System.out.println(noofwaysTostepUp(4));
         System.out.println(noofwaysTostepUpDynamic(4));
     }
@@ -21,7 +17,7 @@ public class CountStep {
     }
 
     public static int noofwaysTostepUpDynamic(int distance) {
-        int[] mem = new int[distance+1];
+        int[] mem = new int[distance + 1];
         mem[0] = 1;
         mem[1] = 1;
         mem[2] = 2;
@@ -30,5 +26,4 @@ public class CountStep {
         }
         return mem[distance];
     }
-
 }

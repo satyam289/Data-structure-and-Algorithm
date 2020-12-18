@@ -221,8 +221,6 @@ public class MinimunSpanningWeightedGraph {  //non direction weight grap (every 
                 }
                 System.out.println();
             }
-
-
         }
     }
 }	

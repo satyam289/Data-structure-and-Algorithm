@@ -42,5 +42,4 @@ public class CountAs {
 		}
 		return T[N];
 	}
-
 }

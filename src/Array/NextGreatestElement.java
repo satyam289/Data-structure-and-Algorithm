@@ -7,8 +7,7 @@ import java.util.Arrays;
 public class NextGreatestElement {
 
     public static void main(String[] args) {
-
-        int arr[] = {16, 17, 4, 3, 5, 2};
+        int[] arr = {16, 17, 4, 3, 5, 2};
         nextGreatestElement(arr, arr.length);
     }
 
@@ -25,7 +24,6 @@ public class NextGreatestElement {
             if (maxtillhere < arr[i])
                 maxtillhere = arr[i];
         }
-
         System.out.println(Arrays.toString(output));
     }
 }

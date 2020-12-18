@@ -18,11 +18,11 @@ public class Sudoku {
                         {0, 0, 0, 0, 0, 0, 0, 7, 4},
                         {0, 0, 5, 2, 0, 6, 3, 0, 0}
                 };
-        if(!solveSudoku(board,board.length)) {
+        if (!solveSudoku(board, board.length)) {
             System.out.println("Puzzle couldn't be solved, please check input");
-        }else {
+        } else {
             System.out.println("Solved");
-            for(int i=0;i<board.length;i++) {
+            for (int i = 0; i < board.length; i++) {
                 System.out.print(Arrays.toString(board[i]));
                 System.out.println();
             }
@@ -44,15 +44,15 @@ public class Sudoku {
             if (isFound)
                 break;
         }
-        if(!isFound)
-            return  true;
+        if (!isFound)
+            return true;
 
         for (int num = 1; num <= N; num++) {
             if (isSafe(board, num, row, col)) {
                 board[row][col] = num;
                 if (solveSudoku(board, N)) {
                     return true;
-                }else {
+                } else {
                     board[row][col] = 0;
                 }
             }

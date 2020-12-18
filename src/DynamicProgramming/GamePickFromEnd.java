@@ -14,7 +14,7 @@ public class GamePickFromEnd {
     }
 
     public static void main(String[] args) {
-        int arr[] = {8, 15, 3, 7};
+        int[] arr = {8, 15, 3, 7};
         pickupOptimal(arr);
     }
 
@@ -41,5 +41,4 @@ public class GamePickFromEnd {
         }
         System.out.println(mem[0][length - 1].first); //best value
     }
-
 }

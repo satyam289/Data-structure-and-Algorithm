@@ -53,12 +53,12 @@ public class FindWordInMatrix {
         return false;
     }
 
-  //https://www.geeksforgeeks.org/find-all-occurrences-of-the-word-in-a-matrix/
+    //https://www.geeksforgeeks.org/find-all-occurrences-of-the-word-in-a-matrix/
 
     private static void findWordAllPosible(char[][] mat, String word) {
         for (int i = 0; i < mat.length; i++) {
             for (int j = 0; j < mat[0].length; j++) {
-                if (findAllposibleWordUtils(i, j, mat, word,-1,-1,0)) {
+                if (findAllposibleWordUtils(i, j, mat, word, -1, -1, 0)) {
                     System.out.println("found");
                     return;
                 }

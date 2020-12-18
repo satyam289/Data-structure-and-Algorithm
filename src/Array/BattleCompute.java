@@ -15,10 +15,9 @@ class BattleCompute {  //goldman sac
             int luckynumber = participantLuckyNumber[i];
 
             for (int j = 2; j <= luckynumber; j++) {
-
                 b1 = b1.multiply(new BigInteger(j + ""));
-                //System.out.println(new BigInteger(j+""));
             }
+
             int x = 0, y = 0;
             String s1 = b1.toString();
 
@@ -38,15 +37,12 @@ class BattleCompute {  //goldman sac
                 min = result;
                 minnumber = i;
             }
-
         }
-
         System.out.println(maxnumber + " " + max);
         System.out.println(minnumber + " " + min);
         int[] arr = {1, 3, 10, 2, 3, 5, 100, 20, 5, 50};
         for (int i1 = 0; i1 < arr.length; i1 += 2) {
             System.out.println(arr[i1] + arr[i1 + 1]);
         }
-
     }
 }

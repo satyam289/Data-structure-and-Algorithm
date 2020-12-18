@@ -5,13 +5,11 @@ public class TugofWar {
     public static int min_diff;
 
     public static void main(String[] args) {
-
-        int arr[] = {23, 45, -34, 12, 0, 98, -99, 4, 189, -1, 4};
+        int[] arr = {23, 45, -34, 12, 0, 98, -99, 4, 189, -1, 4};
         tugOfWar(arr);
     }
 
-
-    private static void tugOfWar(int arr[]) {
+    private static void tugOfWar(int[] arr) {
 
         int n = arr.length;
         boolean[] curr_elements = new boolean[n]; // the boolean array that contains the inclusion and exclusion of an element
@@ -29,7 +27,7 @@ public class TugofWar {
         printSolution(arr, n, soln);
     }
 
-    private static void TOWUtil(int arr[], int n, boolean curr_elements[], int no_of_selected_elements, boolean soln[],
+    private static void TOWUtil(int[] arr, int n, boolean[] curr_elements, int no_of_selected_elements, boolean[] soln,
                                 int sum, int curr_sum, int curr_position) {
         if (curr_position == n)   // out of bound
             return;
@@ -61,14 +59,13 @@ public class TugofWar {
     private static void printSolution(int[] arr, int n, boolean[] soln) {
         System.out.print("The first subset is: ");
         for (int i = 0; i < n; i++) {
-            if (soln[i] == true)
+            if (soln[i])
                 System.out.print(arr[i] + " ");
         }
         System.out.print("\nThe second subset is: ");
         for (int i = 0; i < n; i++) {
-            if (soln[i] == false)
+            if (!soln[i])
                 System.out.print(arr[i] + " ");
         }
     }
-
 }

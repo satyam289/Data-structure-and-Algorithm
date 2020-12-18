@@ -42,7 +42,7 @@ public class EnglishNumberToWords {
 
 
     public static String lessThanThousand(int number) {
-        String sofar = "";
+        String sofar;
         if ((number % 100) < 20) {
             sofar = numNames[number % 100];
             number = number / 100;
@@ -55,15 +55,13 @@ public class EnglishNumberToWords {
         if (number > 0) {
             sofar = numNames[number] + " hundred " + sofar;
         }
-
         return sofar;
-
     }
 
     public static String convertUpToBillion(long number) {   // 0 to 999 999 999 999
 
         String result = "";
-        String convert = "";
+        String convert;
         if (number == 0)
             return "zero";
         if (number < 0 || number > 999999999999L) {
@@ -78,40 +76,30 @@ public class EnglishNumberToWords {
         int millionN = Integer.parseInt(convert.substring(3, 6));
         int thousandN = Integer.parseInt(convert.substring(6, 9));
         int hundredN = Integer.parseInt(convert.substring(9, 12));
-        switch (billionN) {
-            case 0:
-                result += "";
-                break;
-            default:
-                result = lessThanThousand(billionN) + " billion, ";
+        if (billionN == 0) {
+            result += "";
+        } else {
+            result = lessThanThousand(billionN) + " billion, ";
         }
-        switch (millionN) {
-            case 0:
-                result += "";
-                break;
-            default:
-                result += lessThanThousand(millionN) + " million, ";
+        if (millionN == 0) {
+            result += "";
+        } else {
+            result += lessThanThousand(millionN) + " million, ";
         }
-        switch (thousandN) {
-            case 0:
-                result += "";
-                break;
-            default:
-                result += lessThanThousand(thousandN) + " thousand, ";
+        if (thousandN == 0) {
+            result += "";
+        } else {
+            result += lessThanThousand(thousandN) + " thousand, ";
         }
-        switch (hundredN) {
-            case 0:
-                result += "";
-                break;
-            default:
-                result += lessThanThousand(hundredN) + " ";
+        if (hundredN == 0) {
+            result += "";
+        } else {
+            result += lessThanThousand(hundredN) + " ";
         }
-
-
         return result;
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // System.out.println(lessThanThousand(999));
         // System.out.println(Long.MAX_VALUE);
         //System.out.println(convertUpToBillion(89333764414L));

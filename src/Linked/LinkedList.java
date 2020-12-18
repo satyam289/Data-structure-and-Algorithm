@@ -2,6 +2,16 @@ package Linked;
 
 public class LinkedList {
 
+    public static class Link {
+        public int data;
+        public Link next;
+
+        public Link(int data) {
+            this.data = data;
+            next = null;
+        }
+    }
+
     public Link head;
 
     public LinkedList() {
@@ -27,15 +37,12 @@ public class LinkedList {
                     current.next = new Link(0);
 
                 current = current.next;
-
             }
             //Link temp= current.next;
             current.data = 1;
             //current.next=temp;
         }
         display();
-
-
     }
 
     public void display() {
@@ -46,7 +53,4 @@ public class LinkedList {
         }
         System.out.println("");
     }
-
-
-
 }

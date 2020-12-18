@@ -1,11 +1,21 @@
 package graph;
 
 
-import Linked.Link;
 import Linked.LinkedList;
 import StackQueue.Stack;
 
 public class GraphImpLinkedAdjList {
+
+    class Vertex {
+        char ch;
+        boolean wasvisited;
+
+        Vertex(char ch) {
+            this.ch = ch;
+            wasvisited = false;
+        }
+    }
+
     Vertex[] vertexArray;
     LinkedList[] listArray;
     Stack thestack;
@@ -44,9 +54,7 @@ public class GraphImpLinkedAdjList {
                 System.out.print(vertexArray[Nextvertex].ch);
                 vertexArray[Nextvertex].wasvisited = true;
                 thestack.push(Nextvertex);
-
             }
-
         }
     }
 
@@ -62,20 +70,17 @@ public class GraphImpLinkedAdjList {
         g.addEdge(0, 3);
         g.addEdge(3, 4);
         g.dfs();
-
     }
 
-
-    public int find(Link head, Vertex[] vertexArray) {
-        Link current = head;
+    public int find(LinkedList.Link head, Vertex[] vertexArray) {
+        LinkedList.Link current = head;
         for (int i = 0; i < nver; i++) {
             if (current == null)
                 break;
-            if (current.data == 1 && vertexArray[i].wasvisited == false)
+            if (current.data == 1 && !vertexArray[i].wasvisited)
                 return i;
             current = current.next;
         }
         return -1;
     }
-
 }

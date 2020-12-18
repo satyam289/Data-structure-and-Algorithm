@@ -2,6 +2,14 @@ package graph;
 
 public class Warshall_Algo {
 
+    private static class Vertex {
+        char ch;
+        //boolean wasvisited;
+        Vertex(char ch) {
+            this.ch = ch;
+            //wasvisited = false;
+        }
+    }
 
     private Vertex[] vertexArray;
     private int[][] adjmax;
@@ -79,17 +87,5 @@ public class Warshall_Algo {
         //d.addEdge(2, 0);
         d.adjustedMartix();
         d.displayMaxtrix();
-    }
-
-
-    class Vertex {
-
-        char ch;
-        boolean wasvisited;
-
-        Vertex(char ch) {
-            this.ch = ch;
-            wasvisited = false;
-        }
     }
 }

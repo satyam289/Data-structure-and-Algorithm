@@ -8,7 +8,7 @@ import java.util.Map;
 public class BinaryMinHeap<T> {
 
     private List<Node> allNode = new ArrayList<>();
-    private Map<T,Integer> nodePosition = new HashMap<>();
+    private Map<T, Integer> nodePosition = new HashMap<>();
 
     public static void main(String[] args) {
         BinaryMinHeap<String> heap = new BinaryMinHeap<>();
@@ -18,32 +18,32 @@ public class BinaryMinHeap<T> {
         heap.add(10, "Steve");
         heap.add(5, "Charlie");
         heap.add(6, "NTF");
-        heap.add(2,"AFR");
+        heap.add(2, "AFR");
         heap.decrease("Satyam", 1);
         heap.printHeap();
     }
 
-    public boolean containsData(T key){
-        return  nodePosition.containsKey(key);
+    public boolean containsData(T key) {
+        return nodePosition.containsKey(key);
     }
 
-    public void add(int weight, T key){   //adding at bottom
-        Node node = new Node(key,weight);
+    public void add(int weight, T key) {   //adding at bottom
+        Node node = new Node(key, weight);
         allNode.add(node);
-        int current = allNode.size() -1;
+        int current = allNode.size() - 1;
         nodePosition.put(node.key, current);
-        int parentIndex = (current -1)/2;
+        int parentIndex = (current - 1) / 2;
 
-        while(parentIndex >= 0){                     // trickle up
+        while (parentIndex >= 0) {                     // trickle up
             Node parentNode = allNode.get(parentIndex);
             Node currentNode = allNode.get(current);
 
-            if(parentNode.weight > currentNode.weight){
+            if (parentNode.weight > currentNode.weight) {
                 swap(parentNode, currentNode);
-                updatePositionMap(parentNode.key, currentNode.key, parentIndex, current );
+                updatePositionMap(parentNode.key, currentNode.key, parentIndex, current);
                 current = parentIndex;
-                parentIndex = (parentIndex -1)/2;
-            }else{
+                parentIndex = (parentIndex - 1) / 2;
+            } else {
                 break;
             }
         }
@@ -67,24 +67,24 @@ public class BinaryMinHeap<T> {
         node2.weight = weight;
     }
 
-    public void decrease(T data, int newWeight){    // decreasing the weight value
+    public void decrease(T data, int newWeight) {    // decreasing the weight value
         Integer position = nodePosition.get(data);
         allNode.get(position).weight = newWeight;
-        int parent = (position -1)/2;
-        while(parent >= 0){                       //trickle down
-            if(allNode.get(parent).weight > allNode.get(position).weight){
+        int parent = (position - 1) / 2;
+        while (parent >= 0) {                       //trickle down
+            if (allNode.get(parent).weight > allNode.get(position).weight) {
                 swap(allNode.get(parent), allNode.get(position));
                 updatePositionMap(allNode.get(parent).key, allNode.get(position).key, parent, position);
                 position = parent;
-                parent = (parent -1)/2;
-            }else{
+                parent = (parent - 1) / 2;
+            } else {
                 break;
             }
         }
     }
 
-    public void printHeap(){
-        for(Node n : allNode){
+    public void printHeap() {
+        for (Node n : allNode) {
             System.out.println(n.weight + " " + n.key);
         }
     }
@@ -119,26 +119,26 @@ public class BinaryMinHeap<T> {
         return minNode;
     }
 
-    public class Node{
+    public class Node {
         int weight;
         T key;
-        Node(T key ,int weight){
+
+        Node(T key, int weight) {
             this.weight = weight;
             this.key = key;
         }
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return allNode.size() == 0;
     }
 
     public Integer getWeight(T key) {
         Integer position = nodePosition.get(key);
-        if( position == null ) {
+        if (position == null) {
             return null;
         } else {
             return allNode.get(position).weight;
         }
     }
-
 }

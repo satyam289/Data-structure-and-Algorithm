@@ -2,9 +2,7 @@ package Array;
 
 public class CountPositiveNumberMatrix {
 
-
 	public static void main(String[] args) {
-
 		int[][] m = {{-3, -2, 1}, {-2, 1, 2}, {2, 5, 6}, {3, 7, 9}};    // matrix is sorted both column wise and row wise
 		countPositiveNumberBrute(m);
 		countPositiveOptimized(m);
@@ -26,10 +24,8 @@ public class CountPositiveNumberMatrix {
 		System.out.println("No of Non negative Number in matrix : " + count);
 	}
 
-
 	//0(n)
 	public static void countPositiveOptimized(int [][] arr){
-
 	    int i = 0;
 	    int j = arr[0].length-1;
 	    int NegativeCount = 0;
@@ -44,6 +40,5 @@ public class CountPositiveNumberMatrix {
 	    int positiveCount = ((arr.length) * (arr[0].length)) - NegativeCount;
 		System.out.println("No of Non negative Number in matrix : " + positiveCount);
 	}
-
 }
 

@@ -3,6 +3,16 @@ package Linked;
 
 class CircularLinkedList {            //last node always connected to first node
 
+    private static class Link {
+        public int data;
+        public Link next;
+
+        public Link(int data) {
+            this.data = data;
+            next = null;
+        }
+    }
+
     Link current;                     //Here take current pointer unlike other problem takes first/last
     Link previous;
     int count = 0;

@@ -5,10 +5,8 @@ import java.util.Arrays;
 public class BitonicSubsequence {
 
     public static void main(String[] args) {
-
         int[] arr = {1, 11, 2, 10, 4, 5, 2, 1};
         findLongest(arr);
-
     }
 
     public static void findLongest(int[] arr) {
@@ -50,6 +48,5 @@ public class BitonicSubsequence {
         System.out.println(Arrays.toString(temp));
         return temp;
     }
-
 }
 
