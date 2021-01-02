@@ -17,24 +17,22 @@ public class SerializeTree {
 
     private static void serialize(Tree root, FileWriter fw) throws IOException {
         if (root == null) {
-            fw.write("-1");
+            fw.write("-1 ");
             return;
         }
-        System.out.print(root.data);
-        fw.write(String.valueOf(root.data));
+        fw.write(root.data + " ");
         serialize(root.left, fw);
         serialize(root.right, fw);
     }
 
-    private static void deserialize(Tree root, FileReader fr) throws IOException {
-        int data = fr.read();
-        System.out.print(data);
+    private static int deserialize(Tree root, String[] st, int offset) throws IOException {
+        int data = Integer.parseInt(st[offset]);
         if (data == -1) {
-            return;
+            return offset;
         }
         root = new Tree(data);
-        deserialize(root.left, fr);
-        deserialize(root.right, fr);
+        int leftIndex = deserialize(root.left, st, ++offset);
+        return deserialize(root.right, st, leftIndex + 1);
     }
 
     public static void main(String[] args) throws IOException {
@@ -48,22 +46,20 @@ public class SerializeTree {
         File file = new File("F:/abc.txt");
         Tree newNode = null;
         FileWriter fw = null;
-        FileReader fr = null;
+        BufferedReader br = null;
         try {
             fw = new FileWriter(file);
             serialize(root, fw);
-            fr = new FileReader(file);
-            char[] array = new char[50];
-            System.out.println(fr.read(array));
-            deserialize(null, fr);
-
+            fw.close();
+            br = new BufferedReader(new FileReader(file));
+            deserialize(newNode, br.readLine().split(" "), 0);
         } catch (IOException e) {
-            System.out.println("IOE Exception :: messgae " + e.getMessage());
+            System.out.println(" IOE Exception :: message " + e.getMessage());
         } finally {
             if (fw != null)
                 fw.close();
-            if (fr != null)
-                fr.close();
+            if (br != null)
+                br.close();
         }
     }
 }
