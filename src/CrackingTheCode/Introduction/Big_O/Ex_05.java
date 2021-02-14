@@ -1,4 +1,4 @@
-package Big_O;
+package CrackingTheCode.Introduction.Big_O;
 
 public class Ex_05 {
 	public static int f(int n) {

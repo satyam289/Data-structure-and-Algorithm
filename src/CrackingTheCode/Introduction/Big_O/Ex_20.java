@@ -1,4 +1,4 @@
-package Big_O;
+package CrackingTheCode.Introduction.Big_O;
 
 public class Ex_20 {
 	public static int powersOf2(int n) {

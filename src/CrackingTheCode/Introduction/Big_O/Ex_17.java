@@ -1,4 +1,4 @@
-package Big_O;
+package CrackingTheCode.Introduction.Big_O;
 
 public class Ex_17 {
 	public static int fib(int n) {

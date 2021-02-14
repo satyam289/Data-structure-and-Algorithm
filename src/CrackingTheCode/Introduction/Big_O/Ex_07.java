@@ -1,4 +1,4 @@
-package Big_O;
+package CrackingTheCode.Introduction.Big_O;
 
 public class Ex_07 {
 	public static void printPairs(int[] array) {

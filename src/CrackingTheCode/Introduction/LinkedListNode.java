@@ -1,4 +1,4 @@
-package CtCILibrary;
+package CrackingTheCode.Introduction;
 
 public class LinkedListNode {
 	public LinkedListNode next;

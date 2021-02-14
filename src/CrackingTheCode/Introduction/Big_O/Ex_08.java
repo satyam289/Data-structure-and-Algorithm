@@ -1,4 +1,4 @@
-package Big_O;
+package CrackingTheCode.Introduction.Big_O;
 
 public class Ex_08 {
 	public static void printUnorderedPairs(int[] array) {

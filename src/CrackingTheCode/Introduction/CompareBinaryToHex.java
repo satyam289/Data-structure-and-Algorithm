@@ -1,4 +1,4 @@
-package CompareBinaryToHex;
+package CrackingTheCode.Introduction;
 
 public class CompareBinaryToHex {
 
