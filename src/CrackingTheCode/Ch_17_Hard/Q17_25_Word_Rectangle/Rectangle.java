@@ -1,5 +1,7 @@
 package CrackingTheCode.Ch_17_Hard.Q17_25_Word_Rectangle;
 
+import CrackingTheCode.Introduction.Trie;
+
 /* A class that represents a rectangular array of letters. */
 public class Rectangle {
     

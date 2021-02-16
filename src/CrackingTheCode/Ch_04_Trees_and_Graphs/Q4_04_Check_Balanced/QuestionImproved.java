@@ -1,5 +1,6 @@
-package Q4_04_Check_Balanced;
-import CtCILibrary.TreeNode;
+package CrackingTheCode.Ch_04_Trees_and_Graphs.Q4_04_Check_Balanced;
+
+import CrackingTheCode.Introduction.TreeNode;
 
 public class QuestionImproved {
 		
