@@ -3,34 +3,33 @@ package Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-public class CandyDistribution {
 
+public class CandyDistribution {
+   
+   // DP Apporach Time and Space : 0(n) 
    public static int candyRecursion(int[] A) {
        int n = A.length;
        int[] candies = new int[n];
        for (int i = 0; i < n; i++) {
            candyRecursion(A, candies, i);
        }
-       
        int sum = 0;
        for (int i = 0; i < n; i++) {
-           System.out.println(candies[i] + " ->");
            sum += candies[i];
        }
        return sum;
    }
    
    public static int candyRecursion(int[] A, int[] candies, int index) {
-       
        if (candies[index] != 0) {
            return candies[index];
        }
-       int v =0;
+       int v = 0;
        if (index < (A.length -1) && A[index] > A[index + 1]) {
-           v= Math.max(v, candyRecursion(A, candies, index + 1)) ;
+           v = Math.max(v, candyRecursion(A, candies, index + 1));
        }
        if (index > 0 && A[index] > A[index - 1]) {
-           v = Math.max(v,candyRecursion(A, candies, index - 1));
+           v = Math.max(v, candyRecursion(A, candies, index - 1));
        }
        return candies[index] = v + 1; 
    }
@@ -63,7 +62,6 @@ public class CandyDistribution {
        list.add(2);
        list.add(1);
        System.out.println(cd.candy(list));
-
        int[] arr = { 1, 5, 2, 1 };
        System.out.println(candyRecursion(arr));
     }
