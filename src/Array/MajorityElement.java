@@ -20,11 +20,13 @@ public class MajorityElement {
         for (int i = 0; i < arr.length; i++) {
             int count = 0;
             for (int j = i; j < arr.length; j++) {
+            if(arr[i] == arr[j]){
                 count++;
                 if (count > (arr.length / 2)) {
                     System.out.println("The majority number is : " + arr[i]);
                     return;
                 }
+              }
             }
         }
         System.out.println("No Majority");
@@ -70,7 +72,8 @@ public class MajorityElement {
             System.out.println("No Majority");
         }
     }
-
+    
+    
     private static int findMajority(int[] arr) {
         int count = 1;
         int majorityTill = arr[0];
