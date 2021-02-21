@@ -3,9 +3,10 @@ package Array;
 public class TrappingOfRainWater {
 
     public static void main(String[] args) {
-        int[] arr = {3, 1, 0, 2, 0, 4};
+        int[] arr = {3, 1, 0, 2, 0, 4, 2, 1};
         calculateWaterTrap(arr);
         calculateWaterTrap2(arr);
+        calculateWaterTrapOptimised(arr);
     }
 
     public static void calculateWaterTrap(int[] arr) {    // O(n2)
@@ -23,9 +24,9 @@ public class TrappingOfRainWater {
             }
 
             int min = Math.min(rightmax, leftmax);
-            if (min == 0)                              // min = 0 , water will fall down (can't be stored)
-                continue;
-            sum += (min - arr[i]);                     // amount of water is stored
+            if ((min - arr[i]) > 0) {                              // min = 0 , water will fall down (can't be stored)
+                 sum += (min - arr[i]); // amount of water is stored
+            }     
             leftmax = 0;
             rightmax = 0;
         }
@@ -58,10 +59,36 @@ public class TrappingOfRainWater {
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
             int value = Math.min(rightArray[i], leftArray[i]);
-            if (value == 0)
-                continue;
-            sum += value - arr[i];
+            if (value - arr[i] > 0) {   //skipping value if current height is greater, so negative
+                 sum += value - arr[i];
+            } 
         }
         System.out.println("Unit of water trapped 2nd Apporach " + sum);
     }
+
+    public static void calculateWaterTrapOptimised(int[] arr){
+        int low = 0;
+        int high = arr.length -1 ;
+        int leftMax = 0;
+        int rightMax = 0;
+        int sum = 0;
+        while(low < high) {
+            if(arr[low] < arr[high]) {
+                if(arr[low] > leftMax){
+                    leftMax = arr[low];
+                }else{
+                    sum += (leftMax - arr[low]);
+                }
+                low++;
+            } else {
+                if(arr[high] > rightMax){
+                    rightMax = arr[high];
+                }else{
+                    sum += (rightMax - arr[high]);
+                }
+                high--;
+            }
+        }
+        System.out.println("The unit of water trapped optimised " + sum);
+    }    
 }
