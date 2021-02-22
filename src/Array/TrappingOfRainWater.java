@@ -9,6 +9,7 @@ public class TrappingOfRainWater {
         calculateWaterTrapOptimised(arr);
     }
 
+    //Time Complexity : 0(n^2)
     public static void calculateWaterTrap(int[] arr) {    // O(n2)
         int leftmax = 0, rightmax = 0, sum = 0;
 
@@ -32,7 +33,8 @@ public class TrappingOfRainWater {
         }
         System.out.println("Unit of water trapped by apporach 1: " + sum);
     }
-
+    
+    //Time Complexity : 0(n) Space Complexity : 0(n)
     public static void calculateWaterTrap2(int[] arr) {  //0(n)
         int[] leftArray = new int[arr.length];
         int[] rightArray = new int[arr.length];
@@ -65,7 +67,8 @@ public class TrappingOfRainWater {
         }
         System.out.println("Unit of water trapped 2nd Apporach " + sum);
     }
-
+    
+    //Time Complexity : 0(n) Space Complexity : 0(1)
     public static void calculateWaterTrapOptimised(int[] arr){
         int low = 0;
         int high = arr.length -1 ;
