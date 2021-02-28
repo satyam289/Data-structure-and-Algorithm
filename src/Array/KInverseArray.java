@@ -5,9 +5,8 @@ import java.util.Arrays;
 public class KInverseArray {
 
 	public static void main(String[] args) {
-		
-		//kInverseArray(3,1);
-		dynammmicApporach(4,2);
+		kInverseArray(3,1);
+		dynamicApporachKInverse(4,2);
 	}
 	
 	public static void kInverseArray(int n, int k) {
@@ -15,17 +14,17 @@ public class KInverseArray {
 		for(int i=1; i<=n; i++) {
 			input[i-1]=i;
 		}
-		KInverseArray(input,0,k);
+		recursiveKInverseArray(input,0,k);
 	}
 	
-	public static void  KInverseArray(int [] arr, int start, int k) {
+	public static void  recursiveKInverseArray(int [] arr, int start, int k) {
 		if(start == arr.length) {
 			System.out.print(Arrays.toString(getCountAnagram(arr, k)));
 			return;
 		}
 		for(int i=start; i<arr.length; i++) {
 		   swap(arr, start, i);
-		   KInverseArray(arr,start+1,k);
+		   recursiveKInverseArray(arr,start+1,k);
 		   swap(arr, i, start);
 		}
 	}
@@ -50,7 +49,7 @@ public class KInverseArray {
 		arr[start]=temp;
 	}
 	
-	private static void dynammmicApporach(int n, int k) {
+	private static void dynamicApporachKInverse(int n, int k) {
 		int [][] table=new int[n][k];
 		for (int i = 1; i <= k; i++) {
 			table[0][i - 1] = i;

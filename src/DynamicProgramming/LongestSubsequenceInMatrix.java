@@ -6,9 +6,9 @@ public class LongestSubsequenceInMatrix {
 
 	public static void main(String[] args) {
 
-		int[][] input = { { 9, 9, 4 }, 
+		/* int[][] input = { { 9, 9, 4 }, 
 				          { 6, 6, 8 }, 
-				          { 2, 1, 1 } };
+				          { 2, 1, 1 } }; */
 		int[][] input1 = {{3, 4, 5}, 
 				          {3, 2, 6}, 
 				          {2, 2, 1}};

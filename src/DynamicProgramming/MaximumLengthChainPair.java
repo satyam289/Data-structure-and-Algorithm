@@ -21,8 +21,7 @@ public class MaximumLengthChainPair {
 		Pair p4 = new Pair(8, 10);
 		Pair p5 = new Pair(11, 14);
 		Pair[] arr = { p, p1, p2, p3, p4, p5 };
-		 Pair arr2[] = new Pair[] {new Pair(5,24), new Pair(15, 25),
-                 new Pair (27, 40), new Pair(50, 60)};
+		//Pair arr2[] = new Pair[] {new Pair(5,24), new Pair(15, 25), new Pair (27, 40), new Pair(50, 60)};
 		int r = maxLength(arr);
 		System.out.print(r);
 	}

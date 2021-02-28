@@ -84,7 +84,7 @@ public class LongestEvenLengthString {
 		}
 		for (int len = 2; len <= n; len+=2) {
 			for (int i = 0; i < n - len + 1; i++) {
-				int j = i + len - 1;
+				//int j = i + len - 1;
 				if ((sum[i + len / 2] - sum[i]) == (sum[i+len] - sum[i + len / 2]) && len > max) {
 					max = len;
 				}
