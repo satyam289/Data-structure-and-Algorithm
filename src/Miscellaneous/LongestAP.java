@@ -1,4 +1,4 @@
-package Practice;
+package Miscellaneous;
 
 
 public class LongestAP {

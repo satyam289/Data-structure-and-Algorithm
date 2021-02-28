@@ -1,6 +1,8 @@
 package Linked;
 
-public class RemoveDuplicateSortestList {
+// https://www.interviewbit.com/problems/remove-duplicates-from-sorted-list-ii/
+// Remove all element from list that appear twice, consider only distict node.
+public class RemoveDuplicateDistictSortestList {
     private static class ListNode {
         int val;
         ListNode next;

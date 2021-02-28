@@ -55,8 +55,7 @@ public class Floyd_Algo {
 		}
 
 		public static void main(String[] args) {
-			Floyd_Algo w1 =new Floyd_Algo(10);
-			WeightedDirectedShortedPathGraph w =new WeightedDirectedShortedPathGraph(10);
+			WeightedDirectedShortedPathGraph w = new WeightedDirectedShortedPathGraph(10);
 	  		w.addVertex('a');
 	  		w.addVertex('b');
 	  		w.addVertex('c');
@@ -71,7 +70,7 @@ public class Floyd_Algo {
 	  		w.addEdge(3, 4, 70);
 	  		w.addEdge(4, 1, 50);
 	  		System.out.println("shortest paths from B ");     //zero index vertex
-	  		for(int i=0;i<w.nver;i++){
+	  		for(int i=0;i< WeightedDirectedShortedPathGraph.getNoVertex(); i++) {
 	  		   w.path(i);
 	  		  
 	  		
