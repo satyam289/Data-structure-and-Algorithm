@@ -39,7 +39,6 @@ class RecoverBinaryTree
         return {lastVal, firstVal};
     }
 };
-
 /* Java Impl
 // O(n) space solution
 public class Solution {
@@ -79,4 +78,35 @@ public class Solution {
         return new ArrayList<>(Arrays.asList(first, second));
     }
 }
+------------------------------------------------------------------------
+//optimsed without using extra space
+     int first  = -1;
+     int second;
+     TreeNode pre;
+
+     public void doinorder(TreeNode node) {
+         if (node == null)
+             return;
+         doinorder(node.left);
+         if (pre != null && pre.val > node.val) {
+             if (first == -1) {
+                 first = pre.val;
+             }
+             second = node.val;
+         }
+         pre = node;
+         doinorder(node.right);
+     }
+
+     public void recoverTree(TreeNode node){
+        doinorder(node);
+        ArrayList<Integer> arr = new ArrayList<>();
+        if(first > second){
+            arr.add(second);
+            arr.add(first);
+        }else{
+            arr.add(first);
+            arr.add(second);
+        }
+     }
 */
