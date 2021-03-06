@@ -1,5 +1,7 @@
 
 #include <iostream>
+#include <algorithm>
+#include <vector>
 using namespace std;
 
 /**Given the coordinate of ballon, find minimum number of gun used to brust all
@@ -42,4 +44,4 @@ void getGunCount(vector<vector<int>>& points){
        vector<vector<int>> v = {{10, 16}, {2,8}, {1,13}, {7,12}};
        getGunCount(v);
    }
-}
+};
