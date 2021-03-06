@@ -14,10 +14,10 @@ public class PrintVerticalTree {
          TreeNode left;
          TreeNode right;
     }
-    private class NodeInfo{
+    private class Pair{
         int hd;
         TreeNode node;
-        NodeInfo(TreeNode node, int hd){
+        Pair(TreeNode node, int hd){
             this.hd = hd;
             this.node = node;
         }
@@ -26,29 +26,19 @@ public class PrintVerticalTree {
     public ArrayList<ArrayList<Integer>> verticalOrderTraversal(TreeNode A) {
         
         ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
-        if(A == null){
+        if (A == null) {
             return result;
         }
         TreeMap<Integer, ArrayList<Integer>> map = new TreeMap<>();
-        verticalOrderTraversalRec(A, map);
-        
-        for(int key : map.keySet()){
-            ArrayList<Integer> list = map.get(key);
-            result.add(list);
-        }
-        return result;
-    }
-    
-    void verticalOrderTraversalRec(TreeNode A, TreeMap<Integer, ArrayList<Integer>> map){
-        Queue<NodeInfo> q = new LinkedList<>();
-        NodeInfo rootInfo = new NodeInfo(A, 0);
+        Queue<Pair> q = new LinkedList<>();
+        Pair rootInfo = new Pair(A, 0);
         q.add(rootInfo);
         
         while(!q.isEmpty()){
             
-            NodeInfo nodeinfo = q.poll();
-            int currHd = nodeinfo.hd;
-            TreeNode currNode = nodeinfo.node;
+            Pair currNodeInfo = q.poll();
+            int currHd = currNodeInfo.hd;
+            TreeNode currNode = currNodeInfo.node;
             
             if(!map.containsKey(currHd)){  
                ArrayList<Integer> arr = new ArrayList<>();
@@ -59,14 +49,19 @@ public class PrintVerticalTree {
             }
             
            if(currNode.left != null){
-              q.add(new NodeInfo(currNode.left, currHd - 1));
+              q.add(new Pair(currNode.left, currHd - 1));
            }
            if(currNode.right != null){
-              q.add(new NodeInfo(currNode.right, currHd + 1));
+              q.add(new Pair(currNode.right, currHd + 1));
            }
         }
-    } 
-    
+        for(int key : map.keySet()){
+            ArrayList<Integer> list = map.get(key);
+            result.add(list);
+        } 
+        return result;
+    }
+   
     // This will not maintain of same vertical line while pritnting list
    /*  public ArrayList<ArrayList<Integer>> verticalOrderTraversal(TreeNode A) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();

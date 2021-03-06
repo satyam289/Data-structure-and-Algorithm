@@ -1,37 +1,42 @@
 #include <iostream>
 
-class FlattenTree{
+class FlattenTree
+{
     struct TreeNode
     {
         int val;
-        TreeNode  *left;
-        TreeNode  *right;
+        TreeNode *left;
+        TreeNode *right;
         TreeNode(int x) : val(x), left(NULL), right(NULL) {}
     };
-   public:
-        void flatten(TreeNode *root){
-            if(!root)
-               return;
 
-            TreeNode *node = root;
-            while(node){
+public:
+    void flatten(TreeNode *root)
+    {
+        if (!root)
+            return;
 
-                if(node->left){
-                    TreeNode *rightMost = node->left;
-                    while(rightMost->right){
-                        rightMost = rightMost->right;
-                    }
-                    rightMost->right = node->right;
+        TreeNode *node = root;
+        while (node)
+        {
 
-                    node->right = node->left;
-                    node->left = NULL;
+            if (node->left)
+            {
+                TreeNode *rightMost = node->left;
+                while (rightMost->right)
+                {
+                    rightMost = rightMost->right;
                 }
-                
-                node = node->right;
-            }     
+                rightMost->right = node->right;
+
+                node->right = node->left;
+                node->left = NULL;
+            }
+
+            node = node->right;
         }
-    
-}
+    }
+};
 
 /*
 Using space 0(N)

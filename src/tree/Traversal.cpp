@@ -1,6 +1,6 @@
-#include <iostream>
 #include <stack>
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <vector>
 
 using namespace std;
 
@@ -44,7 +44,6 @@ public:
         reverse(result.begin(), result.end());
         return result;
     }
-
 };
 
 /***Java Impl pre-post-inorder traversal without using recursion**

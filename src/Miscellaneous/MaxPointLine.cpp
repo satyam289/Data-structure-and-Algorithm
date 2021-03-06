@@ -1,5 +1,10 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <unordered_map>
+#include <boost/functional/hash.hpp>
 
-using namespace std; 
+using namespace std;
   
 // https://www.geeksforgeeks.org/count-maximum-points-on-same-line/  
 // method to find maximum colinear point 
@@ -13,12 +18,9 @@ int maxPointOnSameLine(vector< pair<int, int> > points)
     int maxPoint = 0; 
     int curMax, overlapPoints, verticalPoints; 
   
-    // here since we are using unordered_map  
-    // which is based on hash function  
-    //But by default we don't have hash function for pairs 
-    //so we'll use hash function defined in Boost library 
-    unordered_map<pair<int, int>, int,boost:: 
-              hash<pair<int, int> > > slopeMap; 
+    // here since we are using unordered_map which is based on hash function  
+    // But by default we don't have hash function for pairs so we'll use hash function defined in Boost library 
+    unordered_map<pair<int, int>, int, boost::hash<pair<int, int>>> slopeMap; 
   
     // looping for each point 
     for (int i = 0; i < N; i++) 
@@ -28,13 +30,11 @@ int maxPointOnSameLine(vector< pair<int, int> > points)
         // looping from i + 1 to ignore same pair again 
         for (int j = i + 1; j < N; j++) 
         { 
-            // If both point are equal then just 
-            // increase overlapPoint count 
+            // If both point are equal then just  increase overlapPoint count 
             if (points[i] == points[j]) 
                 overlapPoints++; 
   
-            // If x co-ordinate is same, then both 
-            // point are vertical to each other 
+            // If x co-ordinate is same, then both point are vertical to each other 
             else if (points[i].first == points[j].first) 
                 verticalPoints++; 
   
@@ -48,39 +48,31 @@ int maxPointOnSameLine(vector< pair<int, int> > points)
                 yDif /= g; 
                 xDif /= g; 
   
-                // increasing the frequency of current slope 
-                // in map 
+                // increasing the frequency of current slope in map 
                 slopeMap[make_pair(yDif, xDif)]++; 
                 curMax = max(curMax, slopeMap[make_pair(yDif, xDif)]); 
             } 
-  
             curMax = max(curMax, verticalPoints); 
         } 
   
         // updating global maximum by current point's maximum 
         maxPoint = max(maxPoint, curMax + overlapPoints + 1); 
   
-        // printf("maximum colinear point  
-        // which contains current point  
-        // are : %d\n", curMax + overlapPoints + 1); 
+        // printf("maximum colinear point which contains current point are : %d\n", curMax + overlapPoints + 1); 
         slopeMap.clear(); 
     } 
   
     return maxPoint; 
 } 
-  
-// Driver code 
+ 
 int main() 
 { 
     const int N = 6; 
-    int arr[N][2] = {{-1, 1}, {0, 0}, {1, 1}, {2, 2}, 
-                    {3, 3}, {3, 4}}; 
-  
+    int arr[N][2] = {{-1, 1}, {0, 0}, {1, 1}, {2, 2}, {3, 3}, {3, 4}}; 
     vector< pair<int, int> > points; 
-    for (int i = 0; i < N; i++) 
+    for (int i = 0; i < N; i++) {
         points.push_back(make_pair(arr[i][0], arr[i][1])); 
-  
+    }
     cout << maxPointOnSameLine(points) << endl; 
-  
     return 0; 
-} 
+};
