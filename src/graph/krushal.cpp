@@ -24,8 +24,9 @@ int root(int i) {
     return i;
 }
 
+// Disjoint set union by rank
 void join(int x, int y) {
-    int root_x = root(x);  // Disjoint set union by rank
+    int root_x = root(x);  
     int root_y = root(y);
     parent[root_x] = root_y;
 }
@@ -46,11 +47,11 @@ ll kruskal() {
 int main() {
     while (true) {
         int from = 0, to = 0, cost = 0, totalcost = 0;
-        std::cin >> node >> edge;  // Enter the nodes and edges
+        std::cin >> node >> edge;  // input the nodes and edges
         if (node == 0 && edge == 0) {
-            break;  // Enter 0 0 to break out
+            break;  
         }
-        initial();  // Initialise the parent array
+        initial();  
         for (int i = 0; i < edge; ++i) {
             std::cin >> from >> to >> cost;
             edges.emplace_back(make_pair(cost, std::make_pair(from, to)));

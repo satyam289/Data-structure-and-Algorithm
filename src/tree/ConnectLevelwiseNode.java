@@ -1,5 +1,8 @@
 package tree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 //https://www.geeksforgeeks.org/connect-nodes-at-same-level-with-o1-extra-space/
 
 /**
@@ -114,6 +117,49 @@ public class ConnectLevelwiseNode {
         System.out.println("nextRight of " + tree.right.data + " is " + c); 
         System.out.println("nextRight of " + tree.left.left.data + " is " + d); 
         System.out.println("nextRight of " + tree.right.right.data + " is " + e); 
-    } 
+    }
+    
+    void connect(Node root) {
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        q.add(null);
+
+        Node pre = null;
+
+        while (q.size() > 1) {
+            Node node = q.poll();
+            if (pre != null) {
+                pre.nextRight = node;
+            }
+            if (node == null) {
+                q.add(null);
+                pre = null;
+            } else {
+                if (node.left != null) {
+                    q.add(node.left);
+                }
+                if (node.right != null) {
+                    q.add(node.right);
+                }
+            }
+            pre = node;
+        }
+    }
+
+    // This approach works only for Complete Binary Trees.
+    void connectRecursively(Node node) {
+        if (node == null)
+            return;
+
+        if (node.left != null) { // assume Complete tree (right child is not null)
+            node.left.nextRight = node.right;
+        }
+
+        if (node.right != null) {
+            node.right.nextRight = (node.nextRight != null) ? node.nextRight.left : null;
+        }
+        connectRecursively(node.left);
+        connectRecursively(node.right);
+    }
 
 }
