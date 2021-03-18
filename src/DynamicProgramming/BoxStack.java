@@ -2,6 +2,12 @@ package DynamicProgramming;
 
 import java.util.Arrays;
 
+/**
+  Given different dimensions and unlimited supply of boxes for each dimension, stack boxes
+  on top of each other such that it has maximum height but with caveat that length and width
+  of box on top should be strictly less than length and width of box under it. You can
+  rotate boxes as you like. 
+ */
 public class BoxStack {
 
     private static class Dimension implements Comparable<Dimension> {
@@ -32,12 +38,17 @@ public class BoxStack {
             return dim;
         }
 
-        public int compareTo(Dimension dim) {
-            if (this.len * this.wid >= len * wid)
-                return 1;
-            else
-                return -1;
+    /**
+     * Sorts decresaing by base area(length X width)
+     */
+    @Override
+    public int compareTo(Dimension d) {
+        if (this.len * this.wid >= d.len * d.wid) {
+            return -1;
+        } else {
+            return 1;
         }
+    }
     }
 
     public static void main(String[] args) {

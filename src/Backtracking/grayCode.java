@@ -1,7 +1,6 @@
 package Backtracking;
 
 import java.util.ArrayList;
-import java.util.Vector;
 
 //https://www.geeksforgeeks.org/generate-n-bit-gray-codes/
 public class grayCode {

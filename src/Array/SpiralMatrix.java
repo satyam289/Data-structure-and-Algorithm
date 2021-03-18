@@ -5,9 +5,9 @@ import java.util.List;
 
 // https://leetcode.com/problems/spiral-matrix/
 
-public class SipralMatrix {
+public class SpiralMatrix {
 
-    public List<Integer> sipralOrder(int[][] matrix) {
+    public List<Integer> spiralOrder(int[][] matrix) {
 
         List<Integer> result = new ArrayList<>();
         if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
