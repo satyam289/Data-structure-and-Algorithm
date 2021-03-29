@@ -9,7 +9,7 @@ public class MedianTwoSortedArray {
 		int[] ar1 = { 900 };
 		int[] ar2 = { 5, 8, 10, 20 };
 		System.out.println("The median of two sorted array : " + findMedian(arr1, arr2));
-		System.out.println("The median of two  sorted array : " + findMedian(ar1, ar2));
+		System.out.println("The median of two  sorted array : " + findMedianOptimised(ar1, ar2));
 	}
     
 	// Time Complexity : 0(n1+n2)
@@ -35,7 +35,38 @@ public class MedianTwoSortedArray {
 	}
 
 	// Time Complexity: O(min(log m, log n))
-	public static int findMedianOptimised(int[] first, int[] second) {
-		
+	// https://www.youtube.com/watch?v=LPFhl65R7ww
+	public static double findMedianOptimised(int[] first, int[] second) {
+		if(second.length < first.length){
+			return findMedianOptimised(second, first);
+		}
+		int x = first.length; //smaller
+		int y = second.length; //large
+		int low = 0;
+		int high = x;
+
+		while(low <= high){
+			int partitionX = (high + low) / 2;
+			int partitionY = ((x + y + 1) / 2) - partitionX;
+			
+			int maxLeftX = (partitionX == 0) ? Integer.MIN_VALUE : first[partitionX-1];
+            int minRightX = (partitionX == x) ? Integer.MAX_VALUE : first[partitionX];
+
+			int maxLeftY = (partitionY == 0) ? Integer.MIN_VALUE : second[partitionY-1];
+            int minRightY = (partitionY == y) ? Integer.MAX_VALUE : second[partitionY];
+
+			if(maxLeftX <= minRightY && maxLeftY <= minRightX){
+				if(x+y % 2 == 0){  // even 
+					return (double)(Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY))/2;
+				}
+                return (double)Math.max(maxLeftX, maxLeftY);  // odd
+			}
+			else if(maxLeftX > minRightY){ 
+				high = partitionX - 1; // move toward left
+			}else{
+				low = partitionX + 1; // move toward right
+			}
+		}
+		throw new IllegalArgumentException("No median : Given array is not sorted");
 	}
 }
