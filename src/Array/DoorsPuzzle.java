@@ -61,5 +61,24 @@ class DoorsPuzzle {
     public static void main(String[] args){
         getDoorCount(100);
         secondApproach(100);
+        System.out.println(adultBabyCountPuzzle(12));
+    }
+
+    /*
+     Every adult produce one baby after each year
+     Every baby takes one year to become adult
+    */
+    public static int adultBabyCountPuzzle(int n) {
+        if (n == 1 || n == 2) { // for 1 its new baby, second yeat it become adult
+            return 1;
+        }
+        int adult = 1;
+        int newborn = 0;
+        for (int i = 3; i <= n; i++) {
+            int temp = newborn;
+            newborn = adult; // all existing adult produce one baby each
+            adult += temp; // newborn become adult after one year, so adding the adults count
+        }
+        return adult + newborn;
     }
 }
