@@ -3,93 +3,47 @@ package Array;
 public class RotatedSortedArraySearch {
 
 	public static void main(String[] args) {
-		RotatedSortedArraySearch r=new RotatedSortedArraySearch();
-		int [] a={1,2,3,4,7};	
-		int index=r.findbinaryPosition(a,0,a.length-1);
-		if(index == a.length-1)
-			System.out.println("All sorted");
-		else
-			System.out.println("Rotated at index "+index+" The min value is "+a[index]);
-		
-		if(index==a.length-1){
-			System.out.println("Rotated at index 0  the min value "+a[0]);
-			System.out.println("search item at "+r.binarySearch(a,0,a.length-1,4));
+		int[] a = { 4, 5, 1, 2, 3};
+		int searchItem = 4;
+
+		int rotationPts = findPivot(a, 0, a.length - 1);
+		if (rotationPts == -1) {
+			System.out.println("All sorted :search item at index :  " + binarySearch(a, 0, a.length - 1, searchItem));
+		} else {
+			System.out.println("Rotated at index " + rotationPts + " The min value is " + a[rotationPts]);
+			if (a[0] < searchItem) // left part
+				System.out.println("searched item at index " + binarySearch(a, 0, rotationPts-1, searchItem));
+			else  // right part
+				System.out.println("searched item at index " + binarySearch(a, rotationPts, a.length - 1, searchItem));
 		}
-		else{
-			int index2=r.nonRecursiveBinarySearch(a, index,a.length-1,7);
-		  
-				if(index2==-1)
-					System.out.println("seached at index "+r.nonRecursiveBinarySearch(a, 0, index, 7));
-				else
-					System.out.println("the index: "+index2 +" search item "+ a[index2] );
-			
-	   }
 	}
-	   
-	
-	
-	public int findbinaryPosition(int[] arr, int low , int high){
-		
-		/*if(lower <= upper){
-			if(lower == upper){
-				return lower;
-			}
-			
-			int mid= (upper+lower)/2;
-			
-			if(a[mid+1]>a[mid] && a[mid-1]>a[mid])
-				return mid;
-			
-			if(a[mid] >= a[lower])
-			  return findbinaryPosition(a, mid+1, upper);
-			else 
-			  return findbinaryPosition(a,lower, mid-1);
-		}
-		return -1;*/
-		
-		
-		if(high==low)
+
+	public static int binarySearch(int[] arr, int low, int high, int key) {
+		if (high < low)
+            return -1;
+        int mid = (low + high) / 2;
+        if (key == arr[mid])
+            return mid;
+        if (key > arr[mid])
+            return binarySearch(arr, mid+1, high, key);
+        return binarySearch(arr, low, mid-1, key);
+	}
+
+	private static int findPivot(int[] arr, int low, int high) {
+		// base cases
+		if (high < low)
+			return -1;
+		if (high == low)
 			return low;
-		int mid= (low+high)/2;
-		if(mid>low && arr[mid] > arr[mid+1])
-			return mid;
-		if(mid<high && arr[mid] < arr[mid-1])
-		    return mid-1;
-		if(arr[low]>arr[mid])
-			return findbinaryPosition(arr,low,mid-1);
-		else
-			return findbinaryPosition(arr,mid+1, high);
-		
-	}
-	
-	public int binarySearch(int [] a , int lower , int upper, int value){
-		
-		if(lower<=upper){
-			int mid= (lower+upper)/2;
-		
-			if(a[mid]==value)
-				return mid;
-			else if(value<a[mid])
-				return binarySearch(a,lower,mid-1,value);
-			else 
-				return binarySearch(a,mid+1, upper,value);
-		
-		}
-		return -1;
-	}
-	
-	public int nonRecursiveBinarySearch(int [] a, int lower, int upper, int value){
-		 
-		 while(lower<=upper){
-			int mid= (upper+lower)/2;
-			 if(a[mid] == value)
-			     return mid;   
-			 else if(value < a[mid])
-				 upper=mid-1;
-			 else 
-				 lower=mid+1;	 
-		 }
-		
-		return -1;
+
+		int mid = (low + high) / 2;
+		if (mid < high && arr[mid] > arr[mid+1])
+            return mid+1;  // returning min value
+        if (mid > low && arr[mid] < arr[mid-1])
+            return mid;  // returning min value
+			
+        if (arr[low] >= arr[mid])
+            return findPivot(arr, low, mid - 1);
+        return findPivot(arr, mid + 1, high);
 	}
 }
