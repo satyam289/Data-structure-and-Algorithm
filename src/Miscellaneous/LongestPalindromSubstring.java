@@ -1,7 +1,7 @@
 package Miscellaneous;
 
 public class LongestPalindromSubstring {
-    
+
     //Time Complexity:  0(N3)
     public static String longestPalindrome1(String A) {
         int n = A.length();
@@ -38,37 +38,31 @@ public class LongestPalindromSubstring {
     }
 
     //0(n2)
+    private static int start = 0, end = 0, maxlen = 0;
+
     public static String longestPalindrome2(String s) {
         if (s == null || s.length() < 1)
             return "";
-
-        int start = 0;
-        int end = 0;
-        int maxlen = 0;
-        
         for (int i = 0; i < s.length(); i++) {
-            int len1 = expandFromMiddle(s, i, i); // odd
-            int len2 = expandFromMiddle(s, i, i + 1); // even
-            int len = Math.max(len1, len2);
-            if (len > (end - start)) {
-                maxlen = len;
-                start = i - (len - 1) / 2;
-                end = i + len / 2;
-            }
+             expandFromMiddle(s, i, i); // odd
+             expandFromMiddle(s, i, i + 1); // even
         }
         //System.out.println(maxlen);
         return s.substring(start, end);
     }
 
-    private static int expandFromMiddle(String s, int left, int right) {
+    private static void expandFromMiddle(String s, int left, int right) {
         if (s == null || left > right)
-            return 0;
-
+            return;
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            if (right - left + 1 > maxlen) {
+                start = left;
+                end = right + 1;
+                maxlen = right - left + 1;
+            }
             left--;
             right++;
         }
-        return right - left;
     }
 
      // Time Complexity 0(n2) : Dynamic Programming
