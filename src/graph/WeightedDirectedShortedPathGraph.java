@@ -22,46 +22,29 @@ public class WeightedDirectedShortedPathGraph {
 
     }
 
-    public static void main(String[] args) {
-        WeightedDirectedShortedPathGraph w = new WeightedDirectedShortedPathGraph(10);
-        w.addVertex('a');
-        w.addVertex('b');
-        w.addVertex('c');
-        w.addVertex('d');
-        w.addVertex('e');
-        w.addEdge(0, 1, 50);
-        w.addEdge(0, 3, 80);
-        w.addEdge(1, 2, 60);
-        w.addEdge(1, 3, 90);
-        w.addEdge(2, 4, 40);
-        w.addEdge(3, 2, 20);
-        w.addEdge(3, 4, 70);
-        w.addEdge(4, 1, 50);
-        System.out.println("shortest paths from B ");     //zero index vertex
-        w.path(2);
-        System.out.println();
-    }
-
     public void path(int passvertex) {
         int ntree = 1;
         currentvertex = passvertex;
         for (int i = 0; i < noVertex; i++) {
-            spath[i] = new distance(adjacencyMaxtrix[currentvertex][i], currentvertex);     //filling the default value(direct path) to that selected vertex
+            spath[i] = new distance(adjacencyMaxtrix[currentvertex][i], currentvertex); // filling the default
+                                                                                        // value(direct path) to that
+                                                                                        // selected vertex
         }
         vertexArray[currentvertex].wasvisited = true;
 
-        while (ntree < noVertex) {                                          //till every vertex
+        while (ntree < noVertex) { // till every vertex
             int minIndex = getMin();
-            //System.out.println("**********"+minIndex);
+            // System.out.println("**********"+minIndex);
             int distance = spath[minIndex].distannce;
-            if (distance == infinity) {                              //there are some unreachable vertex  when all minimum node is visited, only infinity left in spath
+            if (distance == infinity) { // there are some unreachable vertex when all minimum node is visited, only
+                                        // infinity left in spath
                 System.out.println("there are unreachable vertex");
                 break;
             } else {
                 vertexArray[minIndex].wasvisited = true;
                 start2current = spath[minIndex].distannce;
-                currentvertex = minIndex;                            //next vertex for lookup which is minimum at spath
-                adust_path();                                     //adjust according to currentvertex.
+                currentvertex = minIndex; // next vertex for lookup which is minimum at spath
+                adust_path(); // adjust according to currentvertex.
                 ntree++;
             }
         }
@@ -72,18 +55,21 @@ public class WeightedDirectedShortedPathGraph {
 
     }
 
-
-    private void adust_path() {                   //adjusting the spath according to the currentvertex(min_vertex), establish the link and replacing with lower value if exist!
+    private void adust_path() { // adjusting the spath according to the currentvertex(min_vertex), establish the
+                                // link and replacing with lower value if exist!
         int col = 0;
-        while (col < noVertex) {                         //for that current vertex to all other vertex
-            if (vertexArray[col].wasvisited) {         //skip,if that node already visited
+        while (col < noVertex) { // for that current vertex to all other vertex
+            if (vertexArray[col].wasvisited) { // skip,if that node already visited
                 col++;
                 continue;
             }
-            int current2fringe = adjacencyMaxtrix[currentvertex][col];      //lookup for unvisited node(column wise)
-            int start2fringe = start2current + current2fringe;          //adding old value (if infinity, then addition is always greater , so cant be replaced
-            //System.out.println("total distance  "+start2fringe+ "  spath  "+spath[col].distannce);
-            if (start2fringe < spath[col].distannce) {                    //if older is greater, replace with new lesser value or new entry
+            int current2fringe = adjacencyMaxtrix[currentvertex][col]; // lookup for unvisited node(column wise)
+            int start2fringe = start2current + current2fringe; // adding old value (if infinity, then addition is always
+                                                               // greater , so cant be replaced
+            // System.out.println("total distance "+start2fringe+ " spath
+            // "+spath[col].distannce);
+            if (start2fringe < spath[col].distannce) { // if older is greater, replace with new lesser value or new
+                                                       // entry
                 spath[col].distannce = start2fringe;
                 spath[col].parentvertex = currentvertex;
             }
@@ -97,14 +83,13 @@ public class WeightedDirectedShortedPathGraph {
         int index = 0;
         for (int i = 0; i < noVertex; i++) {
             distance d = spath[i];
-            if ((!vertexArray[i].wasvisited) && d.distannce < min) {     //minimum of unvisited vertex
+            if ((!vertexArray[i].wasvisited) && d.distannce < min) { // minimum of unvisited vertex
                 min = d.distannce;
                 index = i;
             }
         }
         return index;
     }
-
 
     private void display() {
         for (int i = 0; i < noVertex; i++) {
@@ -148,5 +133,26 @@ public class WeightedDirectedShortedPathGraph {
     public static int getNoVertex() {
         return noVertex;
     }
+
+    public static void main(String[] args) {
+        WeightedDirectedShortedPathGraph w = new WeightedDirectedShortedPathGraph(10);
+        w.addVertex('a');
+        w.addVertex('b');
+        w.addVertex('c');
+        w.addVertex('d');
+        w.addVertex('e');
+        w.addEdge(0, 1, 50);
+        w.addEdge(0, 3, 80);
+        w.addEdge(1, 2, 60);
+        w.addEdge(1, 3, 90);
+        w.addEdge(2, 4, 40);
+        w.addEdge(3, 2, 20);
+        w.addEdge(3, 4, 70);
+        w.addEdge(4, 1, 50);
+        System.out.println("shortest paths from B "); // zero index vertex
+        w.path(2);
+        System.out.println();
+    }
+
 
 }

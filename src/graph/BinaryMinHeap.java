@@ -27,14 +27,14 @@ public class BinaryMinHeap<T> {
         return nodePosition.containsKey(key);
     }
 
-    public void add(int weight, T key) {   //adding at bottom
+    public void add(int weight, T key) { // adding at bottom
         Node node = new Node(key, weight);
         allNode.add(node);
         int current = allNode.size() - 1;
         nodePosition.put(node.key, current);
         int parentIndex = (current - 1) / 2;
 
-        while (parentIndex >= 0) {                     // trickle up
+        while (parentIndex >= 0) { // trickle up
             Node parentNode = allNode.get(parentIndex);
             Node currentNode = allNode.get(current);
 
@@ -67,11 +67,11 @@ public class BinaryMinHeap<T> {
         node2.weight = weight;
     }
 
-    public void decrease(T data, int newWeight) {    // decreasing the weight value
+    public void decrease(T data, int newWeight) { // decreasing the weight value
         Integer position = nodePosition.get(data);
         allNode.get(position).weight = newWeight;
         int parent = (position - 1) / 2;
-        while (parent >= 0) {                       //trickle down
+        while (parent >= 0) { // trickle down
             if (allNode.get(parent).weight > allNode.get(position).weight) {
                 swap(allNode.get(parent), allNode.get(position));
                 updatePositionMap(allNode.get(parent).key, allNode.get(position).key, parent, position);
@@ -92,15 +92,15 @@ public class BinaryMinHeap<T> {
     public Node extractMinNode() {
         int size = allNode.size() - 1;
         Node minNode = new Node(allNode.get(0).key, allNode.get(0).weight);
-        allNode.get(0).weight = allNode.get(size).weight;     //putting the last on top
+        allNode.get(0).weight = allNode.get(size).weight; // putting the last on top
         allNode.get(0).key = allNode.get(size).key;
-        nodePosition.remove(minNode.key);   //removing the node position of first(min)
-        nodePosition.remove(allNode.get(0)); //removing the node position of last
-        nodePosition.put(allNode.get(0).key, 0);  // updating the node position
+        nodePosition.remove(minNode.key); // removing the node position of first(min)
+        nodePosition.remove(allNode.get(0)); // removing the node position of last
+        nodePosition.put(allNode.get(0).key, 0); // updating the node position
         allNode.remove(size);
         int currentIndex = 0;
         size--;
-        while (true) {                             // trickle down
+        while (true) { // trickle down
             int left = 2 * currentIndex + 1;
             int right = 2 * currentIndex + 2;
             if (left > size)
@@ -111,7 +111,8 @@ public class BinaryMinHeap<T> {
             int smallerIndex = allNode.get(left).weight < allNode.get(right).weight ? left : right;
             if (allNode.get(currentIndex).weight > allNode.get(smallerIndex).weight) {
                 swap(allNode.get(currentIndex), allNode.get(smallerIndex));
-                updatePositionMap(allNode.get(currentIndex).key, allNode.get(smallerIndex).key, currentIndex, smallerIndex);
+                updatePositionMap(allNode.get(currentIndex).key, allNode.get(smallerIndex).key, currentIndex,
+                        smallerIndex);
                 currentIndex = smallerIndex;
             }
             break;
