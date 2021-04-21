@@ -8,7 +8,6 @@ public class MinimunSpanningWeightedGraph { // non direction weight grap (every 
         graph = new Graph(10);
     }
 
-
     private class Graph {
         private int[][] adjmax;
         private vertex[] vertexArray;

@@ -1,15 +1,34 @@
 package DynamicProgramming;
 
+import java.util.Arrays;
+
 /*
 https://www.hackerrank.com/challenges/coin-change/problem
 */
 
-public class CountCoin {
+public class CountChange {
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3};
+        System.out.println(coinchange2(arr, 4));
         System.out.println(coinChangeDP(arr, 4));
         System.out.println(coinChangeRecursive(arr, 4));
+    }
+    
+    // https://www.interviewbit.com/problems/coin-sum-infinite/ (duplicate allowed)
+    public static int coinchange2(int [] input, int target) {
+        int dp[] = new int[target + 1];
+        Arrays.fill(dp, 0);
+        dp[0] = 1;
+
+        for (int i = 0; i < input.length; i++) {
+            for (int j = input[i]; j <= target; j++) {
+                dp[j] = dp[j] + dp[j - input[i]];
+                dp[j] = dp[j] % 1000007;
+            }
+        }
+
+        return dp[target];
     }
 
     public static int coinChangeDP(int[] arr, int targetSum) {

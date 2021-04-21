@@ -64,7 +64,7 @@ class Graph2<T> {
             adjacentVertex.add(v);
         }
 
-        public List<Vertex2<Obj>> getAllAdajecent() {
+        public List<Vertex2<T>> getAllAdajecent() {
             return adjacentVertex;
         }
     }

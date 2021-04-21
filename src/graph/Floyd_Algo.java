@@ -20,15 +20,17 @@ public class Floyd_Algo {
 	}
 
 	public void displayMaxtrix() {
+
 		System.out.print("    ");
 		for (int k = 0; k < nver; k++)
 			// System.out.print(vertexArray[k].ch + " ");
 			System.out.println("");
+
 		System.out.println("  ___________________");
+
 		for (int i = 0; i < nver; i++) {
 			// System.out.print(vertexArray[i].ch +" "+"|"+" ");
 			for (int j = 0; j < nver; j++) {
-
 				System.out.print(adjmax[i][j] + "   ");
 			}
 			System.out.println(" ");
@@ -72,7 +74,6 @@ public class Floyd_Algo {
 		System.out.println("shortest paths from B "); // zero index vertex
 		for (int i = 0; i < WeightedDirectedShortedPathGraph.getNoVertex(); i++) {
 			w.path(i);
-
 			System.out.println();
 		}
 	}

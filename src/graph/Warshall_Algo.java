@@ -4,10 +4,11 @@ public class Warshall_Algo {
 
     private static class Vertex {
         char ch;
-        //boolean wasvisited;
+
+        // boolean wasvisited;
         Vertex(char ch) {
             this.ch = ch;
-            //wasvisited = false;
+            // wasvisited = false;
         }
     }
 
@@ -55,12 +56,12 @@ public class Warshall_Algo {
         for (int row = 0; row < nver; row++) {
             for (int col = 0; col < nver; col++) {
 
-                if (adjmax[col][row] == 1) {       //horizontally
+                if (adjmax[col][row] == 1) { // horizontally
 
                     for (int col2 = 0; col2 < nver; col2++) {
-                        if (adjmax[row][col2] == 1) {     //vertically of particular row (row)
+                        if (adjmax[row][col2] == 1) { // vertically of particular row (row)
 
-                            adjmax[col][col2] = 1;         //matrix both dynamic row & col
+                            adjmax[col][col2] = 1; // matrix both dynamic row & col
                         }
                     }
                 }
@@ -82,9 +83,9 @@ public class Warshall_Algo {
         d.addEdge(1, 4);
         d.addEdge(4, 2);
         d.addEdge(3, 4);
-        //d.addEdge(0, 1);
-        //d.addEdge(1, 2);
-        //d.addEdge(2, 0);
+        // d.addEdge(0, 1);
+        // d.addEdge(1, 2);
+        // d.addEdge(2, 0);
         d.adjustedMartix();
         d.displayMaxtrix();
     }
