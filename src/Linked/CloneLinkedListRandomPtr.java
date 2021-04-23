@@ -38,7 +38,7 @@ public class CloneLinkedListRandomPtr {
         Node copy = head.next;
         while (curr != null && copy != null) {
             curr.next = curr.next != null ? curr.next.next : null;
-            copy.next = curr.next != null ? curr.next.next : null; //copy.next.next
+            copy.next = copy.next != null ? copy.next.next : null; //copy.next.next
             curr = curr.next;
             copy = copy.next;
         }
