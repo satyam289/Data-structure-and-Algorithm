@@ -3,35 +3,35 @@ package Array;
 import java.util.Arrays;
 import java.util.List;
 
+// Kadane Algorithm
+// https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
 class MaxContigousSubArraySum {
 
-    public static int maxSubArray(final List<Integer> A) {
-        int maxSofar = 0;
-        int globalmaximum = -1;
-        int minNeg = Integer.MIN_VALUE;
-        for(int i=0; i<A.size(); i++){
-            int val = A.get(i);
-             maxSofar += val;
-            if(val > minNeg){
-                minNeg = val;
+    // Time Complexity: 0(n)
+    public static void maxSubArray(final List<Integer> A) {
+
+        int max_so_far = Integer.MIN_VALUE;
+        int globalStart = 0, end = 0, sum_till_here = 0, intermediateStart = 0;
+
+        for (int i = 0; i < A.size(); i++) {
+            sum_till_here += A.get(i);
+            if (max_so_far < sum_till_here) {
+                max_so_far = sum_till_here;
+                globalStart = intermediateStart;
+                end = i;
             }
-            if(maxSofar < 0){
-                maxSofar = 0;
-            }else{
-               if(maxSofar > globalmaximum){
-                  globalmaximum = maxSofar;
-                }
+            if (sum_till_here < 0) {
+                sum_till_here = 0;
+                intermediateStart = i + 1;
             }
         }
-        if(globalmaximum == -1){  // when all the values is negative
-            return minNeg;
-        }
-        return globalmaximum;
+        System.out.println("Maximum contiguous sum is " + max_so_far);
+        System.out.println("Starting Index :" + globalStart);
+        System.out.println("Ending Index : " + end);
     }
 
-    public static void main(String [] args) {
-        List<Integer> list = Arrays.asList(-2, 1, -3, 4, -1, 2, 1, -5, 4);
-        int result = maxSubArray(list);      
-        System.out.println(result);
+    public static void main(String[] args) {
+        List<Integer> list = Arrays.asList(-2, -3, 4, -1, -2, 1, 5, -3);
+        maxSubArray(list);
     }
 }
