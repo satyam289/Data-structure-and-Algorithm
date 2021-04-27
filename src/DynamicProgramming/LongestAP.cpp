@@ -10,7 +10,7 @@ int solve(const vector<int> &A)
         return n;
 
     vector<vector<int>> dp(n, vector<int>(n, -1));
-    map<int, int> pos;
+    map<int, int> pos_map;
 
     for (int i = 0; i < n; i++)
     {
@@ -18,13 +18,13 @@ int solve(const vector<int> &A)
         {
             dp[i][j] = 2;
             int dif = A[j] - A[i];
-            int need = 2 * A[i] - A[j];
-            if (pos.count(need) == 0)
+            int need = 2 * A[i] - A[j]; // a = 2b -c
+            if (pos_map.count(need) == 0)
                 continue;
 
-            dp[i][j] = max(dp[i][j], dp[pos[need]][i] + 1);
+            dp[i][j] = max(dp[i][j], dp[pos_map[need]][i] + 1);
         }
-        pos[A[i]] = i;
+        pos_map[A[i]] = i;
     }
 
     int ans = 2;
@@ -38,22 +38,23 @@ int solve(const vector<int> &A)
     return ans;
 }
 
+// 0(N3)
 int wrostLongestAP(const vector<int> &A)
 {
-    int s = A.size(), ans = 2;
-    if (s <= 1)
-        return s;
-    for (int i = 0; i < s; i++)
+    int len = A.size(), ans = 2;
+    if (len <= 1)
+        return len;
+
+    for (int i = 0; i < len; i++)
     {
-        int first = A[i];
-        for (int j = i + 1; j < s; j++)
+        for (int j = i + 1; j < len; j++)
         {
-            long long last = A[j];
-            long long cd = A[j] - A[i];
+            int last = A[j];
+            int diff = A[j] - A[i];
             int len = 2;
-            for (int k = j + 1; k < s; k++)
+            for (int k = j + 1; k < len; k++)
             {
-                if (A[k] - last == cd)
+                if (A[k] - last == diff)
                 {
                     last = A[k];
                     len++;
