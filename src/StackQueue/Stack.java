@@ -6,7 +6,7 @@ public class Stack {
     int top;
     int size;
 
-    public Stack(int size) {
+    private Stack(int size) {
         this.size = size;
         arr = new int[size];
         top = -1;
