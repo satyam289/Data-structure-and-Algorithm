@@ -1,146 +1,123 @@
 package StackQueue;
 
-public class ArithemeticExpression {                      //changing to post-fix
+import java.util.Stack;
 
-    static StringBuffer output = new StringBuffer();
-    Stack s;
-    Stack finalstack;
-
-    ArithemeticExpression(int i) {
-        s = new Stack(i);
-        finalstack = new Stack(i);
-    }
+public class ArithemeticExpression {
 
     public static void main(String[] args) {
-
-        ArithemeticExpression a = new ArithemeticExpression(10);
-        a.postfix("3*(4+5)-6/(1+2)");
-        System.out.println(output);
-        System.out.println(a.getResult(output.toString()));
-        //System.out.println(a.getResult("345+*612+/-"));
-
+        System.out.println(solve("3*(4+5)-6/(1+2)"));
     }
 
-    public void postfix(String st) {
+    public static int solve(String str) {
 
+        String postStr = convertToPostfix(str);
+        Stack<Integer> resultSt = new Stack<>();
 
-        char[] ch = st.toCharArray();
-        for (char ch1 : ch) {
+        for (int i = 0; i < postStr.length(); i++) {
+            char ch = postStr.charAt(i);
 
-            switch (ch1) {
+            if (ch > '0' && ch < '9') { // or Character.isDigit(ch)
+                resultSt.push(ch - '0');
+            } else {
+
+                int result = 0;
+                int num1 = resultSt.pop();
+                int num2 = resultSt.pop();
+                // System.out.println("num1: " + num1 + " num2: " + num2);
+                switch (ch) {
                 case '+':
-                case '-':
-                    getOperation(ch1, 1);
+                    result = num1 + num2;
+                    // System.out.println("addition " + result);
+                    resultSt.push(result);
                     break;
-
+                case '-':
+                    result = num2 - num1;
+                    // System.out.println("subtraction" + result);
+                    resultSt.push(result);
+                    break;
                 case '*':
-                    getOperation(ch1, 2);
+                    result = num1 * num2;
+                    // System.out.println("multiplication" + result);
+                    resultSt.push(result);
                     break;
                 case '/':
-                    getOperation(ch1, 2);
-                    break;
-
-                case '(':
-                    getOperation(ch1, 3);
-                    break;
-
-                case ')':
-                    getOperation2();
+                    result = num1 % num2;
+                    // System.out.println("division" + result);
+                    resultSt.push(result);
                     break;
                 default:
-                    output.append(ch1);
+                    resultSt.push(0);
                     break;
+                }
+            }
+        }
+        return resultSt.pop();
+    }
+
+    private static String convertToPostfix(String str) {
+
+        StringBuffer convertPostfixStr = new StringBuffer();
+        Stack<Character> st = new Stack<>();
+
+        char[] charr = str.toCharArray();
+        for (char ch : charr) {
+            switch (ch) {
+            case '+':
+            case '-':
+                setPriority(ch, st, convertPostfixStr, 1);
+                break;
+
+            case '*':
+            case '/':
+                setPriority(ch, st, convertPostfixStr, 2);
+                break;
+
+            case '(':
+                st.push(ch);
+                break;
+
+            case ')':
+                addTillOpeningBracket(st, convertPostfixStr);
+                break;
+            default:
+                convertPostfixStr.append(ch);
+                break;
             }
         }
 
+        while (!st.isEmpty()) { 
+            convertPostfixStr.append(st.pop()); // converting stack data into string
+        }
+        return convertPostfixStr.toString();
+    }
 
-        while (!s.isEmpty())
-            output.append(s.pop());
+    public static void setPriority(char ch, Stack<Character> st, StringBuffer convertPostfixStr, int CurrPriority) {
 
-    } //end of postfix
-
-    public void getOperation(char ch1, int priorityCurrent) {
-
-
-        if (s.isEmpty()) {
-            s.push(ch1);
-        } else if (ch1 == '(') {
-            s.push(ch1);
+        if (st.isEmpty()) {
+            st.push(ch);
+            return;
+        }
+        char top = (char) st.peek();
+        if (top == '(') {
+            st.push(ch);
         } else {
+            int topPriority = (top == '+' || top == '-') ? 1 : (top == '*' || top == '%') ? 2 : 0;
 
-            char ch3 = (char) s.peek();
-            if (ch3 == '(') {                                           //simply push the value after seeing (
-                s.push(ch1);
-
+            if (CurrPriority > topPriority) {
+                st.push(ch);
             } else {
-                int priorityLocal = 0;
-                if (ch3 == '+' || ch3 == '-')
-                    priorityLocal = 1;
-                else if (ch3 == '*' || ch3 == '%')
-                    priorityLocal = 2;
-                if (priorityCurrent > priorityLocal) {
-                    s.push(ch1);
-                } else {
-                    output.append(ch3);                       // if priorityLocal > priorityCurrent , pop the old value and append to result and push the new value in stack
-                    s.pop();
-                    s.push(ch1);
-                }
+                convertPostfixStr.append(top);
+                st.pop();
+                st.push(ch);
             }
         }
     }
 
-    public void getOperation2() {
-
-        char ch = (char) s.pop();                         //pop all value till we find '('and append to output
-        while (ch != '(') {
-            output.append(ch);
-            ch = (char) s.pop();
+    public static void addTillOpeningBracket(Stack<Character> st, StringBuffer convertPostfixStr) {
+        char ch = st.pop();
+        while (!st.isEmpty() && ch != '(') {
+            convertPostfixStr.append(ch);
+            ch = st.pop();
         }
-    }
-
-
-    public Object getResult(String post) {  //doing the calculation
-
-        for (int i = 0; i < post.length(); i++) {
-            char ch = post.charAt(i);
-            if (ch > '0' && ch < '9') {
-                finalstack.push(ch - '0');  //difference of two character then converting int
-            } else {
-                int result;
-                // char cl=(char) finalstack.pop();
-                // System.out.println("checking "+((int)cl-48));
-                int num1 = finalstack.pop();    //pop the last two value from stack
-                int num2 = finalstack.pop();
-                System.out.println("num1: " + num1 + " num2: " + num2);
-                switch (ch) {
-                    case '+':
-                        result = num1 + num2;
-                        System.out.println("addition " + result);
-                        finalstack.push(result);      //push the resultant in stack
-                        break;
-                    case '-':
-                        result = num2 - num1;
-                        System.out.println("subtraction" + result);
-                        finalstack.push(result);
-                        break;
-                    case '*':
-                        result = num1 * num2;
-                        System.out.println("multiplication" + result);
-                        finalstack.push(result);
-                        break;
-                    case '/':
-                        result = num1 % num2;
-                        System.out.println("division" + result);
-                        finalstack.push(result);
-                        break;
-                    default:
-                        finalstack.push(0);
-                        break;
-                }
-            }
-        }
-        return finalstack.pop();              //display the last display value in the stack
     }
 }
- 
- 
