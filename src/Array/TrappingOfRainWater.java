@@ -1,5 +1,7 @@
 package Array;
 
+import java.util.ArrayList;
+
 public class TrappingOfRainWater {
 
     public static void main(String[] args) {
@@ -94,4 +96,40 @@ public class TrappingOfRainWater {
         }
         System.out.println("The unit of water trapped optimised " + sum);
     }    
+}
+
+//https://www.interviewbit.com/problems/container-with-most-water/
+class MostWaterContainer {
+
+    // Brute Force Approach
+    public int maxArea(ArrayList<Integer> A) {
+        int max_area = 0;
+        for (int i = 0; i < A.size(); i++) {
+            for (int j = i + 1; j < A.size(); j++) {
+                int base_diff = Math.abs(j - i);
+                int minHeight = Math.min(A.get(j), A.get(i));
+                max_area = Math.max(max_area, base_diff * minHeight);
+            }
+        }
+        return max_area;
+    }
+
+    // TIme Complexity: 0(n)
+    public int maxAreaOPtimised(ArrayList<Integer> A) {
+        int i =0;
+        int j= A.size() -1;
+        int max_area = 0;
+        while( i < j ){
+            int minHeight = Math.min(A.get(i), A.get(j));
+            int area = minHeight*(j-i);
+            max_area = Math.max(max_area, area);
+            if(A.get(i) < A.get(j)){
+                i++;
+            }else{
+                j--;
+            }
+        }
+        return max_area;
+    }
+}
 }

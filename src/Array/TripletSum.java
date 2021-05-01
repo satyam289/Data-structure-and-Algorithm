@@ -1,6 +1,8 @@
 package Array;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 
 class TripletSum {
@@ -43,6 +45,45 @@ class TripletSum {
         }
     }
 
+    // https://www.interviewbit.com/problems/3-sum-zero/
+    // Find all unique triplets in the array which gives the sum of zero.
+    public ArrayList<ArrayList<Integer>> threeSum(ArrayList<Integer> A) {
+        Collections.sort(A);
+        ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+        int n = A.size();
+        for (int i = 0; i < n - 2; i++) {
+
+            if (i == 0 || (long) A.get(i) != (long) A.get(i - 1)) { // consider only first index of duplicate for possible sum
+                int j = i + 1;
+                int k = n - 1;
+                while (j < k) {
+
+                    if ((long) A.get(i) + (long) A.get(j) + (long) A.get(k) == 0L) {
+                        ArrayList<Integer> arr = new ArrayList<Integer>();
+                        arr.add(A.get(i));
+                        arr.add(A.get(j));
+                        arr.add(A.get(k));
+                        // if(!result.contains(arr)){ // alternate option for duplicate
+                        result.add(arr);
+                        // }
+                        while (j < k && (long) A.get(j) == (long) A.get(j + 1)) {  // skip duplicate lower end
+                            j++;
+                        }
+                        while (j < k && (long) A.get(k) == (long) A.get(k - 1)) { // skip duplicate hiher end
+                            k--;
+                        }
+                        j++;
+                        k--;
+                    } else if ((0L - (long) A.get(i)) > ((long) A.get(j) + (long) A.get(k))) {
+                        j++;
+                    } else {
+                        k--;
+                    }
+                }
+            }
+        }
+        return result;
+    }
 
     public static void main(String[] args) 
     { 
