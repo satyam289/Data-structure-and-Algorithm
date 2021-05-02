@@ -36,7 +36,7 @@ private:
     {
         if (rem == 0)
         {
-            if(!findTemp(res, temp)){
+            if(!checkDuplicate(res, temp)){
                 res.push_back(temp); // not found
             }
             return;
@@ -56,7 +56,7 @@ private:
         return;
     }
 
-    int findTemp(vector<vector<int>> &res, vector<int> &temp)
+    int checkDuplicate(vector<vector<int>> &res, vector<int> &temp)
     {
         int i, j, flag;
         for (int i = 0; i < res.size(); i++)
@@ -101,6 +101,30 @@ public:
         vector<vector<int>> res;
         func(A, B, 0, B, temp, res);
         return res;
+    }
+
+    // https://www.interviewbit.com/problems/combination-sum/
+    vector<vector<int>> combinationSum3(vector<int> &A, int B)
+    {
+        sort(A.begin(), A.end());
+        //A.erase(unique(A.begin(), A.end()), A, end());
+        vector<vector<int>> ans;
+        choose(A, 0, B, {}, ans);
+    }
+
+    void choose(const vector<int> &A, int index, int target, vector<int> current, vector<vector<int>> &ans)
+    {
+        if (target == 0)
+            ans.push_back(current);
+
+        for (auto i = index; i < A.size(); i++)
+        {
+            if (A[i] > target)
+                break;
+            current.push_back(A[i]);
+            choose(A, i, target - A[i], current, ans);
+            current.pop_back();
+        }
     }
 };
 

@@ -1,7 +1,9 @@
 package graph;
 
-import StackQueue.Queue;
-import StackQueue.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Stack;
+
 import Linked.LinkedList;
 
 class Vertex {
@@ -18,15 +20,15 @@ class Vertex {
 public class Graph {
     private Vertex[] vertexarr;
     private int[][] adjmax;
-    private Stack thestack;
+    private Stack<Integer> thestack;
     private int nver;
-    private Queue q;
+    private Deque<Integer> q;
 
     Graph(int size) {
         vertexarr = new Vertex[size];
         adjmax = new int[size][size];
-        q = new Queue(size);
-        thestack = new Stack(size);
+        q = new ArrayDeque<>();
+        thestack = new Stack<>();
         nver = 0;
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
@@ -117,14 +119,14 @@ public class Graph {
 
         Vertex[] vertexArray;
         LinkedList[] listArray;
-        Stack thestack;
+        Stack<Integer> thestack;
         int nver;
 
         GraphImpLinkedAdjList(int size) {
             vertexArray = new Vertex[size];
             listArray = new LinkedList[size];
             nver = 0;
-            thestack = new Stack(size);
+            thestack = new Stack<>();
             for (int i = 0; i < size; i++)
                 listArray[i] = new LinkedList();
         }

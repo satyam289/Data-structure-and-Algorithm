@@ -132,4 +132,3 @@ class MostWaterContainer {
         return max_area;
     }
 }
-}
