@@ -1,5 +1,8 @@
 package Linked;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CloneLinkedListRandomPtr {
 
     private static class Node {
@@ -12,7 +15,7 @@ public class CloneLinkedListRandomPtr {
         }
     }
 
-    // 0(1) space In-place
+    //Space Complexity:  0(1)  In-place
     private static Node cloneLinkedList(Node head) {
 
         Node curr = head, temp;
@@ -45,6 +48,7 @@ public class CloneLinkedListRandomPtr {
 
         return result;
     }
+    
 
     static void print(Node start) {
         Node ptr = start;
@@ -80,5 +84,28 @@ public class CloneLinkedListRandomPtr {
         System.out.println("Cloned list : ");
         Node cloned_list = cloneLinkedList(start);
         print(cloned_list);
+    }
+
+    // Space Complexity : 0(n)
+    public Node clone2(Node head) {
+        Node original = head, copy = null;
+        Map<Node, Node> map = new HashMap<Node, Node>();
+
+        while (original != null) {
+            copy = new Node(original.data);
+            map.put(original, copy);
+
+            original = original.next;
+        }
+
+        original = head;
+        while (original != null) {
+            copy = map.get(original);
+            copy.next = map.get(original.next);
+            copy.random = map.get(original.random);
+            original = original.next;
+        }
+
+        return map.get(head);
     }
 }
