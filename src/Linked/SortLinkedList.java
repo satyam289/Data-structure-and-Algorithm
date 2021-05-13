@@ -11,7 +11,7 @@ public class SortLinkedList {
             next = null;
         }
     }
-    
+
     // https://leetcode.com/problems/insertion-sort-list/solution/
     // Time Complexity : 0(n2)
     public static ListNode insertionSortList(ListNode head) {
@@ -122,4 +122,46 @@ public class SortLinkedList {
         }
         System.out.println("");
     }
+
+/*     private static ListNode domergeSort2(ListNode link) {
+        if (link == null || link.next == null) {
+            return link;
+        }
+        ListNode middle = partition(link);
+        ListNode secondHalf = middle.next;
+        middle.next = null;
+        return merge2(domergeSort(link), domergeSort(secondHalf));
+
+    }
+
+    private static ListNode partition(ListNode link) {
+        if (link == null)
+            return null;
+
+        ListNode slowptr = link;
+        ListNode fastptr = link.next;
+        while (fastptr != null && fastptr.next != null) {
+            slowptr = slowptr.next;
+            fastptr = fastptr.next.next;
+        }
+        return slowptr;
+    }
+
+    private static ListNode merge2(ListNode m1, ListNode m2) {
+        ListNode dummy = new ListNode(-1);                 
+        ListNode mergehead = dummy;
+        while (m1 != null && m2 != null) {
+
+            if (m1.val < m2.val) {
+                dummy.next = m1;
+                m1 = m1.next;
+            } else {
+                dummy.next = m2;
+                m2 = m2.next;
+            }
+            dummy = dummy.next;
+        }
+        dummy.next = (m1 == null) ? m2 : m1;
+        return mergehead.next;
+    } */
 }

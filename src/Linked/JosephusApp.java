@@ -1,45 +1,43 @@
 package Linked;
 
 public class JosephusApp {
-    CircularLinkedList cs;
-    int no_of_people;
-    int count;
-
-    public static void main(String[] args) {
-        JosephusApp j = new JosephusApp(10, 2, 1);
-        j.execute();
-    }
+    CircularLinkedList circularList;
+    int nPeople;
+    int nCount;
 
     public JosephusApp(int nPeople, int nCount, int startPoint) {
-        this.no_of_people = nPeople;
-        this.count = nCount;
-        cs = new CircularLinkedList();
+        this.nPeople = nPeople;
+        this.nCount = nCount;
+        circularList = new CircularLinkedList();
 
         for (int i = 1; i <= nPeople; i++) {
-            cs.insert(i);
+            circularList.insert(i);
         }
-        cs.step_for_display();      //moving to old pointer position (at first insertion point), check the display at last node
-
-        for (int i = 1; i < startPoint; i++) {      //moving to starting position
-            cs.step_for_display();
+        // moving to old pointer position (at first insertion point), check the display at last node
+        circularList.stepWiseDisplay();
+        for (int i = 1; i < startPoint; i++) { // moving to starting position
+            circularList.stepWiseDisplay();
         }
-
-
     }
 
-    public void execute() {
-        for (int j = 0; j < no_of_people - 1; j++) {              //same number times as (no_of_people -1) times
-
-            for (int i = 0; i < count - 1; i++) {                    //rotating till count-1 as delete operation works at next of current pointer, so stop before 1 count less
-                cs.step_for_display();
+    //Function to find the only person left after one in every m-th node is killed in a circle of n nodes
+    public void run() {
+        for (int j = 0; j < nPeople - 1; j++) { // same number times as (no_of_people -1) times
+             // // rotating till count-1 as delete operation works at next of current pointer, so stop before 1 count less
+            for (int i = 0; i < nCount - 1; i++) { 
+                circularList.stepWiseDisplay();
             }
-            System.out.println("--- Killed----  " + cs.delete());
-            cs.step_for_display();                          //After deleting , moves to next node (left of dead person)
+            System.out.println("--- Killed----  " + circularList.delete());
+            circularList.stepWiseDisplay(); // After deleting, moves to next node (left of dead person)
 
         }
-        System.out.println("*****************************************");
         System.out.println("lucky Man is found at --->");
-        cs.step_for_display();
+        circularList.stepWiseDisplay();
         System.out.println("done");
+    }
+
+    public static void main(String[] args) {
+        JosephusApp josephusObj = new JosephusApp(10, 2, 1);
+        josephusObj.run();
     }
 }

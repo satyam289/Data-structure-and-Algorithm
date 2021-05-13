@@ -1,7 +1,7 @@
 package Linked;
 
-
-class CircularLinkedList {            //last node always connected to first node
+// Last node always connected to first node
+class CircularLinkedList { 
 
     private static class Link {
         public int data;
@@ -12,15 +12,13 @@ class CircularLinkedList {            //last node always connected to first node
             next = null;
         }
     }
-
-    Link current;                     //Here take current pointer unlike other problem takes first/last
+    Link current;
     Link previous;
     int count = 0;
 
     CircularLinkedList() {
         current = null;
         previous = null;
-
     }
 
     public static void main(String[] args) {
@@ -29,28 +27,23 @@ class CircularLinkedList {            //last node always connected to first node
         cl.insert(4);
         cl.insert(7);
         cl.insert(9);
-        //cl.deleteAtSpot();
-        //cl.delete();
-        //cl.search(6);
-        //System.out.println("deleting "+cl.delete());
-        //System.out.println("deleting "+cl.delete());
-        cl.step_for_display();
-        cl.step_for_display();
-        cl.step_for_display();
-        cl.step_for_display();
-        //cl.step_for_display();
-
+        // cl.deleteAtSpot();
+        // cl.delete();
+        // cl.search(6);
+        // System.out.println("deleting "+cl.delete());
+        // System.out.println("deleting "+cl.delete());
+        cl.stepWiseDisplay();
+        cl.stepWiseDisplay();
+        cl.stepWiseDisplay();
+        cl.stepWiseDisplay();
     }
 
-
-    public void insert(int value) {                          //pointer at new element inserted
-        //current.next=current;
+    public void insert(int value) {
         Link newLink = new Link(value);
-        if (current == null) {                               //inserting at first
+        if (current == null) {
             current = newLink;
             current.next = current;
         } else {
-
             newLink.next = current.next;
             current.next = newLink;
             previous = current;
@@ -59,9 +52,9 @@ class CircularLinkedList {            //last node always connected to first node
 
     }
 
-    public int delete() {                  //assume non empty Linked,it will delete next element of current
+    public int delete() { // assume non empty Linked, delete next element of current Node
         int data = current.next.data;
-        if (current.next == current) {          //only one element
+        if (current.next == current) { // one element left
             current = null;
             previous = null;
             return data;
@@ -73,7 +66,7 @@ class CircularLinkedList {            //last node always connected to first node
 
     public int deleteAtSpot() {
         int data = current.data;
-        if (current.next == current) {          //only one element
+        if (current.next == current) { // one element left
             current = null;
             previous = null;
             return data;
@@ -84,30 +77,26 @@ class CircularLinkedList {            //last node always connected to first node
         return data;
     }
 
-    public void step_for_display() {                   //infinte Loop as there is no size concept in Linked, so step by step
+    public void stepWiseDisplay() {
         if (current == null) {
-            System.out.println("no element in Linked List");
+            System.out.println("No element in Circular Linked List");
         } else {
-            System.out.println("step" + ++count + ": " + current.data);
+            System.out.println("step " + ++count + ": " + current.data);
             current = current.next;
         }
     }
 
     public void search(int key) {
-
         int counter = 0;
         while (current.data != key) {
             if (counter == 20)
                 break;
-            //System.out.println("hi, currentdata   "+current.data +" key "+key);
             current = current.next;
             counter++;
         }
         if (current.data == key)
-            System.out.println("found");
+            System.out.println("Found");
         else
-            System.out.println("cant found after 20 search");
-
+            System.out.println("Can't found after 20 search");
     }
 }
-

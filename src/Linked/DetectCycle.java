@@ -1,15 +1,14 @@
 package Linked;
 
 //https://www.geeksforgeeks.org/detect-and-remove-loop-in-a-linked-list/
-
-public class CycleNode {
+public class DetectCycle {
 
     private static class ListNode {
         int data;
         ListNode next;
     }
 
-    public ListNode detectCycle(ListNode a) {
+    public ListNode detectandRemoveCycle(ListNode a) {
 
         ListNode slow = a;
         ListNode fast = a;

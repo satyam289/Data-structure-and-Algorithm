@@ -1,6 +1,6 @@
 package Linked;
 
-public class AddTwoNumbers {
+public class AddTwoList {
     
     private class ListNode {
         private ListNode next;
@@ -10,8 +10,8 @@ public class AddTwoNumbers {
             this.val = val;
         }
     }
-    
-    public ListNode addTwoNumbers(ListNode A, ListNode B) {
+
+    public ListNode addNumericValue(ListNode A, ListNode B) {
 
         ListNode result = new ListNode(0);
         ListNode head = result;

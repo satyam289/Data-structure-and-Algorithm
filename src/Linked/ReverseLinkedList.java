@@ -1,6 +1,6 @@
 package Linked;
 
-import StackQueue.Stack;
+import java.util.Stack;
 
 public class ReverseLinkedList {
     
@@ -12,39 +12,8 @@ public class ReverseLinkedList {
             next = null;
         }
     }
-    
-    // https://www.geeksforgeeks.org/reverse-a-linked-list/
-    public ListNode  reverseList(Listnode head){
-        Stack<ListNode> st= new Stack<>();
-        while(head != null){
-            st.push(head);
-            head = head.next;
-        }
 
-        ListNode dummy = new ListNode(-1);
-        head = dummy;
-        while(!st.isEmpty()){
-            ListNode current = st.pop();
-            head.next = new LinkedList(current.val);
-            head = head.next;
-        }
-        return dummy.next;
-    }
-
-    // In place
-    public ListNode reverseOptimised(ListNode node){
-        ListNode pre = null;
-        ListNode current = node;
-        while(current != null){
-            ListNode temp = current.next;
-            current.next = pre;
-            pre = current;
-            current = temp;
-        }
-        return pre;
-    }
-
-    //@here reverse linked list from B to C (In-place)
+    // Reverse linked list from itermediate position from B to C (In-place)
     public static ListNode reverseIntermediate(ListNode A, int B, int C) {
         ListNode head = A;
         ListNode curr = A;
@@ -58,7 +27,7 @@ public class ReverseLinkedList {
 
         ListNode startptrReverse = curr;
         ListNode pre = null;
-        for (int j = B; (j <= C) && (curr != null); j++) { // going to B to C (reversing)
+        for (int j = B; (j <= C) && (curr != null); j++) { // going to B to C
             ListNode tmp = curr.next;
             curr.next = pre;
             pre = curr;
@@ -81,16 +50,75 @@ public class ReverseLinkedList {
         head.next.next.next = new ListNode(4);
         head.next.next.next.next = new ListNode(5);
         print(head);
-        head = reverseBetween(head, 0, 3);
+        head = reverseIntermediate(head, 0, 3);
         print(head);
     }
 
-    public static void print(ListNode head) {
+    private static void print(ListNode head) {
         ListNode current = head;
         while (current != null) {
             System.out.print(current.data + "--->");
             current = current.next;
         }
         System.out.println("");
+    }
+
+    // https://www.geeksforgeeks.org/reverse-a-linked-list/
+    public static ListNode  reverseList(ListNode head){
+        Stack<ListNode> st= new Stack<>();
+        while(head != null){
+            st.push(head);
+            head = head.next;
+        }
+
+        ListNode dummy = new ListNode(-1);
+        head = dummy;
+        while(!st.isEmpty()){
+            ListNode current = st.pop();
+            head.next = new ListNode(current.data);
+            head = head.next;
+        }
+        return dummy.next;
+    }
+
+    // Optimised : In place Reverse Linked List
+    public ListNode reverseList2(ListNode node){
+        ListNode pre = null;
+        ListNode current = node;
+        while(current != null){
+            ListNode temp = current.next;
+            current.next = pre;
+            pre = current;
+            current = temp;
+        }
+        return pre;
+    }
+    
+    /* https://www.geeksforgeeks.org/reverse-a-list-in-groups-of-given-size/
+     Input: 1->2->3->4->5->6->7->8->NULL, K = 3 
+     Output: 3->2->1->6->5->4->8->7->NULL 
+    */
+    public ListNode Kreverse(ListNode head, int k) {
+        if (head == null)
+            return null;
+
+        ListNode current = head;
+        ListNode prev = null;
+        ListNode temp = null;
+        int count = 0;
+
+        /* Reverse first k nodes of linked list */
+        while (count < k && current != null) {
+            temp = current.next;
+            current.next = prev;
+            prev = current;
+            current = temp;
+            count++;
+        }
+        if (current != null)
+            head.next = Kreverse(current, k);
+
+        // prev is now head of input list
+        return prev;
     }
 }

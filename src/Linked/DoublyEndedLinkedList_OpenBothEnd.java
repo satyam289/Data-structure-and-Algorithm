@@ -1,35 +1,35 @@
 package Linked;
 
-public class DoublyEndedLinkedList_bothendOpen {
+public class DoublyEndedLinkedList_OpenBothEnd {
 
-    private static class LinkD {
+    private static class LinkDD {
         int data;
-        LinkD pre;
-        LinkD next;
+        LinkDD pre;
+        LinkDD next;
 
-        LinkD(int data) {
+        LinkDD(int data) {
             this.data = data;
             pre = null;
             next = null;
         }
     }
 
-    LinkD first;
-    LinkD last;
+    LinkDD first;
+    LinkDD last;
 
     public static void main(String[] args) {
-        DoublyEndedLinkedList_bothendOpen dl = new DoublyEndedLinkedList_bothendOpen();
+        DoublyEndedLinkedList_OpenBothEnd dl = new DoublyEndedLinkedList_OpenBothEnd();
         dl.insertLast(3);
         dl.insertFirst(5);
         dl.insertFirst(6);
         dl.insertAtSpot(6, 23);
-        //dl.deleteAtSpot(6);
+        // dl.deleteAtSpot(6);
         dl.displayForward();
-        //dl.dispalyBackward();
+        dl.dispalyBackward();
     }
 
-    public void insertFirst(int value) {                       //insertLeft()
-        LinkD newLink = new LinkD(value);
+    public void insertFirst(int value) {
+        LinkDD newLink = new LinkDD(value);
         if (first == null) {
             first = newLink;
             last = newLink;
@@ -40,8 +40,8 @@ public class DoublyEndedLinkedList_bothendOpen {
         }
     }
 
-    public void insertLast(int value) {                     //insertRight()
-        LinkD newLink = new LinkD(value);
+    public void insertLast(int value) {
+        LinkDD newLink = new LinkDD(value);
         if (first == null) {
             first = newLink;
             last = newLink;
@@ -50,13 +50,12 @@ public class DoublyEndedLinkedList_bothendOpen {
             last.next = newLink;
             last = newLink;
         }
-
     }
 
-    public int deleteFirst() {                            //removeLeft(),assume non-empty queue
+    public int deleteFirst() { //assume non-empty queue
 
         int data = first.data;
-        if (first.next == null) {                             //for one elements
+        if (first.next == null) {
             first = null;
             last = null;
         } else {
@@ -66,10 +65,9 @@ public class DoublyEndedLinkedList_bothendOpen {
         return data;
     }
 
-    public int deleteLast() {                             //removeRight() ,assume non-empty queue
-
+    public int deleteLast() { // assume non-empty queue
         int data = last.data;
-        if (last.pre == null) {                              //for one elements
+        if (last.pre == null) {
             last = null;
             first = null;
         } else {
@@ -77,12 +75,11 @@ public class DoublyEndedLinkedList_bothendOpen {
             last = last.pre;
         }
         return data;
-
     }
 
-    public int deleteAtSpot(int key) {                           //delete at current position at matched key(assume non empty)
-        LinkD current = first;
-        LinkD previous = first;
+    public int deleteAtSpot(int key) { // delete at current position at matched key(assume non empty)
+        LinkDD current = first;
+        LinkDD previous = first;
         while (current != null) {
             if (current.data == key)
                 break;
@@ -101,13 +98,12 @@ public class DoublyEndedLinkedList_bothendOpen {
             current.next.pre = previous;
         }
         return data;
-
     }
 
-    public void insertAtSpot(int key, int value) {                           //insert at current position at matched key
-        LinkD current = first;
-        LinkD previous = first;
-        LinkD newLink = new LinkD(value);
+    public void insertAtSpot(int key, int value) { // insert at current position at matched key
+        LinkDD current = first;
+        LinkDD previous = first;
+        LinkDD newLink = new LinkDD(value);
 
         while (current != null) {
             if (current.data == key)
@@ -120,39 +116,34 @@ public class DoublyEndedLinkedList_bothendOpen {
             newLink.next = first;
             first.pre = newLink;
             first = newLink;
-            return;                                    //return is needed as it will  continues executing the next block causing undefine loop
+            return;
         }
         if (current == last) {
             newLink.pre = last;
             last.next = newLink;
         } else {
             previous.next = newLink;
-            newLink.pre = previous;                                    //before pasting old link(previous here) , do all required operation
-
+            newLink.pre = previous;
             current.pre = newLink;
             newLink.next = current;
-
         }
     }
 
     public void displayForward() {
-        LinkD current = first;
+        LinkDD current = first;
         while (current != null) {
-            System.out.println(current.data);
+            System.out.print(current.data + "->");
             current = current.next;
         }
-
+        System.out.println("");
     }
 
     public void dispalyBackward() {
-        LinkD current = last;
+        LinkDD current = last;
         while (current != null) {
-            System.out.println(current.data);
+            System.out.print(current.data + "->");
             current = current.pre;
         }
+        System.out.println("");
     }
 }
-
-
-
-

@@ -1,6 +1,6 @@
 package Linked;
 
-public class DoublyLinkedListBST {
+public class DLL_BST_Conversion {
 
     private static LinkedListNode head;
     private static TreeNode root;
@@ -93,7 +93,7 @@ public class DoublyLinkedListBST {
 
 
     public static void main(String[] args) {
-        DoublyLinkedListBST dllbst = new DoublyLinkedListBST();
+        DLL_BST_Conversion dllbst = new DLL_BST_Conversion();
 
         // LinkedList Construction
         head = new LinkedListNode(1);
