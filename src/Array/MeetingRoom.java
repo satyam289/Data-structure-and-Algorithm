@@ -54,28 +54,29 @@ public class MeetingRoom {
         return n - k;
     }
 
-    //https://leetcode.com/accounts/login/?next=/problems/meeting-rooms-ii/
+    // https://leetcode.com/accounts/login/?next=/problems/meeting-rooms-ii/
 
-    private static class Interval{
+    private static class Interval {
         int start;
         int end;
-        //Inteval(int s, int e){ start = s; end = e;}
+        // Inteval(int s, int e){ start = s; end = e;}
     }
 
-    public int minMeetingRooms(Interval [] intervals){
-        if(intervals == null || interval.length == 0){
+    public int minMeetingRooms(Interval[] intervals) {
+        if (intervals == null || intervals.length == 0) {
             return 0;
         }
         Arrays.sort(intervals, (a, b) -> a.start - b.start); // sort by start time
         PriorityQueue<Interval> minHeap = new PriorityQueue<>((a, b) -> a.end - b.end);
         minHeap.add(intervals[0]);
 
-        for(int i = 1; i< intervals.length; i++){
+        for (int i = 1; i < intervals.length; i++) {
             Interval current = intervals[i];
             Interval earliest = minHeap.remove();
-            if(current.start >= earliest.end){ // earlier task can be completed before the current task begin, so removing earlier from min heap, pushing current one.
+            if (current.start >= earliest.end) { 
+                //earlier task can be completed before the current task begin, so removing earlier from min heap, pushing current one.
                 minHeap.add(current);
-            }else{
+            } else {
                 minHeap.add(current); // earlier task can't be completed, need extra meeting room, so maintaining both in min heap
                 minHeap.add(earliest);
             }
