@@ -1,8 +1,21 @@
 package tree;
 
-import tree.Tree234.Data;
+/*
+In computer science, a 2–3 tree is a tree data structure, where every node with children (internal node) has either two children (2-node) and one data element 
+or three children (3-nodes) and two data elements. 
 
+A 2–3 tree is a B-tree of order 3.
+https://en.wikipedia.org/wiki/2%E2%80%933_tree
+*/
 public class Tree23 {
+    
+    private static class Data {
+        int item;
+
+        Data(int item) {
+            this.item = item;
+        }
+    }
 
     private static class Node23 {
         int size;
@@ -10,6 +23,7 @@ public class Tree23 {
         Node23 parent;
         Node23[] childArray = new Node23[maxSize];
         Data[] dataArray = new Data[maxSize - 1];
+
         public int insert(int value) {
             size++;
             for (int i = maxSize - 2; i >= 0; i--) {
@@ -75,18 +89,18 @@ public class Tree23 {
 
     Node23 root = new Node23();
 
-	public int find(int value) {
-		Node23 current = root;
-		int childNum;
-		while (true) {
-			if ((childNum = current.find(value)) != -1)
-				return childNum;
-			else if (current.isLeaf())
-				return -1;
-			else
-				current = getNextChild(current, value);
-		}
-	}
+    public int find(int value) {
+        Node23 current = root;
+        int childNum;
+        while (true) {
+            if ((childNum = current.find(value)) != -1)
+                return childNum;
+            else if (current.isLeaf())
+                return -1;
+            else
+                current = getNextChild(current, value);
+        }
+    }
 
     public Node23 getNextChild(Node23 node, int value) {
         for (int i = 0; i < node.size; i++) {
@@ -186,8 +200,7 @@ public class Tree23 {
                 parent.connectChild(NewRightNode, 2);
         }
         return NewRightNode;
-	}
-
+    }
 
     public static void main(String[] args) {
         Tree23 t = new Tree23();
@@ -201,6 +214,7 @@ public class Tree23 {
         System.out.println("  ");
         if (t.find(8) != -1)
             System.out.println("found at " + t.find(8));
-        else System.out.println("Not Found");
+        else
+            System.out.println("Not Found");
     }
 }

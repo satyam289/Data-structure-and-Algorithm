@@ -1,6 +1,13 @@
 package tree;
 
+/*
+Wiki Ref:  2-3-4, B-Tree, B+ Tree
+https://en.wikipedia.org/wiki/2%E2%80%933%E2%80%934_tree
+https://en.wikipedia.org/wiki/B-tree
+https://en.wikipedia.org/wiki/B%2B_tree
 
+2-3-4 trees are multiway trees that can have up to four children and three data items per node
+*/
 public class Tree234 {
 
     static class Data {
@@ -29,13 +36,13 @@ public class Tree234 {
             return -1;
         }
 
-        public int insert(int item2) {   //assume non empty node
+        public int insert(int item2) { // assume non empty node
             size++;
             Data data = new Data(item2);
-            for (int i = maxSize - 2; i >= 0; i--) {      //start from back side
+            for (int i = maxSize - 2; i >= 0; i--) { // start from back side
 
-                if (dataArray[i] == null)                //backside might be null(non empty array)
-                    continue;                        //skip
+                if (dataArray[i] == null) // backside might be null(non empty array)
+                    continue; // skip
                 else {
                     if (dataArray[i].item > item2)
                         dataArray[i + 1] = dataArray[i];
@@ -90,7 +97,7 @@ public class Tree234 {
         while (true) {
             if (current.isFull()) {
                 split(current);
-                current = current.parent;     //assume parent is not full
+                current = current.parent; // assume parent is not full
 
                 current = getNextChild(current, value);
             } else if (current.isLeafNode())
@@ -139,7 +146,6 @@ public class Tree234 {
         return current.childArray[current.size];
     }
 
-
     public int find(int item) {
         Node234 current = root;
         int datanumber;
@@ -187,20 +193,16 @@ public class Tree234 {
             node.display();
             if (node.childArray[0] != null) {
                 inOrder(node.childArray[0]);
-                //node.display();
+                // node.display();
             }
             if (node.childArray[1] != null) {
                 inOrder(node.childArray[1]);
-                // node.display();
             }
             if (node.childArray[2] != null) {
                 inOrder(node.childArray[2]);
-                // node.display();
             }
-            //node.display();
         }
     }
-
 
     public void sortTraverse(int[] theArray) {
 
@@ -217,14 +219,14 @@ public class Tree234 {
     }
 
     private int recSortTraverse(Node234 curNode, int[] theArray, int i) {
-        //if it's a leaf, spew it all out
+        // if it's a leaf, spew it all out
         if (curNode.isLeafNode()) {
             for (int j = 0; j < curNode.size; j++) {
                 theArray[i++] = curNode.dataArray[j].item;
             }
             return i;
         }
-        //otherwise get child 0, print item 0, get child 1, print item 1...
+        // otherwise get child 0, print item 0, get child 1, print item 1...
         else {
             for (int j = 0; j < curNode.size + 1; j++) {
                 i = recSortTraverse(curNode.childArray[j], theArray, i);
@@ -236,28 +238,16 @@ public class Tree234 {
         }
     }
 
-
     public static void main(String[] args) {
         Tree234 t = new Tree234();
-	    /* t.insert(5);
-	     t.insert(3);
-	     t.insert(6);
-	     t.insert(4);
-	     t.insert(7);
-	     t.insert(8);
-	     t.insert(1);
-	     t.insert(9);
-	     t.insert(11);
-	     t.insert(12);
-	     t.insert(0);
-	    if(t.find(9)!=-1)
-	    	 System.out.println("found at "+ t.find(9));
-	     else System.out.println("Not Found");
-	     t.display();
-	     System.out.println("");
-	     //System.out.println("Minimum value: "+t.minValue());
-         t.inOrder(t.root);*/
-        int[] a = {4, 9, 1, 5, 10, 11};
+        /*
+         * t.insert(5); t.insert(3); t.insert(6); t.insert(4); t.insert(7); t.insert(8);
+         * t.insert(1); t.insert(9); t.insert(11); t.insert(12); t.insert(0);
+         * if(t.find(9)!=-1) System.out.println("found at "+ t.find(9)); else
+         * System.out.println("Not Found"); t.display(); System.out.println("");
+         * //System.out.println("Minimum value: "+t.minValue()); t.inOrder(t.root);
+         */
+        int[] a = { 4, 9, 1, 5, 10, 11 };
         t.sortTraverse(a);
     }
 }

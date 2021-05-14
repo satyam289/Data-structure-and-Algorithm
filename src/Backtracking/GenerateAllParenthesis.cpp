@@ -68,5 +68,23 @@ public class GenerateAllParenthesis {
         }
     }
 
+    //https://www.interviewbit.com/problems/generate-all-parentheses/
+    public int isValid(String A) {
+        Stack<Character> st = new Stack<>();
+        for(int i=0; i<A.length(); i++){
+            char ch = A.charAt(i);
+            if(ch == '(' || ch == '{' || ch == '['){
+                st.push(ch);
+            }else if(!st.isEmpty() && (ch == ')' &&  st.peek() == '(' 
+                || ch == '}' &&  st.peek() == '{' 
+                || ch == ']' &&  st.peek() == '[')){
+                    st.pop();
+            }else{
+                return 0;
+            }
+        }
+        return st.isEmpty() ? 1 : 0;
+    }
+
 }
 */
