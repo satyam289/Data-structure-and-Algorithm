@@ -4,6 +4,7 @@
 
 using namespace std;
 //https://www.interviewbit.com/problems/subset/
+//https://leetcode.com/problems/subsets/
 
 void subset(vector<int> &A, vector<vector<int>> &ans, vector<int> temp, int index)
 {
@@ -24,7 +25,7 @@ vector<vector<int>> solution(vector<int> &A)
     subset(A, ans, temp, 0);
 }
 /*
-public class Solution {
+public class AllSubSet {
     
     ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
     
@@ -33,17 +34,16 @@ public class Solution {
            return result;
        }
         Collections.sort(A);
-        result.add(new ArrayList<Integer>());
         generate(A, result, new ArrayList<Integer>(),0);
         return result;
     }
     
     public void generate(ArrayList<Integer> a, ArrayList<ArrayList<Integer>> output, ArrayList<Integer> temp, int index)
 	{
+        output.add(new ArrayList<Integer>(temp));
 		for (int i = index; i < a.size(); i++)
 		{
 			temp.add(a.get(i));
-			output.add(new ArrayList<Integer>(temp));
 			generate(a, output, temp, i+1);
 			temp.remove(temp.size() - 1);
 		}

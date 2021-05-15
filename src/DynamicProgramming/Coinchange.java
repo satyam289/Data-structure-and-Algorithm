@@ -2,7 +2,7 @@ package DynamicProgramming;
 
 //https://www.geeksforgeeks.org/find-minimum-number-of-coins-that-make-a-change/
 //https://leetcode.com/problems/coin-change/
-public class CoinchangeNoofWay {
+public class Coinchange {
 
     public static int minimumCoinRec(int[] coins, int total) {
         if (total == 0) {
