@@ -10,7 +10,7 @@ public class Coinchange {
         }
         int result = Integer.MAX_VALUE-1;
         for (int i = 0; i < coins.length; i++) { // starting from 0, means we can takes any coin infinite times in recusice call
-            if (coins[i] <= total) { // contributing only  when denomination of coin is greater than total
+            if (coins[i] <= total) { // contributing only  when denomination of coin is less than total
                 int subRecResult = minimumCoinRec(coins, total - coins[i]);
                 if (subRecResult + 1 < result) {
                     result = subRecResult + 1;

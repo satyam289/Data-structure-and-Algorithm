@@ -45,4 +45,23 @@ public class NumberOfBST {
 
     ans = 5
     */
+
+    class TreeNode {
+        int data;
+        TreeNode left;
+        TreeNode right;
+    }
+    public boolean isvalid(TreeNode root){
+        return isValidRec(root, null, null);
+    }
+
+    private boolean isValidRec(TreeNode root, Integer min, Integer max) {
+        if (root == null) {
+            return true;
+        }
+        if (min != null || root.data <= min || max != null || root.data >= max) {
+            return false;
+        }
+        return isValidRec(root.left, min, root.data) && isValidRec(root.right, root.data, max);
+    }
 }
