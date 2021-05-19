@@ -143,3 +143,82 @@ public class BinaryMinHeap<T> {
         }
     }
 }
+
+// Similar (easy to understand)
+class MinHeap {
+    List<Integer> list = new ArrayList<>();
+
+    MinHeap(List<Integer> list) {
+        this.list = list;
+        for (int i = list.size() / 2; i >= 0; i--) {
+            minheapify(i);
+        }
+    }
+
+    private void minheapify(int i) {
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+        int smallest = i;
+        if (left <= list.size() - 1 && list.get(left) < list.get(i)) {
+            smallest = left;
+        }
+        if (right < list.size() - 1 && list.get(right) < list.get(i)) {
+            smallest = right;
+        }
+        if (smallest != i) {
+            swap(i, smallest);
+            minheapify(smallest);
+        }
+    }
+
+    private void swap(int i, int parent) {
+        int temp = list.get(parent);
+        list.set(parent, list.get(i));
+        list.set(i, temp);
+    }
+
+    public int extractMin() {
+        if (list.size() == 0) {
+            throw new IllegalStateException("Empty Heap");
+        }
+        int min = -1;
+        if (list.size() == 1) {
+            min = list.remove(0);
+        } else {
+            min = list.get(0);
+            int last = list.remove(list.size() - 1);
+            list.set(0, last);
+            minheapify(0);
+        }
+        return min;
+    }
+
+    public void decreseKey(int currIdx, int key) {
+        if (list.get(currIdx) < key) {
+            throw new IllegalArgumentException("Key is greater existing position value");
+        }
+        list.set(currIdx, list.get(currIdx) - key);
+        int parentIdx = getParent(currIdx);
+        while (currIdx > 0 && list.get(parentIdx) > list.get(currIdx)) {
+            swap(currIdx, parentIdx);
+            currIdx = parentIdx;
+            parentIdx = getParent(currIdx);
+        }
+    }
+
+    public void insert(int item) {
+        list.add(item);
+        int currIdx = list.size() - 1;
+        int parentIdx = getParent(currIdx);
+        while (parentIdx != currIdx && list.get(currIdx) < list.get(parentIdx)) {
+            swap(currIdx, parentIdx);
+            currIdx = parentIdx;
+            parentIdx = getParent(currIdx);
+        }
+    }
+
+    private int getParent(int i) {
+        return i % 2 != 1 ? i - 1 / 2 : i / 2;
+    }
+}
+
