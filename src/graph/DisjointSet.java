@@ -1,8 +1,68 @@
+package graph;
+
+import java.util.HashMap;
+
+import java.util.Map;
+
+public class DisjointSet {
+
+    private class Node {
+        long data;
+        int rank;
+        Node parent;
+    }
+
+    private Map<Long, Node> map = new HashMap<>();
+
+    public void makeSet(long data) {
+        Node node = new Node();
+        node.data = data;
+        node.parent = node;
+        node.rank = 0;
+        map.put(data, node);
+    }
+
+    public boolean union(long data1, long data2) {
+        Node node1 = map.get(data1);
+        Node node2 = map.get(data2);
+
+        Node parent1 = findSet(node1);
+        Node parent2 = findSet(node2);
+        if (parent1.data == parent2.data) {
+            return false;
+        }
+        // whoever's rank is higher becomes parent of other
+        if (parent1.rank >= parent2.data) {
+            if (parent1.rank == parent2.rank) {
+                parent1.rank = parent1.rank + 1;
+            }
+            parent2.parent = parent1;
+        } else {
+            parent1.parent = parent2;
+        }
+        return true;
+    }
+
+    public long findSet(long data) {
+        return findSet(map.get(data)).data;
+    }
+
+    private Node findSet(Node node) {
+        Node parent = node.parent;
+        if (parent == node) {
+            return parent;
+        }
+        node.parent = findSet(node.parent); // path compression
+        return node.parent;
+    }
+}
+
+/*
 /**
  * A disjoint set data structure (also called union find or merge find set)
  * is a data structure that tracks a set of elements partitioned into a number of disjoint (non-overlapping) subsets.
  * Some situations where disjoint sets can be used are- to find connected components of a graph, kruskal's algorithm for finding Minimum Spanning Tree etc.
- */
+ *
 
 #include <iostream>
 #include <vector>
@@ -18,7 +78,7 @@ vector<int> root, rank;
  * Function to create a set
  * @param n number of element
  *
- */
+ *
 void CreateSet(int n) {
     root = vector<int>(n + 1);
     rank = vector<int>(n + 1, 1);
@@ -34,7 +94,7 @@ void CreateSet(int n) {
  * @param x element of some set
  * @return set to which x belongs to
  *
- */
+ *
 int Find(int x) {
     if (root[x] == x) {
         return x;
@@ -48,7 +108,7 @@ int Find(int x) {
  * @param x element of some set
  * @param y element of some set
  *
- */
+ *
 bool InSameUnion(int x, int y) { return Find(x) == Find(y); }
 
 /**
@@ -59,7 +119,7 @@ bool InSameUnion(int x, int y) { return Find(x) == Find(y); }
  * @param x element of some set
  * @param y element of some set
  *
- */
+ *
 void Union(int x, int y) {
     int a = Find(x), b = Find(y);
     if (a != b) {
@@ -83,14 +143,13 @@ int main() {
             break;
         }
     }
-    cout << "1 and 2 are initially not in the same subset" << endl;
     if (InSameUnion(1, 2)) {
         cout << "Fail" << endl;
     }
     Union(1, 2);
-    cout << "1 and 2 are now in the same subset" << endl;
     if (!InSameUnion(1, 2)) {
         cout << "Fail" << endl;
     }
     return 0;
-}
+} 
+*/

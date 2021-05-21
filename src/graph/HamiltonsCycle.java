@@ -6,6 +6,7 @@ import java.util.Set;
 
 import graph.Graph2.Vertex2;
 
+//https://www.geeksforgeeks.org/hamiltonian-cycle-backtracking-6/
 class HamiltonsCycle {
 
     public <T> boolean getHamilton(Graph2<T> graph, List<Vertex2<T>> result) {
@@ -18,6 +19,8 @@ class HamiltonsCycle {
     private <T> boolean HamiltonsUtil(Vertex2<T> startVertex, Vertex2<T> currentVertex, List<Vertex2<T>> result,
             Set<Vertex2<T>> visited, int totalVextex) {
 
+        visited.add(currentVertex);
+        result.add(currentVertex);
         for (Vertex2<T> child : currentVertex.getAllAdajecent()) {
             if (startVertex.equals(child) && totalVextex == result.size()) {
                 result.add(startVertex);
