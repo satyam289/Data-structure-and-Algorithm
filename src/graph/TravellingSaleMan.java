@@ -12,10 +12,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringJoiner;
 
-// Ref: https://www.youtube.com/watch?v=-JjA4BLQyqE
-// Held Karp
-// Time complexity - O(2^n * n^2)
-// Space complexity - O(2^n)
+/* If he reach same point (starting point) by travelling all other points exactly once
+* If we permute all combination, choose the least min distance covered . Time complexity : n!
+* Ref Video: https://www.youtube.com/watch?v=-JjA4BLQyqE
+* Held Karp Method (DP)
+* Time complexity - O(2^n * n^2)
+* Space complexity - O(2^n)
+*/
 public class TravellingSaleMan {
 
     private static class Index {
@@ -37,7 +40,7 @@ public class TravellingSaleMan {
         public boolean equals(Object obj) {
             if (this == obj)
                 return true;
-            if (obj == null | getClass() != obj.getClass()) {
+            if (obj == null || getClass() != obj.getClass()) {
                 return false;
             }
             Index index = (Index) obj;
@@ -49,9 +52,10 @@ public class TravellingSaleMan {
     }
 
     public static int minCost(int[][] distance) {
+
         Map<Index, Integer> minCostDp = new HashMap<>();
         Map<Index, Integer> parent = new HashMap<>();
-        List<Set<Integer>> allset = generateCombination(distance.length);
+        List<Set<Integer>> allset = generateCombination(distance.length - 1);
 
         for (Set<Integer> set : allset) {
             for (int currVertex = 1; currVertex < distance.length; currVertex++) {
@@ -62,7 +66,7 @@ public class TravellingSaleMan {
                 Index index = new Index(currVertex, set);
                 int minCost = Integer.MAX_VALUE;
                 int minPreVextex = 0;
-                Set<Integer> copySet = new HashSet<>();
+                Set<Integer> copySet = new HashSet<>(set);
 
                 for (int preVertex : set) {
                     int cost = distance[preVertex][currVertex] + getCost(copySet, preVertex, minCostDp);
@@ -122,7 +126,7 @@ public class TravellingSaleMan {
         }
         StringJoiner joiner = new StringJoiner("-->");
         stack.forEach(v -> joiner.add(String.valueOf(v)));
-        System.out.print(joiner.toString());
+        System.out.println(joiner.toString());
     }
 
     private static List<Set<Integer>> generateCombination(int n) {
@@ -163,5 +167,10 @@ public class TravellingSaleMan {
             set.add(result[i]);
         }
         return set;
+    }
+
+    public static void main(String[] args) {
+        int[][] graph = { { 0, 1, 15, 6 }, { 2, 0, 7, 3 }, { 9, 6, 0, 12 }, { 10, 4, 8, 0 } };
+        System.out.println("The minimum cost " + minCost(graph));
     }
 }
