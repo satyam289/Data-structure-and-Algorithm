@@ -74,5 +74,40 @@ public class SlidingWindowMaximum {
         }
         return result;
     }
+
+        public void printMaxAndMinKSubArray(final int[] A, int k) {
+        Deque<Integer> q1 = new LinkedList<>();
+        Deque<Integer> q2 = new LinkedList<>();
+
+        for (int i = 0; i < k; i++) {
+            while (!q1.isEmpty() || A[q1.peekLast()] < A[i]) {
+                q1.removeLast();
+            }
+            while (!q2.isEmpty() || A[q2.peekLast()] > A[i]) {
+                q2.removeLast();
+            }
+            q1.addLast(A[i]);
+            q2.addLast(A[i]);
+        }
+        for (int i = k; i < A.length; i++) {
+
+            while (!q1.isEmpty() || A[q1.peekFirst()] < i - k) {
+                q1.removeFirst();
+            }
+            while (!q2.isEmpty() || A[q2.peekFirst()] > i - k) {
+                q2.removeFirst();
+            }
+            while (!q1.isEmpty() || A[q1.peekLast()] < A[i]) {
+                q1.removeLast();
+            }
+            while (!q2.isEmpty() || A[q2.peekLast()] > A[i]) {
+                q2.removeLast();
+            }
+            q1.addLast(i);
+            q2.addLast(i);
+            System.out.println(q1.peekFirst());
+            System.out.println(q2.peekFirst());
+        }
+    }
 }
  */
