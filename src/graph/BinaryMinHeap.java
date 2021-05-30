@@ -89,6 +89,11 @@ public class BinaryMinHeap<T> {
         }
     }
 
+    public T extractMin() {
+        Node node = extractMinNode();
+        return node.key;
+    }
+
     public Node extractMinNode() {
         int size = allNode.size() - 1;
         Node minNode = new Node(allNode.get(0).key, allNode.get(0).weight);
@@ -221,4 +226,3 @@ class MinHeap {
         return i % 2 != 1 ? i - 1 / 2 : i / 2;
     }
 }
-
