@@ -1,9 +1,11 @@
 package DynamicProgramming;
 
+//https://www.interviewbit.com/problems/min-jumps-array/
 //https://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/
 //https://www.geeksforgeeks.org/minimum-number-jumps-reach-endset-2on-solution/
 public class MinimumNoJumpTillEnd {
 
+    // Time Complexity : 0(n^2)
     public static int getMinJump(int[] arr) {
 
         int n = arr.length;
@@ -31,6 +33,28 @@ public class MinimumNoJumpTillEnd {
             pos = actualJump[pos];
         }
         return noOfJump[n - 1];
+    }
+
+    // Time Complexity : 0(n)
+    public int jump(int[] A) {
+        if (A.length == 1 && A[0] == 0) {
+            return 0;
+        }
+        int jumps = 1;
+        int maxReach = A[0];
+        int reachTill = A[0];
+
+        for (int i = 1; i < A.length; i++) {
+            if (maxReach < i) {
+                return -1;
+            }
+            if (reachTill < i) {
+                jumps++;
+                reachTill = maxReach;
+            }
+            maxReach = Math.max(maxReach, i + A[i]);
+        }
+        return jumps;
     }
 
     public static void main(String[] args) {

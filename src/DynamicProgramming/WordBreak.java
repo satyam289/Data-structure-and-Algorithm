@@ -1,5 +1,8 @@
 package DynamicProgramming;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -58,6 +61,25 @@ public class WordBreak {
         return null;
     }
 
+    // Recursion with Memorization
+    public int wordBreakRecursion2(String word, HashSet<String> dict, HashMap<String, Integer> map) {
+        if (dict.contains(word)) {
+            return 1;
+        }
+        if (map.containsKey(word)) {
+            return 1;
+        }
+        for (int i = 0; i < word.length(); i++) {
+            String leftStr = word.substring(0, i);
+            if (dict.contains(leftStr) && wordBreakRecursion2(word.substring(i), dict, map) == 1) {
+                map.put(word, 1); // Found
+                return 1;
+            }
+        }
+        map.put(word, 0); // Not Found
+        return 0;
+    }
+
     // Better Apporach
     public static String breakWordDp(String word, Set<String> dict) {
         int n = word.length();
@@ -114,5 +136,36 @@ public class WordBreak {
         wordBreak(str, dictionary);
         System.out.println(breakWordRecursion(str.toCharArray(), 0, dictionary));
         System.out.println(breakWordDp(str, dictionary));
+    }
+
+    /*
+     * https://www.interviewbit.com/problems/word-break-ii/
+     */
+    public class Solution {
+
+        ArrayList<String> result = new ArrayList<>();
+
+        public ArrayList<String> wordBreak(String A, ArrayList<String> B) {
+            wordBreakRec(A, 0, "", B);
+            Collections.sort(result);
+            return result;
+        }
+
+        public void wordBreakRec(String A, int index, String res, ArrayList<String> B) {
+            if (index == A.length()) {
+                if (res != "") {
+                    result.add(res);
+                }
+                return;
+            }
+            StringBuffer sb = new StringBuffer();
+            for (int i = index; i < A.length(); i++) {
+                sb.append(A.charAt(i));
+
+                if (B.contains(sb.toString())) {
+                    wordBreakRec(A, i + 1, res + " " + sb.toString(), B);
+                }
+            }
+        }
     }
 }
