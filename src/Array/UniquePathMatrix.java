@@ -1,19 +1,17 @@
 package Array;
 
+import java.util.Arrays;
+
 // https://www.interviewbit.com/problems/unique-paths-in-a-grid/
 public class UniquePathMatrix {
-    
+
     /*
-    Given a grid of size m * n, lets assume you are starting at (1,1) and your goal is to reach (m,n). 
-    At any instance, if you are on (x,y), you can either go to (x, y + 1) or (x + 1, y).
-    Now consider if some obstacles are added to the grids. Find unique paths.
-    [
-        [0,0,0],
-        [0,1,0],
-        [0,0,0]
-    ]
-    The total number of unique paths is 2.
-    */
+     * Given a grid of size m * n, lets assume you are starting at (1,1) and your
+     * goal is to reach (m,n). At any instance, if you are on (x,y), you can either
+     * go to (x, y + 1) or (x + 1, y). Now consider if some obstacles are added to
+     * the grids. Find unique paths. [ [0,0,0], [0,1,0], [0,0,0] ] The total number
+     * of unique paths is 2.
+     */
     public int uniquePathsWithObstacles(int[][] A) {
 
         int m = A.length;
@@ -47,7 +45,7 @@ public class UniquePathMatrix {
         return table[m][n];
     }
 
-    //https://leetcode.com/problems/unique-paths/
+    // https://leetcode.com/problems/unique-paths/
     public int uniquePaths(int m, int n) {
         int[][] dp = new int[m][n];
         for (int i = 0; i < m; i++) {
@@ -62,5 +60,55 @@ public class UniquePathMatrix {
             }
         }
         return dp[m - 1][n - 1];
+    }
+
+    // https://www.interviewbit.com/problems/increasing-path-in-matrix/
+    /*
+     * Given a 2D integer matrix A of size N x M. From A[i][j] you can move to
+     * A[i+1][j], if A[i+1][j] > A[i][j], or can move to A[i][j+1] if A[i][j+1] >
+     * A[i][j]. The task is to find and output the longest path length if we start
+     * from (0, 0)
+     */
+    public int solve(int[][] A) {
+        int n = A.length;
+        int m = A[0].length;
+
+        int[][] T = new int[n][m];
+        for (int[] t : T) {
+            Arrays.fill(t, -1);
+        }
+        T[0][0] = 1;
+        for (int i = 1; i < n; i++) {
+            if (A[i][0] > A[i - 1][0]) {
+                if (T[i - 1][0] > 0) {
+                    T[i][0] = 1 + T[i - 1][0];
+                }
+            }
+        }
+        for (int j = 1; j < m; j++) {
+            if (A[0][j] > A[0][j - 1]) {
+                if (T[0][j - 1] > 0) {
+                    T[0][j] = 1 + T[0][j - 1];
+                }
+            }
+        }
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                int max = -1;
+                if (A[i][j] > A[i - 1][j]) {
+                    max = T[i - 1][j];
+                }
+                if (A[i][j] > A[i][j - 1]) {
+                    max = Math.max(max, T[i][j - 1]);
+                }
+                if (max != -1) {
+                    T[i][j] = 1 + max;
+                }
+            }
+        }
+        if (T[n - 1][m - 1] == -1) {
+            return -1;
+        }
+        return T[n - 1][m - 1];
     }
 }
