@@ -1,4 +1,4 @@
-package Array;
+package Math_Bit;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ public class LeastNoPerfectSum {
         if (num <= 0)
             return 0;
         int allowed = (int) Math.floor(Math.sqrt(num));
-        //System.out.println(allowed);
+        // System.out.println(allowed);
         int min = Integer.MAX_VALUE;
         if (hm.containsKey(num)) {
             return hm.get(num);
@@ -27,4 +27,3 @@ public class LeastNoPerfectSum {
         return min;
     }
 }
-

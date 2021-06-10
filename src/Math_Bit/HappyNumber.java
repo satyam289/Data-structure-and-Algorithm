@@ -1,4 +1,4 @@
-package Array;
+package Math_Bit;
 
 import java.util.HashSet;
 

@@ -29,7 +29,7 @@ class AddBinary {
 
 
 /* java Implementaion
-package Miscellaneous;
+package Math_Bit;
 
 import java.util.Arrays;
 

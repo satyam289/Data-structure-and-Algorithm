@@ -1,4 +1,4 @@
-package Array;
+package Math_Bit;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -14,8 +14,9 @@ class IntegerToRoman {
     }
 
     public static String intToRomanBetter(int num) {
-        //LinkedHashMap for insertion order or we can use TreeMap. For Ex: Map<K, V> treeMap = new TreeMap<>(Collections.reverseOrder());
-        Map<Integer, String> map = new LinkedHashMap<Integer, String>(); 
+        // LinkedHashMap for insertion order or we can use TreeMap. For Ex: Map<K, V>
+        // treeMap = new TreeMap<>(Collections.reverseOrder());
+        Map<Integer, String> map = new LinkedHashMap<Integer, String>();
         map.put(1000, "M");
         map.put(900, "CM");
         map.put(500, "D");
@@ -39,7 +40,7 @@ class IntegerToRoman {
         }
         return result;
     }
-   
+
     public static String intToRomanNaive2(int A) {
         String ans = "";
         while (A > 0) {
@@ -214,7 +215,7 @@ class IntegerToRoman {
         return null;
     }
 
-    public static void main(String [] args){
+    public static void main(String[] args) {
         System.out.println("Fastest : " + intToRomanBest(45));
         System.out.println("Optimal : " + intToRomanBetter(45));
         System.out.println("Brute Force 1 : " + intToRomanNaive(45));

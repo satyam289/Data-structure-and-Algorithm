@@ -1,4 +1,4 @@
-package Array;
+package Math_Bit;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,27 +6,27 @@ import java.util.Collections;
 import java.util.HashSet;
 
 class TripletSum {
-    
-    //Time Complexity = 0(n2), space Complexity = 0(n)
-    public static void findAllTripletSum(int[] input, int target){
+
+    // Time Complexity = 0(n2), space Complexity = 0(n)
+    public static void findAllTripletSum(int[] input, int target) {
 
         HashSet<Integer> set = new HashSet<>();
-        for(int i=0; i<input.length-2; i++) {
+        for (int i = 0; i < input.length - 2; i++) {
             int reduceSum = target - input[i];
-            for(int j=i+1; j<input.length; j++) {
-                if(set.contains(reduceSum - input[j])){
-                   System.out.println(input[i] + "," + input[j] + "," + (reduceSum - input[j]));
-                   return;
-                }else{
-                  set.add(input[j]);
+            for (int j = i + 1; j < input.length; j++) {
+                if (set.contains(reduceSum - input[j])) {
+                    System.out.println(input[i] + "," + input[j] + "," + (reduceSum - input[j]));
+                    return;
+                } else {
+                    set.add(input[j]);
                 }
             }
         }
     }
-    
-    //Time Complexity = 0(n2) , space Complexity = 0(1)
+
+    // Time Complexity = 0(n2) , space Complexity = 0(1)
     public static void findAllTripletSumOptimized(int[] input, int target) {
-        
+
         Arrays.sort(input);
         for (int i = 0; i < input.length - 2; i++) {
             int reduceSum = target - input[i];
@@ -53,7 +53,8 @@ class TripletSum {
         int n = A.size();
         for (int i = 0; i < n - 2; i++) {
 
-            if (i == 0 || (long) A.get(i) != (long) A.get(i - 1)) { // consider only first index of duplicate for possible sum
+            if (i == 0 || (long) A.get(i) != (long) A.get(i - 1)) { // consider only first index of duplicate for
+                                                                    // possible sum
                 int j = i + 1;
                 int k = n - 1;
                 while (j < k) {
@@ -66,7 +67,7 @@ class TripletSum {
                         // if(!result.contains(arr)){ // alternate option for duplicate
                         result.add(arr);
                         // }
-                        while (j < k && (long) A.get(j) == (long) A.get(j + 1)) {  // skip duplicate lower end
+                        while (j < k && (long) A.get(j) == (long) A.get(j + 1)) { // skip duplicate lower end
                             j++;
                         }
                         while (j < k && (long) A.get(k) == (long) A.get(k - 1)) { // skip duplicate hiher end
@@ -85,11 +86,10 @@ class TripletSum {
         return result;
     }
 
-    public static void main(String[] args) 
-    { 
-        int A[] = { 1, 4, 45, 6, 10, 8 }; 
-        int sum = 22; 
-        findAllTripletSum(A, sum); 
+    public static void main(String[] args) {
+        int A[] = { 1, 4, 45, 6, 10, 8 };
+        int sum = 22;
+        findAllTripletSum(A, sum);
         findAllTripletSumOptimized(A, sum);
-    } 
+    }
 }

@@ -1,18 +1,18 @@
-package Miscellaneous;
+package Math_Bit;
 
 class AddTwoFraction {
 
     // Function to add two fractions
     public static void addFraction(int num1, int den1, int num2, int den2) {
         int gcd = getGcd(den1, den2);
-        //finding LCM of den1 and den2 (LCM * GCD = a * b)
+        // finding LCM of den1 and den2 (LCM * GCD = a * b)
         int newDen = (den1 * den2) / gcd;
         int newNum = (num1) * (newDen / den1) + (num2) * (newDen / den2);
         simply(newDen, newNum);
     }
-    
+
     // Greatest Common Factor
-    private static int getGcd(int a, int b) { 
+    private static int getGcd(int a, int b) {
         if (a == 0)
             return b;
         return getGcd(b % a, a);

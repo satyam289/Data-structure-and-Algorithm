@@ -1,4 +1,4 @@
-package Array;
+package Math_Bit;
 
 /*
 https://www.geeksforgeeks.org/find-the-missing-number/

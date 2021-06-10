@@ -1,8 +1,8 @@
-package Array;
+package Math_Bit;
 
 // https://www.geeksforgeeks.org/find-square-root-number-upto-given-precision-using-binary-search/
 public class SquareRoot {
-    
+
     public static float sqrt(int number, int precision) {
 
         int start = 0, end = number;
@@ -35,8 +35,7 @@ public class SquareRoot {
         return (float) result;
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         System.out.println(sqrt(50, 3));
         System.out.println(sqrt(10, 4));
     }

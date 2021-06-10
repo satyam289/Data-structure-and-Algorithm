@@ -53,7 +53,7 @@ public:
     }
 };
 /*
-package DynamicProgramming;
+package Math_Bit;
 
 import java.util.HashMap;
 import java.util.Map;

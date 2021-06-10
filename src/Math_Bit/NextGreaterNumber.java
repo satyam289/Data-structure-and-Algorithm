@@ -1,4 +1,4 @@
-package Array;
+package Math_Bit;
 
 import java.util.Arrays;
 import java.util.Stack;
@@ -6,12 +6,12 @@ import java.util.Stack;
 public class NextGreaterNumber {
 
     public static void main(String[] args) {
-        int[] arr = {11, 13, 21, 3};
+        int[] arr = { 11, 13, 21, 3 };
         findNextGreater(arr);
         findNextGreaterOptimised(arr);
     }
 
-    //0(n2)
+    // 0(n2)
     public static void findNextGreater(int[] arr) {
 
         int[] temp = new int[arr.length];
@@ -19,13 +19,14 @@ public class NextGreaterNumber {
             for (int j = i; j < arr.length; j++) {
                 if (arr[j] > arr[i]) {
                     temp[i] = arr[j];
+                    break;
                 }
             }
         }
         System.out.println(Arrays.toString(temp));
     }
 
-    //0(n)
+    // 0(n)
     public static void findNextGreaterOptimised(int[] arr) {
 
         Stack<Integer> stack = new Stack<>();
@@ -42,7 +43,7 @@ public class NextGreaterNumber {
             }
         }
         while (!stack.isEmpty()) {
-            System.out.println(stack.pop() + "-> null");
+            System.out.println(stack.pop() + "-> 0");
         }
     }
 }

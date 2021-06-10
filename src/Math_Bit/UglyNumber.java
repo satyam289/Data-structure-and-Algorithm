@@ -1,4 +1,4 @@
-package DynamicProgramming;
+package Math_Bit;
 
 import java.util.Arrays;
 
@@ -39,7 +39,7 @@ public class UglyNumber {
     }
 
     public static void dynammicprogramming(int number) {
-        int[] index = new int[]{0, 0, 0};
+        int[] index = new int[] { 0, 0, 0 };
         int[] uglyarray = new int[number];
         int multiplier_two = 2;
         int multiplier_three = 3;
@@ -50,8 +50,8 @@ public class UglyNumber {
             int min = Math.min(multiplier_two, Math.min(multiplier_three, multiplier_five));
             uglyarray[i] = min;
             if (min == multiplier_two) {
-                index[0]++;               //this is index is corresponds to current ith index (wrost case senario)
-                multiplier_two = uglyarray[index[0]] * 2;   // multiply with current filled array with 2
+                index[0]++; // this is index is corresponds to current ith index (wrost case senario)
+                multiplier_two = uglyarray[index[0]] * 2; // multiply with current filled array with 2
 
             }
             if (min == multiplier_three) {

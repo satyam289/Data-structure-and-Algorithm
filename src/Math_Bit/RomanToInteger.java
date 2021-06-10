@@ -1,9 +1,9 @@
-package Array;
+package Math_Bit;
 
 import java.util.HashMap;
 
 public class RomanToInteger {
-    
+
     public static int romanToInt(String str) {
         if (str.length() == 0)
             return 0;
@@ -73,7 +73,7 @@ public class RomanToInteger {
         return ans;
     }
 
-    public static void main(String args[]){
+    public static void main(String args[]) {
         System.out.println(romanToInt("XIV"));
         System.out.println(romanToInt2("XIV"));
     }
