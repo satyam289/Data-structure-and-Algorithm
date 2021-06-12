@@ -70,4 +70,38 @@ public class ValidParenthesis {
     private static boolean isSame(char ch1, char ch2) {
         return ch1 == '(' && ch2 == ')' || ch1 == '{' && ch2 == '}' || ch1 == '[' && ch2 == ']';
     }
+
+    // https://www.interviewbit.com/problems/minimum-parantheses/
+    public int minAddParan1(String A) {
+        Stack<Character> st = new Stack<>();
+        int count = 0;
+        for (int i = 0; i < A.length(); i++) {
+            char ch = A.charAt(i);
+            if (ch == '(') {
+                st.push(ch);
+            } else {
+                if (st.isEmpty()) {
+                    count++; // extra closing braces
+                } else {
+                    st.pop();
+                }
+            }
+        }
+        int n = st.size();
+        return n + count;
+    }
+
+    // optimised Space Complexity : 0(1)
+    public int minAddParan2(String A) {
+        int balance = 0;
+        int close = 0;
+        for (char c : A.toCharArray()) {
+            balance += c == '(' ? 1 : -1;
+            if (balance == -1) {
+                close++;
+                balance++;
+            }
+        }
+        return Math.abs(balance + close);
+    }
 }

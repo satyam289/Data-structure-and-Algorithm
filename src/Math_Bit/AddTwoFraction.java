@@ -18,6 +18,21 @@ class AddTwoFraction {
         return getGcd(b % a, a);
     }
 
+    // https://www.interviewbit.com/problems/greatest-common-divisor/
+    private static int gcd2(int A, int B) {
+        if (B == 0) { // base case
+            return A;
+        }
+        if (A == 0) { // base case
+            return B;
+        }
+        if (B > A) {
+            return gcd2(B, A);
+        } else {
+            return gcd2(A % B, B);
+        }
+    }
+
     private static void simply(int den3, int num3) {
         int common_factor = getGcd(num3, den3);
         den3 = den3 / common_factor;
