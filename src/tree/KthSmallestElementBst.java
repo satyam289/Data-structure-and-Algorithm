@@ -1,5 +1,6 @@
 package tree;
 
+//https://www.interviewbit.com/problems/kth-smallest-element-in-tree/
 //https://leetcode.com/problems/kth-smallest-element-in-a-bst/
 public class KthSmallestElementBst {
     private static class TreeNode {
@@ -19,7 +20,8 @@ public class KthSmallestElementBst {
             return;
         }
         inorder(root.left, result, k);
-        if (++result[0] == k) {
+        result[0]++;
+        if (result[0] == k) {
             result[1] = root.val;
             return;
         }
