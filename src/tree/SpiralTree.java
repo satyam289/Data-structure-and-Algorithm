@@ -1,7 +1,9 @@
 package tree;
 
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Queue;
 
 //https://www.geeksforgeeks.org/level-order-traversal-in-spiral-form/
 public class SpiralTree {
@@ -10,12 +12,13 @@ public class SpiralTree {
         int val;
         Node left;
         Node right;
+
         Node(int val) {
             this.val = val;
             left = right = null;
         }
     }
-    
+
     public static void spiralWithOneDeque(Node node) {
         if (node == null) {
             return;
@@ -39,7 +42,7 @@ public class SpiralTree {
                     }
                 } else {
                     node = q.pollLast();
-                    System.out.print(node.val +"->");
+                    System.out.print(node.val + "->");
                     if (node.right != null) {
                         q.addFirst(node.right);
                     }
@@ -92,15 +95,7 @@ public class SpiralTree {
         }
     }
 
-
-   /*
-            1
-        2      3
-      7  6    5  4
-
-   */
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Node root = new Node(1);
         root.left = new Node(2);
         root.right = new Node(3);
@@ -110,6 +105,56 @@ public class SpiralTree {
         root.right.right = new Node(4);
         System.out.println("Spiral order traversal of Binary Tree is ");
         spiralWithOneDeque(root);
-        //spiralWithDequeAndDelimiter(root);
+        // spiralWithDequeAndDelimiter(root);
+    }
+
+    // https://www.interviewbit.com/problems/diagonal-traversal/
+    public ArrayList<Integer> solve(Node A) {
+        Queue<Node> q = new LinkedList<>();
+        ArrayList<Integer> result = new ArrayList<Integer>();
+        if (A == null) {
+            return result;
+        }
+        q.add(A);
+        while (!q.isEmpty()) {
+            Node node = q.remove();
+
+            while (node != null) {
+                if (node.left != null) {
+                    q.add(node.left);
+                }
+                result.add(node.val);
+                node = node.right;
+            }
+        }
+        return result;
+    }
+
+    // Similar as above
+    public ArrayList<Integer> solve2(Node A) {
+        if (A == null) {
+            return new ArrayList<>(0);
+        }
+        Queue<Node> q = new LinkedList<>();
+        Node root = A;
+        while (root != null) {
+            q.offer(root);
+            root = root.right;
+        }
+        ArrayList<Integer> answer = new ArrayList<>();
+        /*
+         * For each de-queue operation check for the left node if not NULL then pick the
+         * left node and add all the right children to the queue.
+         */
+        while (!q.isEmpty()) {
+            root = q.poll();
+            answer.add(root.val);
+            root = root.left;
+            while (root != null) {
+                q.offer(root);
+                root = root.right;
+            }
+        }
+        return answer;
     }
 }
