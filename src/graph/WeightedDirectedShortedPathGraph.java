@@ -26,19 +26,15 @@ public class WeightedDirectedShortedPathGraph {
         int ntree = 1;
         currentvertex = passvertex;
         for (int i = 0; i < noVertex; i++) {
-            spath[i] = new distance(adjacencyMaxtrix[currentvertex][i], currentvertex); // filling the default
-                                                                                        // value(direct path) to that
-                                                                                        // selected vertex
+            spath[i] = new distance(adjacencyMaxtrix[currentvertex][i], currentvertex);
         }
         vertexArray[currentvertex].wasvisited = true;
 
-        while (ntree < noVertex) { // till every vertex
+        while (ntree < noVertex) {
             int minIndex = getMin();
-            // System.out.println("**********"+minIndex);
             int distance = spath[minIndex].distannce;
-            if (distance == infinity) { // there are some unreachable vertex when all minimum node is visited, only
-                                        // infinity left in spath
-                System.out.println("there are unreachable vertex");
+            if (distance == infinity) {
+                System.out.println("there are some unreachable vertex with infinity value");
                 break;
             } else {
                 vertexArray[minIndex].wasvisited = true;
@@ -55,8 +51,11 @@ public class WeightedDirectedShortedPathGraph {
 
     }
 
-    private void adust_path() { // adjusting the spath according to the currentvertex(min_vertex), establish the
-                                // link and replacing with lower value if exist!
+    /*
+     * Adjusting the spath according to the currentvertex(min_vertex), establish the
+     * link and replacing with lower value if exist!
+     */
+    private void adust_path() {
         int col = 0;
         while (col < noVertex) { // for that current vertex to all other vertex
             if (vertexArray[col].wasvisited) { // skip,if that node already visited
@@ -64,12 +63,10 @@ public class WeightedDirectedShortedPathGraph {
                 continue;
             }
             int current2fringe = adjacencyMaxtrix[currentvertex][col]; // lookup for unvisited node(column wise)
-            int start2fringe = start2current + current2fringe; // adding old value (if infinity, then addition is always
-                                                               // greater , so cant be replaced
+            int start2fringe = start2current + current2fringe; // adding old value
             // System.out.println("total distance "+start2fringe+ " spath
             // "+spath[col].distannce);
             if (start2fringe < spath[col].distannce) { // if older is greater, replace with new lesser value or new
-                                                       // entry
                 spath[col].distannce = start2fringe;
                 spath[col].parentvertex = currentvertex;
             }
@@ -153,6 +150,5 @@ public class WeightedDirectedShortedPathGraph {
         w.path(2);
         System.out.println();
     }
-
 
 }
