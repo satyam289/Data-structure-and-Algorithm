@@ -1,5 +1,7 @@
 package DynamicProgramming;
 
+import java.util.ArrayList;
+
 //https://www.interviewbit.com/problems/min-jumps-array/
 //https://www.geeksforgeeks.org/minimum-number-of-jumps-to-reach-end-of-a-given-array/
 //https://www.geeksforgeeks.org/minimum-number-jumps-reach-endset-2on-solution/
@@ -60,5 +62,17 @@ public class MinimumNoJumpTillEnd {
     public static void main(String[] args) {
         int[] arr = { 2, 3, 1, 1, 2, 4, 2, 0, 1, 1 };
         System.out.println(getMinJump(arr));
+    }
+
+    // https://www.interviewbit.com/problems/jump-game-array/
+    public boolean canJump(ArrayList<Integer> a) {
+        int currJump = 0;
+        for (int i = 0; i < a.size(); i++) {
+            if (currJump < 0)
+                return false;
+            currJump = Math.max(a.get(i), currJump);
+            currJump--;
+        }
+        return true;
     }
 }

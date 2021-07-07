@@ -43,4 +43,29 @@ public class GenerateBST {
             return list;
         }
     }
+
+    // https://www.interviewbit.com/problems/unique-binary-search-trees-ii/
+    // https://www.geeksforgeeks.org/program-nth-catalan-number/
+    public int numTrees1(int num) {
+        if (num <= 1) {
+            return 1;
+        }
+        int res = 0;
+        for (int i = 0; i < num; i++) {
+            res += numTrees1(i) * numTrees1(num - i - 1);
+        }
+        return res;
+    }
+
+    // catalane DP Apporach
+    public int numTrees2(int num) {
+        int[] dp = new int[num + 1];
+        dp[0] = dp[1] = 1;
+        for (int i = 2; i <= num; i++) {
+            for (int j = 0; j < i; j++) {
+                dp[i] += dp[j] * dp[i - j - 1];
+            }
+        }
+        return dp[num];
+    }
 }
