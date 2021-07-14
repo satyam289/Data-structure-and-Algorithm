@@ -84,7 +84,7 @@ public class WildcardMatch {
                } else if (star != -1) {
                    si = ++match;
                    pi = star + 1;
-               } else return false?1:0;
+               } else return 0;
            }
            while (pi < pl && pc[pi] == '*') pi++;
            return pi == pl?1:0;

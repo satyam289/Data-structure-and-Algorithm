@@ -1,5 +1,7 @@
 package Math_Bit;
 
+import java.util.ArrayList;
+
 /*
 https://www.geeksforgeeks.org/find-the-missing-number/
   1 2 3 _ 5  
