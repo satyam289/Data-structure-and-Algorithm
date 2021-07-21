@@ -1,6 +1,7 @@
 package DynamicProgramming;
 
 import java.util.HashMap;
+import java.util.List;
 
 //https://www.interviewbit.com/problems/maximum-path-in-triangle/
 public class MaxPathInTraingle {
@@ -57,4 +58,21 @@ public class MaxPathInTraingle {
         map.put(row + ":" + col, childPathsum + A[row][col]);
         return childPathsum + A[row][col];
     }
+
+    //TriangleMinSumAdjacentFromTopToBottom
+	public static int getMinSumTriangle(List<List<Integer>> traingle) {
+
+		int N = traingle.size();
+		int[] table = new int[N];
+
+		for (int j = 0; j < traingle.get(N - 1).size(); j++) {
+			table[j] = traingle.get(N - 1).get(j);
+		}
+		for (int i = N - 2; i >= 0; i--) {
+			for (int j = 0; j < traingle.get(i).size(); j++) {
+				table[j] = traingle.get(i).get(j) + Math.min(table[j], table[j + 1]);
+			}
+		}
+		return table[0];
+	}
 }
