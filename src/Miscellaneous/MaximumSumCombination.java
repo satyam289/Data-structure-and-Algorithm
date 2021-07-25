@@ -8,7 +8,18 @@ import java.util.PriorityQueue;
 //https://www.interviewbit.com/problems/maximum-sum-combinations/
 public class MaximumSumCombination {
 
-    public ArrayList<Integer> solve(ArrayList<Integer> A, ArrayList<Integer> B, int C) {
+    class pair {
+        int poia, poib, val;
+
+        public pair(int a, int b, int sum) {
+            poia = a;
+            poib = b;
+            val = sum;
+        }
+    }
+
+    // optimised
+    public ArrayList<Integer> solve2(ArrayList<Integer> A, ArrayList<Integer> B, int C) {
         int size = A.size();
         PriorityQueue<pair> pq = new PriorityQueue<>((a, b) -> b.val - a.val);
         HashSet<Integer> hs = new HashSet<>();
@@ -36,14 +47,35 @@ public class MaximumSumCombination {
         }
         return ans;
     }
-}
 
-class pair {
-    int poia, poib, val;
+    //Brute Force
+    public ArrayList<Integer> solve(ArrayList<Integer> A, ArrayList<Integer> B, int C) {
+        Collections.sort(A, Collections.reverseOrder());
+        Collections.sort(B, Collections.reverseOrder());
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        for (int i = 0; i < A.size(); i++) {
+            for (int j = 0; j < B.size(); j++) {
+                int sum = A.get(i) + B.get(j);
+                if (pq.size() < C) {
+                    pq.add(sum);
+                } else {
+                    if (sum > pq.peek()) {
+                        pq.poll();
+                        pq.add(sum);
+                    } else if (sum < pq.peek()) {
+                        break;
+                    }
+                }
+            }
+        }
 
-    public pair(int a, int b, int sum) {
-        poia = a;
-        poib = b;
-        val = sum;
+        while (!pq.isEmpty()) {
+            arr.add(pq.peek());
+            pq.poll();
+        }
+        Collections.sort(arr, Collections.reverseOrder());
+
+        return arr;
     }
 }

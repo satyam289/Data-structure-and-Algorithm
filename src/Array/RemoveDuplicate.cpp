@@ -19,7 +19,8 @@ class RemoveDuplicate2{
            return count;
        }  
 };
-/*
+
+/**** Java Implementation ****
 package Array;
 import java.util.ArrayList;
 
