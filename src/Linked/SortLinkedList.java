@@ -164,4 +164,51 @@ public class SortLinkedList {
         dummy.next = (m1 == null) ? m2 : m1;
         return mergehead.next;
     } */
+
+// https://www.interviewbit.com/old/problems/sort-binary-linked-list/
+public ListNode solve(ListNode A) {
+    int c = 0;
+    ListNode i = A;
+    while (i != null) {
+        if (i.val == 0)
+            c++;
+        i = i.next;
+    }
+    i = A;
+    while (i != null && c > 0) {
+        i.val = 0;
+        i = i.next;
+        c--;
+    }
+    while (i != null) {
+        i.val = 1;
+        i = i.next;
+    }
+    return A;
+}
+
+public ListNode solve2(ListNode head) {
+    // Make two unique heads zeroHead and oneHead
+    ListNode zeroHead = new ListNode(-1);
+    ListNode zero = zeroHead;
+    ListNode oneHead = new ListNode(-1);
+    ListNode one = oneHead;
+    ListNode temp = head;
+
+    while (temp != null) {
+        if (temp.val == 0) { // if zero value, then move the zero pointer
+            zero.next = temp;
+            zero = zero.next;
+        } else {
+            one.next = temp; // if one value, then move the one pointer
+            one = one.next;
+        }
+        temp = temp.next; // finally update the temp
+    }
+    // To remove any 'next' connections from the end of list (else TLE!!!)
+    one.next = null;
+    // Point the next of zeroHead to oneHead
+    zero.next = oneHead.next;
+    return zeroHead.next;
+}
 }
