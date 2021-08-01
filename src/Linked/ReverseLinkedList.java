@@ -159,4 +159,35 @@ public class ReverseLinkedList {
         }
         return head;
     }
+   
+    //https://www.interviewbit.com/problems/even-reverse/
+    public ListNode solve(ListNode A) {
+        ListNode temp = A;
+        Stack<Integer> s = new Stack<Integer>();
+        while (temp != null) {
+            s.push(temp.data);
+            temp = temp.next;
+        }
+        temp = A;
+        int size = s.size();
+        if (size % 2 == 0) {
+            while (temp != null && s.size() > 0) {
+                int value = s.pop();
+                temp = temp.next;
+                temp.data = value;
+                temp = temp.next;
+                s.pop();
+            }
+        } else {
+            s.pop();
+            while (temp != null && s.size() > 0) {
+                int value = s.pop();
+                temp = temp.next;
+                temp.data = value;
+                temp = temp.next;
+                s.pop();
+            }
+        }
+        return A;
+    }
 }
