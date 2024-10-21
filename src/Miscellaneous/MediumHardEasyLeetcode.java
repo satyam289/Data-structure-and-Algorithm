@@ -92,13 +92,13 @@ Constraint: It's guaranteed that the product of the elements of any prefix or su
 
         prod[0] = 1;
         for(int i = 1; i< nums.length; i++){
-            prod[i] *= nums[i];
+            prod[i] = prod[i-1] * nums[i-1];
         }
 
         int temp = 1;
-        for(int i = nums.length -2 ; i>=0; i--){
-            prod[i] *= (nums[i+1]*temp);
+        for(int i = nums.length-2 ; i>=0; i--){
             temp *= nums[i+1];
+            prod[i] *= temp;
         }
         return prod;
     }
@@ -212,16 +212,16 @@ Output: 1-3-5-2-4-NULL
         if(head == null || head.next == null)
             return head;
         
-        ListNode oddHead = head;
-        ListNode evenHead = head.next;
-        
-        while(evenHead != null && evenHead.next != null){
-            oddHead.next = evenHead.next;
-            oddHead = oddHead.next;
-            evenHead = oddHead.next;
-            evenHead = evenHead.next;            
+        ListNode odd = head; // 1
+        ListNode evenHead = head.next; //2
+        ListNode even = evenHead;
+        while(even != null && even.next != null){
+            odd.next = even.next; // 1->3 // 1->3->5
+            odd = odd.next; // 3  // 5
+            even.next = odd.next; //2->4 // 2->4->null
+            even = even.next;// 4 // null           
         }
-        oddHead.next = evenHead;
+        odd.next = evenHead;
         return head;
     }
 
@@ -306,16 +306,16 @@ A rather straight forward solution is a two-pass algorithm using counting sort.
 First, iterate the array counting number of 0's, 1's, and 2's, then overwrite array with total number of 0's, then 1's and followed by 2's.
      */
     public void sortColors(int [] nums){
-        int i =0;
-        int j = nums.length-1;
-        int k = j;
+        int i = 0; // start meant for 0
+        int j = nums.length-1; // mid meant for 1
+        int k = j; // end meant for 2
         while( i <= j ){
-            int curr = nums[i];
+            int curr = nums[j]; // 0 // 2
             if(curr == 0){
                 swap(nums, i++, j);
             } else if(curr == 2){
                 swap(nums, j--, k--);
-            }else{
+            } else {
                 j--;
             }
         }
@@ -347,18 +347,18 @@ s = "2[abc]3[cd]ef", return "abcabccdcdcdef".
         String res = "";
         while(ptr < s.length()) {
             char curr = s.charAt(ptr);
-            if(!Character.isDigit(curr)) {
+            if(Character.isDigit(curr)) {
                 int num = 0;
                 while(Character.isDigit(s.charAt(ptr))) {
                     num = num * 10 + (s.charAt(ptr) - '0');
                     ptr++;
                 }
                 is.push(num);
-            } else if(curr == '['){
+            } else if(curr == '[') {
                 ss.push(res);
                 res = "";
                 ptr++;
-            } else if(curr == ']'){
+            } else if(curr == ']') {
                 StringBuilder sb = new StringBuilder(ss.pop());
                 int repeat = is.pop();
                 for(int i=1; i<= repeat; i++){
@@ -396,7 +396,7 @@ Return the following binary tree:
     }
 
     public Node buildTree(int[] preOrder, int[] inOrder, int start, int end) {
-        if(start < end)
+        if(start > end)
             return null;
         
         Node root = new Node(preOrder[preIndex++]);
@@ -867,10 +867,10 @@ Explanation: The answer is "abc", with the length of 3.
                     ml = cl;
                 }
                 while(st <= en && en < s.length()){
-                    if(s.charAt(st) != s.charAt(en)){
+                    if(s.charAt(st) != s.charAt(en)){ //move the start until, we found end character same , shrink the window
                         hs.remove(s.charAt(st));
                         st++;
-                    } else {
+                    } else { // repeating character case in substring, same the window but move forward
                         st++;
                         en++;
                         break;
