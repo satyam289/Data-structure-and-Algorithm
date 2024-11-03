@@ -429,10 +429,10 @@ From the top-left corner, there are a total of 3 ways to reach the bottom-right 
         for(int i=0; i<m; i++){
             dp[i][0] = 1;
         }
-        for(int i=1; i<n; i++){
+        for(int i=0; i<n; i++){
             dp[0][i] = 1;
         }
-        for(int i=2; i<m; i++){
+        for(int i=1; i<m; i++){
             for(int j=1; j<n;j++){
                 dp[i][j] = dp[i-1][j] + dp[i][j-1];
             }
@@ -942,7 +942,7 @@ Output: 4
         for(int i=1; i<rows; i++) {
             for(int j=1; j<cols; j++) {
                 if(matrix[i][j] == '1') {
-                    dp[i][j] = Math.min(Math.min(dp[i-1][j], dp[i-1][j-1]), dp[i][j-1]+1);
+                    dp[i][j] = Math.min(Math.min(dp[i-1][j], dp[i-1][j-1]), dp[i][j-1]) + 1;
                     max = Math.max(max, dp[i][j]);
                 }
             }
@@ -980,10 +980,10 @@ Explanation: transactions = [buy, sell, cooldown, buy, sell]
         }
         int [][] dp = new int[len][2];
 
-        dp[0][0] = 0;
-        dp[0][1] = -prices[0];
-        dp[1][0] = Math.max(dp[0][0], dp[0][1] + prices[1]);
-        dp[1][1] = Math.max(dp[0][1], dp[0][0] - prices[1]);
+        dp[0][0] = 0; // no stock, no purchase on day 0
+        dp[0][1] = -prices[0]; // we need to purchase as we have stock
+        dp[1][0] = Math.max(dp[0][0], dp[0][1] + prices[1]); // either no purchase as same as yesterday or sold it today
+        dp[1][1] = Math.max(dp[0][1], dp[0][0] - prices[1]); // // either no purchase as same as yesterday or purchase it today
         
         for(int i=2; i<len; i++){
             dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1] + prices[i]);
@@ -1021,7 +1021,7 @@ The total profit is ((8 - 1) - 2) + ((9 - 4) - 2) = 8.
         dp[0][1] = -prices[0]-fee;
         for(int i=1; i<len; i++){
             dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1] + prices[i]);
-            dp[i][0] = Math.max(dp[i-1][1], dp[i-2][0] - prices[i] -fee);
+            dp[i][0] = Math.max(dp[i-1][1], dp[i-1][0] - prices[i] - fee);
         }
         return dp[len-1][0];
     }
@@ -1271,7 +1271,7 @@ Output: 10
                     if(stack.isEmpty()){
                         max = Math.max(max, temp*i);
                     } else {
-                        max = Math.max(max, temp*(i- stack.peek() -1));
+                        max = Math.max(max, temp*(i-stack.peek()-1));
                     }
                 }
                 stack.add(i);
@@ -1382,10 +1382,10 @@ Output: 1-1-2-3-4-4-5-6
         if(list.length == 0)
             return null;
         
-        int interval = 0;
+        int interval = 1;
         int len = list.length;
         while(interval < len){
-            for(int i=0; i< len-interval; i+=(interval+2)){
+            for(int i=0; i< len-interval; i+=(interval*2)){
                 merge(list, i, i+interval);
             }
             interval *= 2;
@@ -1435,7 +1435,7 @@ Output: 1-1-2-3-4-4-5-6 */
         int interval = 1;
         int len = lists.length;
         while(interval < len){
-            for(int i=0; i<len - interval; i += (interval+2)){
+            for(int i=0; i<len - interval; i += (interval*2)){
                 merge2(lists, i, i+ interval);
             }
             interval *= 2;
