@@ -56,4 +56,17 @@ public:
 
         return {lower, upper};
     }
+
+    vector<int> searchRange2(vector<int> &nums, int target)
+    {
+        if (binary_search(nums.begin(), nums.end(), target))
+        {
+            auto p = equal_range(nums.begin(), nums.end(), target);
+            return {int(p.first - nums.begin()), int(p.second - nums.begin() - 1)};
+        }
+        else
+        {
+            return {-1,-1};
+        }
+    }
 };
